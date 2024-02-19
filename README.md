@@ -108,27 +108,21 @@ Example:
 
 ## User Stories
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-In this section, list all of your user stories for the project.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
 ### New Site Users
 
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
+- As a new game user, I would like to see a memorable logo, so that I can remember the game.
+- As a new game user, I would like to see instructions, so that I can know how to play the game.
+- As a new game user, I would like to see a contact information, so that I can email when I have questions.
+- As a new game user, I would like to have hints, so that I can easily play the game.
+- As a new game user, I would like to be able to easily quit the game, so that I can stop playing the game as desired.
 
 ### Returning Site Users
 
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
+- As a returning game user, I would like to see my results, so that I can show it to my friends.
+- As a returning game user, I would like to have different categories, so that I can challenge myself more.
+- As a returning game user, I would like to have a log of my scores, so that I can remember how well I did.
+- As a returning game user, I would like to see contact information, so that I can contact the developer if I encounter any bugs.
+- As a returning game user, I would like to be able to time myself, so that I can make the game harder.
 
 ## Wireframes
 
