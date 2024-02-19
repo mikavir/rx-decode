@@ -28,6 +28,10 @@ https://pandao.github.io/editor.md/en.html
 
 🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
+**Rx Decoder:** Unlock the *Formula*, Master the *Cure*!
+
+A responsive interactive game that can be used in a range of devices. It is aimed for medical professionals to test their expertise in drug names by making them guess the name of the drug with  helpful letter clues.
+
 ## UX
 
 🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
@@ -128,92 +132,67 @@ In this section, list all of your user stories for the project.
 
 ## Wireframes
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-In this section, display your wireframe screenshots using a Markdown `table`.
-Instructions on how to do Markdown `tables` start on line #213 on this site: https://pandao.github.io/editor.md/en.html
-
-Alternatively, dropdowns are a way to condense several wireframes into a collapsible menu to save space.
-Dropdowns in Markdown are considered some of the only acceptable HTML components that are allowed for assessment purposes.
-
-**IMPORTANT**! **IMPORTANT**! **IMPORTANT**!
-The example below uses the `details` and `summary` code elements.
-However, for these scripts to work, I've had to add spaces within the `< >` elements.
-
-You MUST remove these spaces for it to work properly on your own README/TESTING files.
-Remove the spaces within the `< >` brackets for the `details` and `summary` code elements,
-for the Mobile, Tablet, and Desktop wireframes.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
 I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
 
 ### Mobile Wireframes
 
-< details >
-< summary > Click here to see the Mobile Wireframes < / summary >
+<details>
+<summary> Click here to see the Mobile Wireframes </summary>
 
-Home
-  - ![screenshot](documentation/wireframes/mobile-home.png)
+Menu
+  - ![screenshot](documentation/wireframes/menu-page-mobile.png)
 
-About
-  - ![screenshot](documentation/wireframes/mobile-about.png)
+Game
+  - ![screenshot](documentation/wireframes/game-page-mobile.png)
+
+Results
+  - ![screenshot](documentation/wireframes/results-page-mobile.png)
 
 Contact
-  - ![screenshot](documentation/wireframes/mobile-contact.png)
+  - ![screenshot](documentation/wireframes/contact-page-mobile.png)
 
-Gallery
-  - ![screenshot](documentation/wireframes/mobile-gallery.png)
 
-etc.
-  - repeat for any remaining mobile wireframes
-
-< / details >
+</details>
 
 ### Tablet Wireframes
 
-< details >
-< summary > Click here to see the Tablet Wireframes < / summary >
+<details>
+<summary> Click here to see the Tablet Wireframes </summary>
 
-Home
-  - ![screenshot](documentation/wireframes/tablet-home.png)
+Menu
+  - ![screenshot](documentation/wireframes/menu-page-tablet.png)
 
-About
-  - ![screenshot](documentation/wireframes/tablet-about.png)
+Game
+  - ![screenshot](documentation/wireframes/game-page-tablet.png)
+
+Results
+  - ![screenshot](documentation/wireframes/results-page-tablet.png)
 
 Contact
-  - ![screenshot](documentation/wireframes/tablet-contact.png)
+  - ![screenshot](documentation/wireframes/contact-page-tablet.png)
 
-Gallery
-  - ![screenshot](documentation/wireframes/tablet-gallery.png)
-
-etc.
-  - repeat for any remaining tablet wireframes
-
-< / details >
+</details>
 
 ### Desktop Wireframes
 
-< details >
-< summary > Click here to see the Desktop Wireframes < / summary >
+<details>
+<summary> Click here to see the Desktop Wireframes </summary>
 
-Home
-  - ![screenshot](documentation/wireframes/desktop-home.png)
+Menu
+  - ![screenshot](documentation/wireframes/menu-page-desktop.png)
 
-About
-  - ![screenshot](documentation/wireframes/desktop-about.png)
+Game
+  - ![screenshot](documentation/wireframes/game-page-desktop.png)
+
+Results
+  - ![screenshot](documentation/wireframes/results-page-desktop.png)
 
 Contact
-  - ![screenshot](documentation/wireframes/desktop-contact.png)
+  - ![screenshot](documentation/wireframes/contact-page-desktop.png)
 
-Gallery
-  - ![screenshot](documentation/wireframes/desktop-gallery.png)
-
-etc.
-  - repeat for any remaining desktop wireframes
-
-< / details >
+</details>
 
 ## Features
 
