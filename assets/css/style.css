@@ -1,4 +1,6 @@
 
+
+
 /* background color */
 body {
     background-color: lightblue;
@@ -9,5 +11,34 @@ img.pill {
 }
 
 #logo {
-  max-height: 14rem;
+  max-height: 12rem;
+}
+
+.modal-container {
+  position: relative;
+}
+
+/* The Modal (background) */
+.modal {
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 50vw;
+  min-height: 50vh; /* Could be more or less, depending on screen size */
+}
+
+
+@media only screen and (max-width: 600px) {
+  .modal-content {
+    max-width: 80vw;
+  }
 }
