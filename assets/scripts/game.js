@@ -32,28 +32,13 @@ function addBox () {
     let word = cardiacDictionary[0].drugName;
 
     for (letter of word) {
-        let letterPerBox = document.createElement('span');
-        letterPerBox.className = "letter-box";
+        let letterPerBox = document.createElement('div');
+        letterPerBox.className = "letter-box col-1";
         document.getElementById("game-area").appendChild(letterPerBox);
         console.log (letterPerBox);
     }
 };
 
 
-
-
-// document.addEventListener('DOMContentLoaded', function(){
-
-//     for(let category of gameCategories){
-//         category.addEventListener("click", function(){
-//              {  
-//                 let gameType = this.getAttribute('data-type');
-//                 console.log(gameType);
-//                 ​$('.modal').css('display'​​​​​​​​​​​​​​​​​​​​​​​​​​​,'none');​​​​​​
-            
-//             }
-//         });
-//     }
-// })
 
 module.exports = { startGame , gameCategories};
