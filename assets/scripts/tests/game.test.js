@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-const { startGame } = require("../game");
+const { startGame , gameCategories} = require("../game");
 // creating a mock dom:
 
 beforeAll(() => {
@@ -16,5 +16,8 @@ beforeAll(() => {
 describe("start game works",() =>{
     test("startGame is false", () => {
          expect(startGame).toBe(false);
+    });
+    test('gameCategories returns an array of buttons with with 2 game categories', () => {
+        expect(gameCategories).toHaveLength(2);   
     });
 });

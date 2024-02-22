@@ -41,3 +41,11 @@ img.pill {
     max-width: 80vw;
   }
 }
+
+.letter-box {
+  border: #333 solid 2px;
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+  margin: 2rem;
+}
