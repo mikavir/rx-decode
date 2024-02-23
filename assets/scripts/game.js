@@ -3,7 +3,8 @@
 let startGame = false;
 const gameCategories = document.getElementsByClassName('game-categories');
 const startModal = document.getElementById('myModal');
-
+const draggableLetters = document.querySelectorAll('.draggable');
+const letterContainers = document.querySelectorAll('.letter-container');
 
 let cardiacDictionary = [
     { drugName: 'Bisoprolol',
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     startModal.style.display = 'none'; 
                     addBox(word);  
                     addGuessletterBox(word);
+                    $('.draggableLetters').draggable();
 
                 };              
             }
@@ -105,13 +107,14 @@ function addGuessletterBox (word) {
 
     for (letter of shuffledWord) {
         let letterPerBox = document.createElement('div');
-        letterPerBox.className = "letter-box col-2 draggable";
+        letterPerBox.className = "letter-box col-2 draggableLetters ui-widget-content";
         letterPerBox.dataset.letter = letter;
         letterPerBox.innerText = letter;
         document.getElementById("letter-area").appendChild(letterPerBox);
         console.log(letterPerBox);
     }
 }
+
 
 
 module.exports = { startGame , gameCategories, addBox, randomIndex , cardiacDictionary, painDictionary};
