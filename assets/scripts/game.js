@@ -8,7 +8,7 @@ let cardiacDictionary = [
         hint: 'Beta-blocker to slow heart rate',
     },
     {
-        drugName: 'Amlodopine',
+        drugName: 'pain',
         hint: 'Decrease blood pressure'
     }
 ]
@@ -28,17 +28,27 @@ $(document).ready(function (){
     }
 })
 
+// Add div per letter of word
 function addBox () {
-    let word = cardiacDictionary[0].drugName;
+
+    let word = randomIndex(cardiacDictionary).drugName;
 
     for (letter of word) {
         let letterPerBox = document.createElement('div');
         letterPerBox.className = "letter-box col-1";
+        letterPerBox.data
         document.getElementById("game-area").appendChild(letterPerBox);
         console.log (letterPerBox);
     }
 };
 
+// https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
+// function to generate a random index
+function randomIndex (array) {
+    // should return a random number between the array lenght
+    return array[(Math.floor(Math.random() * array.length))];
+
+}
 
 
 module.exports = { startGame , gameCategories};
