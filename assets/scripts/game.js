@@ -1,8 +1,10 @@
 
 // start of game is false
-const startGame = false;
+let startGame = false;
 const gameCategories = document.getElementsByClassName('game-categories');
-const startModal = document.getElementById('myModal')
+const startModal = document.getElementById('myModal');
+
+
 let cardiacDictionary = [
     { drugName: 'Bisoprolol',
         hint: 'Beta-blocker to slow heart rate',
@@ -33,20 +35,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 let choice;
                 if (gameType === 'cardiac') {
                     choice = cardiacDictionary;
+                    startGame = true;
 
                 } else if (gameType === 'pain') {
                     choice = painDictionary;
+                    startGame = true;
                 } else {
                     alert("No items chosen");
-                }
-                // modal to desapear
-                let word = randomIndex(choice).drugName;
+                };
+                if (startGame) {
+                    let word = randomIndex(choice).drugName;
+                    console.log(word);
 
-                startModal.style.display = 'none'; 
-                addBox(word);  
-                addGuessletterBox(word);
-                        
-               
+                    startModal.style.display = 'none'; 
+                    addBox(word);  
+                    addGuessletterBox(word);
+
+                };              
             }
         });
     }
@@ -58,7 +63,7 @@ function addBox (word) {
 
     for (letter of word) {
         let letterPerBox = document.createElement('div');
-        letterPerBox.className = "letter-box col-1";
+        letterPerBox.className = "letter-box col-1 letter-container";
         letterPerBox.dataset.letter = letter; // https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
         document.getElementById("game-area").appendChild(letterPerBox);
         console.log (letterPerBox);
@@ -78,42 +83,35 @@ function randomIndex (array) {
 
 }
 
-function shuffleArray(array) {
-   for (let i = array.length - 1; i > 0; i--) { 
-  
-       // Generate random number 
-       let j = randomIndex(array);
-                  
-       let temp = array[i];
-       array[i] = array[j];
-       array[j] = temp;
-   }
-      
-   return array;
+
+
+ // https://stackoverflow.com/questions/3943772/how-do-i-shuffle-the-characters-in-a-string-in-javascript
+ function shuffleWord (word){
+    let shuffledWord = '';
+    word = word.split('');
+    while (word.length > 0) {
+      shuffledWord +=  word.splice(word.length * Math.random() << 0, 1);
+    }
+    return shuffledWord;
 }
 
-function shuffle2(arr) {
-    for(let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i+1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  }
 
 
 function addGuessletterBox (word) {
     
-    let shuffledWord = shuffle2(word);
+    let shuffledWord = shuffleWord(word);
 
     console.log(shuffledWord);
 
     for (letter of shuffledWord) {
         let letterPerBox = document.createElement('div');
-        letterPerBox.className = "letter-box col-2";
+        letterPerBox.className = "letter-box col-2 draggable";
         letterPerBox.dataset.letter = letter;
         letterPerBox.innerText = letter;
         document.getElementById("letter-area").appendChild(letterPerBox);
         console.log(letterPerBox);
     }
 }
+
+
 module.exports = { startGame , gameCategories, addBox, randomIndex , cardiacDictionary, painDictionary};
