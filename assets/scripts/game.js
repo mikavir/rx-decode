@@ -8,10 +8,21 @@ let cardiacDictionary = [
         hint: 'Beta-blocker to slow heart rate',
     },
     {
-        drugName: 'pain',
-        hint: 'Decrease blood pressure'
+        drugName: 'Potassium',
+        hint: 'electrolyte'
     }
-]
+];
+
+let painDictionary = [
+    {
+        drugName: 'oromorph',
+        hint: 'painkiller',
+    },
+    {
+        drugName: 'fentanyl',
+        hint: 'painkiller',
+    }
+];
 
 $(document).ready(function (){
     for(let category of gameCategories){
@@ -19,9 +30,18 @@ $(document).ready(function (){
              {  
                 let gameType = this.getAttribute('data-type');
                 console.log(gameType);
+                let choice;
+                if (gameType === 'cardiac') {
+                    choice = cardiacDictionary;
+
+                } else if (gameType === 'pain') {
+                    choice = painDictionary;
+                } else {
+                    alert("No items chosen");
+                }
                 // modal to desapear
                 startModal.style.display = 'none'; 
-                addBox();              
+                addBox(choice);              
                
             }
         });
@@ -29,14 +49,14 @@ $(document).ready(function (){
 })
 
 // Add div per letter of word
-function addBox () {
+function addBox (choice) {
 
-    let word = randomIndex(cardiacDictionary).drugName;
+    let word = randomIndex(choice).drugName;
 
     for (letter of word) {
         let letterPerBox = document.createElement('div');
         letterPerBox.className = "letter-box col-1";
-        letterPerBox.data
+        letterPerBox.dataset.letter = letter; // https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
         document.getElementById("game-area").appendChild(letterPerBox);
         console.log (letterPerBox);
     }
