@@ -24,7 +24,7 @@ let painDictionary = [
     }
 ];
 
-$(document).ready(function (){
+document.addEventListener("DOMContentLoaded", (event) => {
     for(let category of gameCategories){
         category.addEventListener("click", function(){
              {  
@@ -40,18 +40,21 @@ $(document).ready(function (){
                     alert("No items chosen");
                 }
                 // modal to desapear
+                let word = randomIndex(choice).drugName;
+
                 startModal.style.display = 'none'; 
-                addBox(choice);              
+                addBox(word);  
+                addGuessletterBox(word);
+                        
                
             }
         });
     }
-})
+    
+});
 
 // Add div per letter of word
-function addBox (choice) {
-
-    let word = randomIndex(choice).drugName;
+function addBox (word) {
 
     for (letter of word) {
         let letterPerBox = document.createElement('div');
@@ -62,6 +65,11 @@ function addBox (choice) {
     }
 };
 
+
+
+
+
+
 // https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
 // function to generate a random index
 function randomIndex (array) {
@@ -70,5 +78,42 @@ function randomIndex (array) {
 
 }
 
+function shuffleArray(array) {
+   for (let i = array.length - 1; i > 0; i--) { 
+  
+       // Generate random number 
+       let j = randomIndex(array);
+                  
+       let temp = array[i];
+       array[i] = array[j];
+       array[j] = temp;
+   }
+      
+   return array;
+}
 
-module.exports = { startGame , gameCategories};
+function shuffle2(arr) {
+    for(let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i+1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+
+function addGuessletterBox (word) {
+    
+    let shuffledWord = shuffle2(word);
+
+    console.log(shuffledWord);
+
+    for (letter of shuffledWord) {
+        let letterPerBox = document.createElement('div');
+        letterPerBox.className = "letter-box col-2";
+        letterPerBox.dataset.letter = letter;
+        letterPerBox.innerText = letter;
+        document.getElementById("letter-area").appendChild(letterPerBox);
+        console.log(letterPerBox);
+    }
+}
+module.exports = { startGame , gameCategories, addBox, randomIndex , cardiacDictionary, painDictionary};

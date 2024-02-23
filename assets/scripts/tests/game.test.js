@@ -1,7 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-const { startGame , gameCategories} = require("../game");
+
+const { startGame , gameCategories, addBox, randomIndex , cardiacDictionary, painDictionary} = require("../game");
 // creating a mock dom:
 
 beforeAll(() => {
@@ -21,3 +22,5 @@ describe("start game works",() =>{
         expect(gameCategories).toHaveLength(2);   
     });
 });
+
+// test for addBox function:
