@@ -3,8 +3,6 @@
 let startGame = false;
 const gameCategories = document.getElementsByClassName('game-categories');
 const startModal = document.getElementById('myModal');
-const draggableLetters = document.querySelectorAll('.draggable');
-const letterContainers = document.querySelectorAll('.letter-container');
 
 let cardiacDictionary = [
     { drugName: 'Bisoprolol',
@@ -51,7 +49,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     startModal.style.display = 'none'; 
                     addBox(word);  
                     addGuessletterBox(word);
-                    $('.draggableLetters').draggable();
+                    $('.draggableLetters').draggable({revert: true});
+                    $(".letter-container").droppable({
+                        accept: '.draggable',
+                        drop: function(event, ui) {
+                            if ($(this).data(letter) === $('.draggableLetters').data(letter)){
+                                $(this).append($(ui.draggable)).css('border', 'green');
+
+                            }
+                        }
+                      });
 
                 };              
             }
