@@ -37,8 +37,18 @@ img.pill {
   width: 50px;
   border-radius: 15px;
   margin: .2rem;
+  position: relative;
 }
 
+span.letter-container .draggableLetters {
+  height:100%;
+  width:100%;
+  border: red solid 1px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+}
 @media only screen and (max-width: 600px) {
   .letter-box {
     height: 70px;
@@ -50,9 +60,7 @@ img.pill {
 
 
 @media only screen and (max-width: 400px) {
-  .modal-content {
-    max-width: 80vw;
-  }
+
   .letter-box {
     height: 70px;
     width: 30px;
@@ -60,3 +68,4 @@ img.pill {
     border-radius: 1px;
   }
 }
+
