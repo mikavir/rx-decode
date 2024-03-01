@@ -62,10 +62,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     $(".letter-container").droppable({
                         accept: '.draggableLetters',
                         drop: function(event, ui) {
-                          $(this).append($(ui.draggable)); 
-                          $(this.children).removeClass('ui-draggable').removeClass('ui-draggable-handle');
-                    
-                        
+                            if(isEmpty(this)){
+                                $(this).append($(ui.draggable)); 
+                                $(this.children).removeClass('ui-draggable').removeClass('ui-draggable-handle');
+                            }
                             
                         },
                         out: function(event, ui) {
@@ -149,6 +149,6 @@ function displayGuessButton () {
 
 }
 
-function isEmpty() {
-    return letterContainers.children.length === 0;
+function isEmpty(parent) {
+    return parent.children.length === 0;
 };
