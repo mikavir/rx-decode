@@ -47,9 +47,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     console.log(word);
 
                     startModal.style.display = 'none';
+                    displayGuessButton();
                     addBox(word);
                     addGuessletterBox(word)
-                    $('.draggableLetters').css('left', '0px');
+                    $('.draggableLetters').css({
+                        'left': '0px',
+                        'justify-content': 'center',
+                    });
                     $('.draggableLetters').draggable({
                         revert: true,
                         
@@ -120,7 +124,7 @@ function addGuessletterBox(word) {
         let outerBoxContainer = document.createElement('div');
         outerBoxContainer.className = "letter-box col-2";
         let draggableletterBox = document.createElement('span');
-        draggableletterBox.className = "draggableLetters";
+        draggableletterBox.className = "draggableLetters text-center";
         draggableletterBox.dataset.letter = letter;
         draggableletterBox.setAttribute('draggable', true);
         draggableletterBox.innerText = letter;
@@ -138,3 +142,13 @@ if (typeof module !== 'undefined') module.exports = {
     cardiacDictionary,
     painDictionary
 }
+
+function displayGuessButton () {
+    let element = document.getElementById("guess-button");
+    element.removeAttribute("hidden");
+
+}
+
+function isEmpty() {
+    return letterContainers.children.length === 0;
+};
