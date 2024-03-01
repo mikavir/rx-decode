@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             });
                         }
                     });
+                    console.log(isLetterContainersFilled());
                 };
             }
         });
@@ -154,3 +155,13 @@ function displayGuessButton () {
 function isEmpty(parent) {
     return parent.children.length === 0;
 };
+
+function isLetterContainersFilled() {
+    for(let letterContainer of letterContainers){
+        if(!isEmpty(letterContainer)){
+            return true;
+        }
+    }
+    return false;
+}
+
