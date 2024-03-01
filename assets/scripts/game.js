@@ -72,7 +72,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             $(".letter-box").droppable({
                                 accept: '.draggableLetters',
                                 drop: function(event, ui) {
-                                    $(this).append($(ui.draggable));
+                                    if(isEmpty(this)){
+                                        $(this).append($(ui.draggable));
+                                    }                                   
                                 }
                             });
                         }
