@@ -70,3 +70,8 @@ span.draggableLetters {
 .dragging {
   border: darkblue 1px solid;
 }
+
+.enabled {
+  background-color: green;
+  color: white;
+}

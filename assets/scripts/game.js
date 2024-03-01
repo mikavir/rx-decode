@@ -5,6 +5,7 @@ const startModal = document.getElementById('start-menu');
 const draggableLetters = document.querySelectorAll('.draggable');
 const letterContainers = document.querySelectorAll('.letter-container');
 
+
 let cardiacDictionary = [{
         drugName: 'BISOPROLOL',
         hint: 'Beta-blocker to slow heart rate',
@@ -79,7 +80,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             });
                         }
                     });
-                    console.log(isLetterContainersFilled());
+                    isLetterContainersFilled();
+                    handleSubmitButton();
                 };
             }
         });
@@ -154,14 +156,25 @@ function displayGuessButton () {
 
 function isEmpty(parent) {
     return parent.children.length === 0;
-};
-
-function isLetterContainersFilled() {
-    for(let letterContainer of letterContainers){
-        if(!isEmpty(letterContainer)){
-            return true;
-        }
-    }
-    return false;
 }
 
+function isLetterContainersFilled() {
+    for (let letterContainer of letterContainers) {
+        console.group(isEmpty(letterContainer));
+        if (isEmpty(letterContainer)) {
+            return false;
+            
+        }
+        console.group(isEmpty(letterContainer));
+    }
+    return true;
+}
+
+function handleSubmitButton() {
+    let canSubmit = false;
+    if(isLetterContainersFilled) {
+        let guessButton = document.getElementById('guess-button');
+        guessButton.classList.add('enabled');
+        canSubmit = true;
+    }
+}
