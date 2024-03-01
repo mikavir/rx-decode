@@ -6,21 +6,21 @@ const draggableLetters = document.querySelectorAll('.draggable');
 const letterContainers = document.querySelectorAll('.letter-container');
 
 let cardiacDictionary = [{
-        drugName: 'Bisoprolol',
+        drugName: 'BISOPROLOL',
         hint: 'Beta-blocker to slow heart rate',
     },
     {
-        drugName: 'Potassium',
+        drugName: 'POTASSIUM',
         hint: 'electrolyte'
     }
 ];
 
 let painDictionary = [{
-        drugName: 'oromorph',
+        drugName: 'OROMORPH',
         hint: 'painkiller',
     },
     {
-        drugName: 'fentanyl',
+        drugName: 'FENTANYL',
         hint: 'painkiller',
     }
 ];
@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     startModal.style.display = 'none';
                     addBox(word);
                     addGuessletterBox(word)
+                    $('.draggableLetters').css('left', '0px');
                     $('.draggableLetters').draggable({
                         revert: true,
                         
@@ -57,44 +58,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     $(".letter-container").droppable({
                         accept: '.draggableLetters',
                         drop: function(event, ui) {
-                          $(this).empty().append($(ui.draggable));
+                          $(this).append($(ui.draggable)); 
+                          $(this.children).removeClass('ui-draggable').removeClass('ui-draggable-handle');
+                    
+                        
+                            
+                        },
+                        out: function(event, ui) {
+                            $(".letter-box").droppable({
+                                accept: '.draggableLetters',
+                                drop: function(event, ui) {
+                                    $(this).append($(ui.draggable));
+                                }
+                            });
                         }
                     });
-
-
                 };
             }
         });
     }
-
 });
 
 // Add div per letter of word
 function addBox(word) {
 
     for (letter of word) {
-        // let letterPerBox = document.createElement('div');
-        // let letterPerBox = document.createElement('div');
 
-        // letterPerBox.className = "letter-box col-1 letter-container";
-        // letterPerBox.dataset.letter = letter; // https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
-        // document.getElementById("game-area").appendChild(letterPerBox);
-        // console.log(letterPerBox);
-
-        let outerBoxContainer = document.createElement('div');
-        outerBoxContainer.className = "letter-box col-1";
-        let draggableletterBox = document.createElement('span');
-        draggableletterBox.className = "letter-container";
-        draggableletterBox.dataset.letter = letter;
-        outerBoxContainer.appendChild(draggableletterBox);
-        document.getElementById("game-area").appendChild(outerBoxContainer);
+        let letterPerBox = document.createElement('div');
+        letterPerBox.className = "letter-box col-1 letter-container";
+        letterPerBox.dataset.letter = letter; // https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
+        document.getElementById("game-area").appendChild(letterPerBox);
+        console.log(letterPerBox);
     }
 };
-
-
-
-
-
 
 // https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
 // function to generate a random index
@@ -103,8 +99,6 @@ function randomIndex(array) {
     return array[(Math.floor(Math.random() * array.length))];
 
 }
-
-
 
 // https://stackoverflow.com/questions/3943772/how-do-i-shuffle-the-characters-in-a-string-in-javascript
 function shuffleWord(word) {
@@ -115,8 +109,6 @@ function shuffleWord(word) {
     }
     return shuffledWord;
 }
-
-
 
 function addGuessletterBox(word) {
 
@@ -137,7 +129,6 @@ function addGuessletterBox(word) {
         console.log(draggableletterBox);
     }
 }
-
 
 if (typeof module !== 'undefined') module.exports = {
     startGame,

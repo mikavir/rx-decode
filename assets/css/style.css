@@ -40,14 +40,12 @@ img.pill {
   position: relative;
 }
 
-span.letter-container .draggableLetters {
+span.draggableLetters {
   height:100%;
   width:100%;
-  border: red solid 1px;
   position: absolute;
   top: 0;
   bottom: 0;
-
 }
 @media only screen and (max-width: 600px) {
   .letter-box {
@@ -69,3 +67,6 @@ span.letter-container .draggableLetters {
   }
 }
 
+.dragging {
+  border: darkblue 1px solid;
+}
