@@ -3,7 +3,7 @@ let startGame = false;
 const gameCategories = document.getElementsByClassName('game-categories');
 const startModal = document.getElementById('start-menu');
 const draggableLetters = document.querySelectorAll('.draggable');
-const letterContainers = document.querySelectorAll('.letter-container');
+let letterContainers = document.getElementsByClassName('letter-container');
 
 
 let cardiacDictionary = [{
@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             });
                         }
                     });
-                    isLetterContainersFilled();
-                    handleSubmitButton();
+                    // checks to see if all the letter container is filled then will change class of button
+                    setInterval(handleSubmitButton, 1000);
                 };
             }
         });
@@ -139,6 +139,38 @@ function addGuessletterBox(word) {
     }
 }
 
+
+function displayGuessButton () {
+    let element = document.getElementById("guess-button");
+    element.removeAttribute("hidden");
+    
+}
+
+function isEmpty(parent) {
+    return parent.children.length == 0;
+}
+const isEmpty2 = (parent) => parent.children.length === 0;
+
+function isLetterContainersFilled() {
+    for (let letterContainer of letterContainers) {
+        if (!(letterContainer.children.length > 0)) {
+            return false;
+            
+        };
+        
+    }
+    return true;
+}
+
+function handleSubmitButton() {
+    let guessButton = document.getElementById('guess-button');
+    if(isLetterContainersFilled()) {
+        guessButton.classList.add('enabled');
+    } else {
+        guessButton.classList.remove('enabled');
+    }
+}
+        
 if (typeof module !== 'undefined') module.exports = {
     startGame,
     gameCategories,
@@ -146,35 +178,4 @@ if (typeof module !== 'undefined') module.exports = {
     randomIndex,
     cardiacDictionary,
     painDictionary
-}
-
-function displayGuessButton () {
-    let element = document.getElementById("guess-button");
-    element.removeAttribute("hidden");
-
-}
-
-function isEmpty(parent) {
-    return parent.children.length === 0;
-}
-
-function isLetterContainersFilled() {
-    for (let letterContainer of letterContainers) {
-        console.group(isEmpty(letterContainer));
-        if (isEmpty(letterContainer)) {
-            return false;
-            
-        }
-        console.group(isEmpty(letterContainer));
-    }
-    return true;
-}
-
-function handleSubmitButton() {
-    let canSubmit = false;
-    if(isLetterContainersFilled) {
-        let guessButton = document.getElementById('guess-button');
-        guessButton.classList.add('enabled');
-        canSubmit = true;
-    }
 }
