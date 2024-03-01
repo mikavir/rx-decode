@@ -2,9 +2,10 @@
 let startGame = false;
 const gameCategories = document.getElementsByClassName('game-categories');
 const startModal = document.getElementById('start-menu');
-const draggableLetters = document.querySelectorAll('.draggable');
+let draggableLetters = document.getElementsByClassName('draggableLetters');
 let letterContainers = document.getElementsByClassName('letter-container');
-
+let canSubmit = false;
+let guessButton = document.getElementById('guess-button');
 
 let cardiacDictionary = [{
         drugName: 'BISOPROLOL',
@@ -82,6 +83,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     });
                     // checks to see if all the letter container is filled then will change class of button
                     setInterval(handleSubmitButton, 1000);
+                    guessButton.addEventListener("click", (event) => {
+                        if(canSubmit){
+                            makeGuessedWord();
+                            console.log(makeGuessedWord());
+            
+                        }
+                      });
+                    
                 };
             }
         });
@@ -166,11 +175,21 @@ function handleSubmitButton() {
     let guessButton = document.getElementById('guess-button');
     if(isLetterContainersFilled()) {
         guessButton.classList.add('enabled');
+        canSubmit = true;
     } else {
         guessButton.classList.remove('enabled');
+        canSubmit = false;
     }
 }
-        
+
+function makeGuessedWord () {
+    guessedWord = [];
+    for (let letter of draggableLetters){
+        guessedWord.push(letter.innerText);
+    }
+    return guessedWord;
+}
+       
 if (typeof module !== 'undefined') module.exports = {
     startGame,
     gameCategories,
@@ -179,3 +198,4 @@ if (typeof module !== 'undefined') module.exports = {
     cardiacDictionary,
     painDictionary
 }
+
