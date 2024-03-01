@@ -75,3 +75,12 @@ span.draggableLetters {
   background-color: green;
   color: white;
 }
+
+.correct {
+  border: green 1px solid;
+
+}
+
+.incorrect {
+  border: red 1px solid;
+}

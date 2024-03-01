@@ -88,7 +88,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             guessedWord = makeGuessedWord();
                             console.log(makeGuessedWord());
                             console.log(word);
-                            console.log(isGuessedWordCorrect(word, guessedWord));
+                            if(isGuessedWordCorrect(word, guessedWord) === true) {
+                                $(".letter-container").addClass('correct');
+                            }else{
+                                $(".letter-container").addClass('incorrect');
+                                setTimeout(function(){$(".letter-container").removeClass('incorrect')}, 1000)
+                            }
             
                         }
                       });
