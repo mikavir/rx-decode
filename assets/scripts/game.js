@@ -85,8 +85,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     setInterval(handleSubmitButton, 1000);
                     guessButton.addEventListener("click", (event) => {
                         if(canSubmit){
-                            makeGuessedWord();
+                            guessedWord = makeGuessedWord();
                             console.log(makeGuessedWord());
+                            console.log(word);
+                            console.log(isGuessedWordCorrect(word, guessedWord));
             
                         }
                       });
@@ -158,7 +160,6 @@ function displayGuessButton () {
 function isEmpty(parent) {
     return parent.children.length == 0;
 }
-const isEmpty2 = (parent) => parent.children.length === 0;
 
 function isLetterContainersFilled() {
     for (let letterContainer of letterContainers) {
@@ -188,6 +189,16 @@ function makeGuessedWord () {
         guessedWord.push(letter.innerText);
     }
     return guessedWord;
+}
+
+function isGuessedWordCorrect (chosenWord , guessedWord) {
+    for(let i = 0; i < chosenWord.length; i++){
+        if (guessedWord[i] !== chosenWord[i]){
+            return false;
+        }
+    }
+    return true;
+
 }
        
 if (typeof module !== 'undefined') module.exports = {
