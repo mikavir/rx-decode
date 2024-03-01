@@ -84,3 +84,7 @@ span.draggableLetters {
 .incorrect {
   border: red 1px solid;
 }
+
+#lives {
+  color: red;
+}

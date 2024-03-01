@@ -4,6 +4,7 @@ const gameCategories = document.getElementsByClassName('game-categories');
 const startModal = document.getElementById('start-menu');
 let draggableLetters = document.getElementsByClassName('draggableLetters');
 let letterContainers = document.getElementsByClassName('letter-container');
+let lives = document.getElementById('lives');
 let canSubmit = false;
 let guessButton = document.getElementById('guess-button');
 
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
                     startModal.style.display = 'none';
                     displayGuessButton();
+                    displayLives();
                     addBox(word);
                     addGuessletterBox(word)
                     $('.draggableLetters').css({
@@ -96,13 +98,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             }
             
                         }
-                      });
+                    });
                     
                 };
             }
         });
     }
 });
+
+
 
 // Add div per letter of word
 function addBox(word) {
@@ -155,11 +159,14 @@ function addGuessletterBox(word) {
     }
 }
 
-
 function displayGuessButton () {
     let element = document.getElementById("guess-button");
     element.removeAttribute("hidden");
     
+}
+
+function displayLives() {
+    lives.removeAttribute('hidden');
 }
 
 function isEmpty(parent) {
