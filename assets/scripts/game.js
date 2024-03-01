@@ -164,8 +164,7 @@ function isEmpty(parent) {
 function isLetterContainersFilled() {
     for (let letterContainer of letterContainers) {
         if (!(letterContainer.children.length > 0)) {
-            return false;
-            
+            return false;           
         };
         
     }
@@ -191,14 +190,9 @@ function makeGuessedWord () {
     return guessedWord;
 }
 
-function isGuessedWordCorrect (chosenWord , guessedWord) {
-    for(let i = 0; i < chosenWord.length; i++){
-        if (guessedWord[i] !== chosenWord[i]){
-            return false;
-        }
-    }
-    return true;
 
+function isGuessedWordCorrect (chosenWord, guessedWord) {
+    return chosenWord === guessedWord.join("");
 }
        
 if (typeof module !== 'undefined') module.exports = {
