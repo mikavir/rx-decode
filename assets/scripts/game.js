@@ -25,7 +25,12 @@ let painDictionary = [{
     {
         drugName: 'FENTANYL',
         hint: 'painkiller',
+    },
+    {
+        drugName: 'MELATONIN',
+        hint: 'sleep',
     }
+
 ];
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -201,7 +206,6 @@ function makeGuessedWord () {
     }
     return guessedWord;
 }
-
 
 function isGuessedWordCorrect (chosenWord, guessedWord) {
     return chosenWord === guessedWord.join("");
