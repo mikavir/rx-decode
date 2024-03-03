@@ -35,7 +35,32 @@ let cardiacDictionary = [{
     {
         drugName: 'POTASSIUM',
         hint: 'electrolyte'
-    }
+    },
+    {
+        drugName: 'AMLODOPINE',
+        hint: 'Reduce blood presssure'
+    },
+    {
+        drugName: 'RAMIPRIL',
+        hint: 'Reduce blood presssure'
+    },
+    {
+        drugName: 'LISONOPRIL',
+        hint: 'Reduce blood presssure'
+    },
+    {
+        drugName: 'AMIODARONE',
+        hint: 'antiarrhythmic medication'
+    },
+    {
+        drugName: 'MAGNESIUM',
+        hint: 'electrolute'
+    },
+    {
+        drugName: 'ASPIRIN',
+        hint: 'anti-platelet'
+    },
+ 
 ];
 
 let painDictionary = [{
@@ -49,7 +74,15 @@ let painDictionary = [{
     {
         drugName: 'MELATONIN',
         hint: 'sleep',
-    }
+    },
+    {
+        drugName: 'TRAMADOL',
+        hint: 'pain-killer',
+    },
+    {
+        drugName: 'MORPHONE',
+        hint: 'pain-killer',
+    },
 
 ];
 
@@ -120,9 +153,13 @@ function displayWhenGameStart() {
 
 function setUpGame(choice) {
     let chosenDrug = randomIndex(choice);
-    word = chosenDrug.drugName;
-    hint = chosenDrug.hint;
-    console.log(hint)
+    if (!(hasUserGuessedTheSameWord (chosenDrug.drugName, correctGuessedWord))){
+        word = chosenDrug.drugName;
+        hint = chosenDrug.hint;
+    } else {
+        chosenDrug = randomIndex(choice);
+    }   
+    console.log(hasUserGuessedTheSameWord(chosenDrug.drugName, correctGuessedWord))
     addBox(word);
     addGuessletterBox(word);
     dragAndDrop();
@@ -132,7 +169,6 @@ function setUpGame(choice) {
 
 // Add div per letter of word
 function addBox(word) {
-
     for (letter of word) {
         let letterPerBox = document.createElement('div');
         letterPerBox.className = "letter-box col-1 letter-container";
@@ -335,6 +371,11 @@ function quitGame() {
         lives.style.display = "none";
 
     });
+}
+
+function hasUserGuessedTheSameWord (word, guessedWordList){
+    return guessedWordList.includes(word);
+
 }
 
 if (typeof module !== 'undefined') module.exports = {
