@@ -102,3 +102,7 @@ span.draggableLetters {
 #hint-area {
   display: none;
 }
+
+#won-game {
+  display: none;
+}

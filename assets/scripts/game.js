@@ -19,6 +19,7 @@ let hintArea = document.getElementById('hint-area');
 let hintMessage = document.getElementById('hint-message');
 let quitGameArea = document.getElementById('quit-game');
 let quitGameButton = document.getElementById('quit-game-btn');
+let wonGameModal = document.getElementById('won-game');
 // Global Variables for game.js
 let word = "";
 let hint = "";
@@ -27,7 +28,7 @@ let canSubmit = false;
 let livesLeft = 5;
 let livesTaken = 0;
 let noOfCorrectWords = 0;
-
+let tempArray = [];
 let cardiacDictionary = [{
         drugName: 'BISOPROLOL',
         hint: 'Beta-blocker to slow heart rate',
@@ -60,7 +61,7 @@ let cardiacDictionary = [{
         drugName: 'ASPIRIN',
         hint: 'anti-platelet'
     },
- 
+
 ];
 
 let painDictionary = [{
@@ -80,11 +81,12 @@ let painDictionary = [{
         hint: 'pain-killer',
     },
     {
-        drugName: 'MORPHONE',
+        drugName: 'MORPHINE',
         hint: 'pain-killer',
     },
 
 ];
+
 
 document.addEventListener("DOMContentLoaded", (event) => {
     for (let category of gameCategories) {
@@ -135,6 +137,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         }
                     });
                     quitGame();
+                    
                 };
             }
         });
@@ -152,18 +155,19 @@ function displayWhenGameStart() {
 }
 
 function setUpGame(choice) {
-    let chosenDrug = randomIndex(choice);
-    if (!(hasUserGuessedTheSameWord (chosenDrug.drugName, correctGuessedWord))){
+    if (!(hasUserWonTheGame(choice))) {
+        let chosenDrug = randomIndex(choice);
+    
         word = chosenDrug.drugName;
         hint = chosenDrug.hint;
+        console.log(word);
+        addBox(word);
+        addGuessletterBox(word);
+        dragAndDrop();
+        showHint(hint);
     } else {
-        chosenDrug = randomIndex(choice);
-    }   
-    console.log(hasUserGuessedTheSameWord(chosenDrug.drugName, correctGuessedWord))
-    addBox(word);
-    addGuessletterBox(word);
-    dragAndDrop();
-    showHint(hint);
+        wonGame();
+    }
 
 }
 
@@ -174,7 +178,6 @@ function addBox(word) {
         letterPerBox.className = "letter-box col-1 letter-container";
         letterPerBox.dataset.letter = letter; // https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
         document.getElementById("game-area").appendChild(letterPerBox);
-        console.log(letterPerBox);
     }
 };
 
@@ -182,8 +185,10 @@ function addBox(word) {
 // function to generate a random index
 function randomIndex(array) {
     // should return a random number between the array lenght
-    return array[(Math.floor(Math.random() * array.length))];
-
+    let randomNumber = Math.floor(Math.random() * array.length)
+    console.log(randomNumber);
+    let randomDrug = array.splice(randomNumber, 1)[0];
+    return randomDrug;
 }
 
 // https://stackoverflow.com/questions/3943772/how-do-i-shuffle-the-characters-in-a-string-in-javascript
@@ -212,7 +217,7 @@ function addGuessletterBox(word) {
         draggableletterBox.innerText = letter;
         outerBoxContainer.appendChild(draggableletterBox);
         document.getElementById("letter-area").appendChild(outerBoxContainer);
-        console.log(draggableletterBox);
+
     }
 }
 
@@ -364,7 +369,6 @@ function showHint(hint) {
 
 function quitGame() {
     quitGameButton.addEventListener("click", (event) => {
-        hideGameWhenGameOver();
         isPlayAgain();
         writeCorrectGuessedWords(correctGuessedWord);
         addFeedbackMessage(noOfCorrectWords);
@@ -373,9 +377,26 @@ function quitGame() {
     });
 }
 
-function hasUserGuessedTheSameWord (word, guessedWordList){
-    return guessedWordList.includes(word);
 
+
+function hasUserWonTheGame(guessedWordList) {
+  if (guessedWordList.length === 0) {
+    return true;
+  }
+  return false;
+  
+}
+
+function wonGame() {
+    wonGameModal.style.display = "block";
+    gameArea.style.display = "none";
+    letterArea.style.display = "none";
+    buttonArea.style.display = "none";
+    wordsGuessedTally.style.display = "none";
+    quitGameArea.style.display = "none";
+    lives.style.display = "none";
+    isPlayAgain();
+    writeCorrectGuessedWords(correctGuessedWord);
 }
 
 if (typeof module !== 'undefined') module.exports = {
