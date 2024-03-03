@@ -64,36 +64,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     displayGuessButton();
                     displayLives();
                     addBox(word);
-                    addGuessletterBox(word)
-                    $('.draggableLetters').css({
-                        'left': '0px',
-                        'justify-content': 'center',
-                    });
-                    $('.draggableLetters').draggable({
-                        revert: true,
-
-                    });
-
-                    $(".letter-container").droppable({
-                        accept: '.draggableLetters',
-                        drop: function (event, ui) {
-                            if (isEmpty(this)) {
-                                $(this).append($(ui.draggable));
-                                $(this.children).removeClass('ui-draggable').removeClass('ui-draggable-handle');
-                            }
-
-                        },
-                        out: function (event, ui) {
-                            $(".letter-box").droppable({
-                                accept: '.draggableLetters',
-                                drop: function (event, ui) {
-                                    if (isEmpty(this)) {
-                                        $(this).append($(ui.draggable));
-                                    }
-                                }
-                            });
-                        }
-                    });
+                    addGuessletterBox(word);
+                    dragAndDrop();
+                    
                     // checks to see if all the letter container is filled then will change class of button
                     setInterval(handleSubmitButton, 1000);
                     guessButton.addEventListener("click", (event) => {
@@ -183,6 +156,39 @@ function displayGuessButton() {
 
 function displayLives() {
     lives.removeAttribute('hidden');
+}
+
+function dragAndDrop() {
+    $('.draggableLetters').css({
+        'left': '0px',
+        'justify-content': 'center',
+    });
+    $('.draggableLetters').draggable({
+        revert: true,
+
+    });
+
+    $(".letter-container").droppable({
+        accept: '.draggableLetters',
+        drop: function (event, ui) {
+            if (isEmpty(this)) {
+                $(this).append($(ui.draggable));
+                $(this.children).removeClass('ui-draggable').removeClass('ui-draggable-handle');
+            }
+
+        },
+        out: function (event, ui) {
+            $(".letter-box").droppable({
+                accept: '.draggableLetters',
+                drop: function (event, ui) {
+                    if (isEmpty(this)) {
+                        $(this).append($(ui.draggable));
+                    }
+                }
+            });
+        }
+    });
+
 }
 
 function isEmpty(parent) {
