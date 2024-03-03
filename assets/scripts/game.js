@@ -14,6 +14,7 @@ let wordsGuessedTally = document.getElementById('words-guessed');
 let numberOfWordsSpan = document.getElementById('number-words-guessed');
 let listofGuessedWord = document.getElementById('words-guessed-correctly');
 let feedbackMessage = document.getElementById('feedback-message');
+let buttonArea = document.getElementById('button-area');
 // Global Variables for game.js
 let word = "";
 let correctGuessedWord = [];
@@ -104,8 +105,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 function displayWhenGameStart() {
     startModal.style.display = 'none';
-    displayGuessButton();
     displayLives();
+    buttonArea.removeAttribute('hidden');
     wordsGuessedTally.removeAttribute('hidden');
     numberOfWordsSpan.innerText = noOfCorrectWords;
 }
@@ -264,7 +265,7 @@ function hideGameWhenGameOver() {
     gameOverModal.style.display = "block";
     gameArea.style.display = "none";
     letterArea.style.display = "none";
-    guessButton.style.display = "none";
+    buttonArea.style.display ="none";
     wordsGuessedTally.style.display = "none";
 }
 
@@ -296,14 +297,13 @@ function writeCorrectGuessedWords(wordList) {
     }
 }
 
-function addFeedbackMessage (noOfWords) {
+function addFeedbackMessage(noOfWords) {
     let feedback = ""
     if (noOfWords === 0) {
         feedback = "Boohoo! You have guessed none of the drugs. Time to read the British National Formulary (BNF)"
-    } else if (noOfWords === 1 ){
+    } else if (noOfWords === 1) {
         feedback = `Well done! You have guessed a drug. Read the British National Formulary (BNF) to learn more drugs`
-    }
-    else {
+    } else {
         feedback = `Well Done! You have guessed ${noOfWords} drugs. Call yourself a master of drugs`
     }
     feedbackMessage.innerText = feedback;
