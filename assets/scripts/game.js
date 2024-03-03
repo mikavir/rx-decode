@@ -59,14 +59,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 if (startGame) {
                     let word = randomIndex(choice).drugName;
                     console.log(word);
-
-                    startModal.style.display = 'none';
-                    displayGuessButton();
-                    displayLives();
+                    displayWhenGameStart();
                     addBox(word);
                     addGuessletterBox(word);
                     dragAndDrop();
-                    
+
                     // checks to see if all the letter container is filled then will change class of button
                     setInterval(handleSubmitButton, 1000);
                     guessButton.addEventListener("click", (event) => {
@@ -95,7 +92,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 });
 
+function displayWhenGameStart() {
+    startModal.style.display = 'none';
+    displayGuessButton();
+    displayLives();
 
+}
 
 // Add div per letter of word
 function addBox(word) {
