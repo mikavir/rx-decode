@@ -369,6 +369,7 @@ function showHint(hint) {
 
 function quitGame() {
     quitGameButton.addEventListener("click", (event) => {
+        hideGameWhenGameOver();
         isPlayAgain();
         writeCorrectGuessedWords(correctGuessedWord);
         addFeedbackMessage(noOfCorrectWords);
