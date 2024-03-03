@@ -7,6 +7,8 @@ let letterContainers = document.getElementsByClassName('letter-container');
 let lives = document.getElementById('lives');
 let canSubmit = false;
 let guessButton = document.getElementById('guess-button');
+let livesLeft = 5;
+let livesTaken = 0;
 
 let cardiacDictionary = [{
         drugName: 'BISOPROLOL',
@@ -65,25 +67,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     });
                     $('.draggableLetters').draggable({
                         revert: true,
-                        
+
                     });
 
                     $(".letter-container").droppable({
                         accept: '.draggableLetters',
-                        drop: function(event, ui) {
-                            if(isEmpty(this)){
-                                $(this).append($(ui.draggable)); 
+                        drop: function (event, ui) {
+                            if (isEmpty(this)) {
+                                $(this).append($(ui.draggable));
                                 $(this.children).removeClass('ui-draggable').removeClass('ui-draggable-handle');
                             }
-                            
+
                         },
-                        out: function(event, ui) {
+                        out: function (event, ui) {
                             $(".letter-box").droppable({
                                 accept: '.draggableLetters',
-                                drop: function(event, ui) {
-                                    if(isEmpty(this)){
+                                drop: function (event, ui) {
+                                    if (isEmpty(this)) {
                                         $(this).append($(ui.draggable));
-                                    }                                   
+                                    }
                                 }
                             });
                         }
@@ -91,20 +93,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     // checks to see if all the letter container is filled then will change class of button
                     setInterval(handleSubmitButton, 1000);
                     guessButton.addEventListener("click", (event) => {
-                        if(canSubmit){
+                        if (canSubmit) {
                             guessedWord = makeGuessedWord();
                             console.log(makeGuessedWord());
                             console.log(word);
-                            if(isGuessedWordCorrect(word, guessedWord) === true) {
+                            if (isGuessedWordCorrect(word, guessedWord) === true) {
                                 $(".letter-container").addClass('correct');
-                            }else{
+                            } else {
                                 $(".letter-container").addClass('incorrect');
-                                setTimeout(function(){$(".letter-container").removeClass('incorrect')}, 1000)
+                                setTimeout(function () {
+                                    $(".letter-container").removeClass('incorrect')
+                                }, 1000)
+                                mistakeMade(livesLeft);
                             }
-            
+
                         }
                     });
-                    
+
                 };
             }
         });
@@ -164,10 +169,10 @@ function addGuessletterBox(word) {
     }
 }
 
-function displayGuessButton () {
+function displayGuessButton() {
     let element = document.getElementById("guess-button");
     element.removeAttribute("hidden");
-    
+
 }
 
 function displayLives() {
@@ -181,16 +186,16 @@ function isEmpty(parent) {
 function isLetterContainersFilled() {
     for (let letterContainer of letterContainers) {
         if (!(letterContainer.children.length > 0)) {
-            return false;           
+            return false;
         };
-        
+
     }
     return true;
 }
 
 function handleSubmitButton() {
     let guessButton = document.getElementById('guess-button');
-    if(isLetterContainersFilled()) {
+    if (isLetterContainersFilled()) {
         guessButton.classList.add('enabled');
         canSubmit = true;
     } else {
@@ -199,18 +204,24 @@ function handleSubmitButton() {
     }
 }
 
-function makeGuessedWord () {
-    guessedWord = [];
-    for (let letter of draggableLetters){
+function makeGuessedWord() {
+    let guessedWord = [];
+    for (let letter of draggableLetters) {
         guessedWord.push(letter.innerText);
     }
     return guessedWord;
 }
 
-function isGuessedWordCorrect (chosenWord, guessedWord) {
+function isGuessedWordCorrect(chosenWord, guessedWord) {
     return chosenWord === guessedWord.join("");
 }
-       
+
+function mistakeMade() {
+    livesLeft--;
+    livesTaken = 5 - livesLeft;
+    $(`#life${livesTaken}`).fadeOut("slow");
+}
+
 if (typeof module !== 'undefined') module.exports = {
     startGame,
     gameCategories,
