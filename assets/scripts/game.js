@@ -66,10 +66,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     alert("No items chosen");
                 };
                 if (startGame) {
-                    word = randomIndex(choice).drugName;
-                    console.log(word);
+                    // let chosenDrug = randomIndex(choice);
+                    // word = chosenDrug.drugName;
+                    // hint = chosenDrug.hint;
                     displayWhenGameStart();
-                    setUpGame(word);
+                    setUpGame(choice);
                     // checks to see if all the letter container is filled then will change class of button
                     setInterval(handleSubmitButton, 1000);
                     guessButton.addEventListener("click", (event) => {
@@ -82,8 +83,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 setTimeout(function () {
                                     nextWord();
                                     addCorrectGuessedWords(word);
-                                    word = randomIndex(choice).drugName;
-                                    setUpGame(word);
+                                    setUpGame(choice);
 
                                 }, 1000)
                             } else {
@@ -111,7 +111,11 @@ function displayWhenGameStart() {
     numberOfWordsSpan.innerText = noOfCorrectWords;
 }
 
-function setUpGame(word) {
+function setUpGame(choice) {
+    let chosenDrug = randomIndex(choice);
+    word = chosenDrug.drugName;
+    hint = chosenDrug.hint;
+    console.log(hint)
     addBox(word);
     addGuessletterBox(word);
     dragAndDrop();
@@ -168,11 +172,6 @@ function addGuessletterBox(word) {
     }
 }
 
-function displayGuessButton() {
-    let element = document.getElementById("guess-button");
-    element.removeAttribute("hidden");
-
-}
 
 function displayLives() {
     lives.removeAttribute('hidden');
@@ -309,6 +308,7 @@ function addFeedbackMessage(noOfWords) {
     feedbackMessage.innerText = feedback;
 
 }
+
 
 if (typeof module !== 'undefined') module.exports = {
     startGame,
