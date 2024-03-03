@@ -73,6 +73,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             console.log(word);
                             if (isGuessedWordCorrect(word, guessedWord) === true) {
                                 $(".letter-container").addClass('correct');
+                                setTimeout(function () {
+                                    nextWord();
+        
+                                }, 1000)
                             } else {
                                 $(".letter-container").addClass('incorrect');
                                 setTimeout(function () {
@@ -261,6 +265,13 @@ function isPlayAgain() {
         window.location.reload();
     });
 }
+
+function nextWord() {
+    while (gameArea.firstChild) {
+        gameArea.firstChild.remove();
+        letterArea.firstChild.remove();
+    }
+} 
 
 if (typeof module !== 'undefined') module.exports = {
     startGame,
