@@ -88,3 +88,7 @@ span.draggableLetters {
 #lives {
   color: red;
 }
+
+#game-over {
+  display: none;
+}

@@ -4,6 +4,10 @@ const gameCategories = document.getElementsByClassName('game-categories');
 const startModal = document.getElementById('start-menu');
 let draggableLetters = document.getElementsByClassName('draggableLetters');
 let letterContainers = document.getElementsByClassName('letter-container');
+let gameArea = document.getElementById('game-area');
+let letterArea = document.getElementById('letter-area');
+let playAgainButton = document.getElementById('play-again');
+let gameOverModal = document.getElementById('game-over');
 let lives = document.getElementById('lives');
 let canSubmit = false;
 let guessButton = document.getElementById('guess-button');
@@ -105,10 +109,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                     $(".letter-container").removeClass('incorrect')
                                 }, 1000)
                                 mistakeMade(livesLeft);
+                                isGameOver();
                             }
 
                         }
                     });
+
 
                 };
             }
@@ -222,6 +228,28 @@ function mistakeMade() {
     $(`#life${livesTaken}`).fadeOut("slow");
 }
 
+function isGameOver() {
+    if (livesLeft === 0) {
+        hideGameWhenGameOver();
+        isPlayAgain();
+
+        return true;
+    }
+}
+
+function hideGameWhenGameOver() {
+    gameOverModal.style.display = "block";
+    gameArea.style.display = "none";
+    letterArea.style.display = "none";
+    guessButton.style.display = "none";
+}
+
+function isPlayAgain() {
+    playAgainButton.addEventListener("click", (event) => {
+        window.location.reload();
+    });
+}
+
 if (typeof module !== 'undefined') module.exports = {
     startGame,
     gameCategories,
@@ -230,4 +258,3 @@ if (typeof module !== 'undefined') module.exports = {
     cardiacDictionary,
     painDictionary
 }
-
