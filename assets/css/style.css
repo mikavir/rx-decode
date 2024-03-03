@@ -99,3 +99,6 @@ span.draggableLetters {
 
 }
 
+#hint-area {
+  display: none;
+}

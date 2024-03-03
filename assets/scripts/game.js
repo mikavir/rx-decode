@@ -15,8 +15,11 @@ let numberOfWordsSpan = document.getElementById('number-words-guessed');
 let listofGuessedWord = document.getElementById('words-guessed-correctly');
 let feedbackMessage = document.getElementById('feedback-message');
 let buttonArea = document.getElementById('button-area');
+let hintArea = document.getElementById('hint-area');
+let hintMessage = document.getElementById('hint-message');
 // Global Variables for game.js
 let word = "";
+let hint = "";
 let correctGuessedWord = [];
 let canSubmit = false;
 let livesLeft = 5;
@@ -119,6 +122,7 @@ function setUpGame(choice) {
     addBox(word);
     addGuessletterBox(word);
     dragAndDrop();
+    showHint(hint);
 
 }
 
@@ -280,6 +284,7 @@ function nextWord() {
         gameArea.firstChild.remove();
         letterArea.firstChild.remove();
     }
+    hintArea.style.display = "none";
 }
 
 function addCorrectGuessedWords(guessedWord) {
@@ -307,6 +312,13 @@ function addFeedbackMessage(noOfWords) {
     }
     feedbackMessage.innerText = feedback;
 
+}
+
+function showHint (hint) {
+    hintMessage.innerText = hint;
+    $("#hint-button").click(function(){
+        $("#hint-area").css('display', 'block');
+    });
 }
 
 
