@@ -62,8 +62,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     console.log(word);
                     displayWhenGameStart();
                     setUpGame(word);
-                    dragAndDrop();
-
                     // checks to see if all the letter container is filled then will change class of button
                     setInterval(handleSubmitButton, 1000);
                     guessButton.addEventListener("click", (event) => {
@@ -77,7 +75,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                     nextWord();
                                     word = randomIndex(choice).drugName;
                                     setUpGame(word);
-                                    dragAndDrop();
         
                                 }, 1000)
                             } else {
@@ -107,6 +104,7 @@ function displayWhenGameStart() {
 function setUpGame(word) {
     addBox(word);
     addGuessletterBox(word);
+    dragAndDrop();
 
 }
 
