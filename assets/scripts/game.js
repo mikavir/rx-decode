@@ -75,6 +75,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 $(".letter-container").addClass('correct');
                                 setTimeout(function () {
                                     nextWord();
+                                    word = randomIndex(choice).drugName;
+                                    setUpGame(word);
+                                    dragAndDrop();
         
                                 }, 1000)
                             } else {
