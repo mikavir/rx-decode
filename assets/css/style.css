@@ -92,3 +92,9 @@ span.draggableLetters {
 #game-over {
   display: none;
 }
+
+#words-guessed-correctly {
+  list-style: none;
+  text-align: center;
+
+}

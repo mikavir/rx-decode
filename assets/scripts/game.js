@@ -12,6 +12,8 @@ let lives = document.getElementById('lives');
 let guessButton = document.getElementById('guess-button');
 let wordsGuessedTally = document.getElementById('words-guessed');
 let numberOfWordsSpan = document.getElementById('number-words-guessed');
+let listofGuessedWord = document.getElementById('words-guessed-correctly');
+let feedbackMessage = document.getElementById('feedback-message');
 // Global Variables for game.js
 let word = "";
 let correctGuessedWord = [];
@@ -89,7 +91,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                     $(".letter-container").removeClass('incorrect')
                                 }, 1000)
                                 mistakeMade(livesLeft);
-                                isGameOver();
+                                isGameOver(correctGuessedWord);
                             }
                         }
                     });
@@ -252,6 +254,8 @@ function isGameOver() {
     if (livesLeft === 0) {
         hideGameWhenGameOver();
         isPlayAgain();
+        writeCorrectGuessedWords(correctGuessedWord);
+        addFeedbackMessage(noOfCorrectWords);
         return true;
     }
 }
@@ -282,6 +286,28 @@ function addCorrectGuessedWords(guessedWord) {
     correctGuessedWord.push(guessedWord);
     noOfCorrectWords = correctGuessedWord.length;
     numberOfWordsSpan.innerText = noOfCorrectWords;
+}
+
+function writeCorrectGuessedWords(wordList) {
+    for (word of wordList) {
+        let guessedWord = document.createElement('li');
+        guessedWord.innerText = word;
+        listofGuessedWord.appendChild(guessedWord);
+    }
+}
+
+function addFeedbackMessage (noOfWords) {
+    let feedback = ""
+    if (noOfWords === 0) {
+        feedback = "Boohoo! You have guessed none of the drugs. Time to read the British National Formulary (BNF)"
+    } else if (noOfWords === 1 ){
+        feedback = `Well done! You have guessed a drug. Read the British National Formulary (BNF) to learn more drugs`
+    }
+    else {
+        feedback = `Well Done! You have guessed ${noOfWords} drugs. Call yourself a master of drugs`
+    }
+    feedbackMessage.innerText = feedback;
+
 }
 
 if (typeof module !== 'undefined') module.exports = {
