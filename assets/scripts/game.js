@@ -1,4 +1,4 @@
-// start of game is false
+// Variables from Dom
 let startGame = false;
 const gameCategories = document.getElementsByClassName('game-categories');
 const startModal = document.getElementById('start-menu');
@@ -9,11 +9,16 @@ let letterArea = document.getElementById('letter-area');
 let playAgainButton = document.getElementById('play-again');
 let gameOverModal = document.getElementById('game-over');
 let lives = document.getElementById('lives');
-let word = "";
-let canSubmit = false;
 let guessButton = document.getElementById('guess-button');
+let wordsGuessedTally = document.getElementById('words-guessed');
+let numberOfWordsSpan = document.getElementById('number-words-guessed');
+// Global Variables for game.js
+let word = "";
+let correctGuessedWord = [];
+let canSubmit = false;
 let livesLeft = 5;
 let livesTaken = 0;
+let noOfCorrectWords = 0;
 
 let cardiacDictionary = [{
         drugName: 'BISOPROLOL',
@@ -73,9 +78,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 $(".letter-container").addClass('correct');
                                 setTimeout(function () {
                                     nextWord();
+                                    addCorrectGuessedWords(word);
                                     word = randomIndex(choice).drugName;
                                     setUpGame(word);
-        
+
                                 }, 1000)
                             } else {
                                 $(".letter-container").addClass('incorrect');
@@ -98,7 +104,8 @@ function displayWhenGameStart() {
     startModal.style.display = 'none';
     displayGuessButton();
     displayLives();
-
+    wordsGuessedTally.removeAttribute('hidden');
+    numberOfWordsSpan.innerText = noOfCorrectWords;
 }
 
 function setUpGame(word) {
@@ -112,7 +119,6 @@ function setUpGame(word) {
 function addBox(word) {
 
     for (letter of word) {
-
         let letterPerBox = document.createElement('div');
         letterPerBox.className = "letter-box col-1 letter-container";
         letterPerBox.dataset.letter = letter; // https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
@@ -178,7 +184,6 @@ function dragAndDrop() {
         revert: true,
 
     });
-
     $(".letter-container").droppable({
         accept: '.draggableLetters',
         drop: function (event, ui) {
@@ -186,7 +191,6 @@ function dragAndDrop() {
                 $(this).append($(ui.draggable));
                 $(this.children).removeClass('ui-draggable').removeClass('ui-draggable-handle');
             }
-
         },
         out: function (event, ui) {
             $(".letter-box").droppable({
@@ -211,7 +215,6 @@ function isLetterContainersFilled() {
         if (!(letterContainer.children.length > 0)) {
             return false;
         };
-
     }
     return true;
 }
@@ -249,7 +252,6 @@ function isGameOver() {
     if (livesLeft === 0) {
         hideGameWhenGameOver();
         isPlayAgain();
-
         return true;
     }
 }
@@ -259,6 +261,7 @@ function hideGameWhenGameOver() {
     gameArea.style.display = "none";
     letterArea.style.display = "none";
     guessButton.style.display = "none";
+    wordsGuessedTally.style.display = "none";
 }
 
 function isPlayAgain() {
@@ -267,12 +270,19 @@ function isPlayAgain() {
     });
 }
 
+//https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
 function nextWord() {
     while (gameArea.firstChild) {
         gameArea.firstChild.remove();
         letterArea.firstChild.remove();
     }
-} 
+}
+
+function addCorrectGuessedWords(guessedWord) {
+    correctGuessedWord.push(guessedWord);
+    noOfCorrectWords = correctGuessedWord.length;
+    numberOfWordsSpan.innerText = noOfCorrectWords;
+}
 
 if (typeof module !== 'undefined') module.exports = {
     startGame,
