@@ -9,6 +9,7 @@ let letterArea = document.getElementById('letter-area');
 let playAgainButton = document.getElementById('play-again');
 let gameOverModal = document.getElementById('game-over');
 let lives = document.getElementById('lives');
+let word = "";
 let canSubmit = false;
 let guessButton = document.getElementById('guess-button');
 let livesLeft = 5;
@@ -57,11 +58,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     alert("No items chosen");
                 };
                 if (startGame) {
-                    let word = randomIndex(choice).drugName;
+                    word = randomIndex(choice).drugName;
                     console.log(word);
                     displayWhenGameStart();
-                    addBox(word);
-                    addGuessletterBox(word);
+                    setUpGame(word);
                     dragAndDrop();
 
                     // checks to see if all the letter container is filled then will change class of button
@@ -81,21 +81,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 mistakeMade(livesLeft);
                                 isGameOver();
                             }
-
                         }
                     });
-
-
                 };
             }
         });
     }
 });
 
+
 function displayWhenGameStart() {
     startModal.style.display = 'none';
     displayGuessButton();
     displayLives();
+
+}
+
+function setUpGame(word) {
+    addBox(word);
+    addGuessletterBox(word);
 
 }
 
