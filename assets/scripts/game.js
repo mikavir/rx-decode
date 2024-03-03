@@ -17,6 +17,8 @@ let feedbackMessage = document.getElementById('feedback-message');
 let buttonArea = document.getElementById('button-area');
 let hintArea = document.getElementById('hint-area');
 let hintMessage = document.getElementById('hint-message');
+let quitGameArea = document.getElementById('quit-game');
+let quitGameButton = document.getElementById('quit-game-btn');
 // Global Variables for game.js
 let word = "";
 let hint = "";
@@ -99,6 +101,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                             }
                         }
                     });
+                    quitGame();
                 };
             }
         });
@@ -112,6 +115,7 @@ function displayWhenGameStart() {
     buttonArea.removeAttribute('hidden');
     wordsGuessedTally.removeAttribute('hidden');
     numberOfWordsSpan.innerText = noOfCorrectWords;
+    quitGameArea.removeAttribute('hidden');
 }
 
 function setUpGame(choice) {
@@ -268,8 +272,9 @@ function hideGameWhenGameOver() {
     gameOverModal.style.display = "block";
     gameArea.style.display = "none";
     letterArea.style.display = "none";
-    buttonArea.style.display ="none";
+    buttonArea.style.display = "none";
     wordsGuessedTally.style.display = "none";
+    quitGameArea.style.display = "none";
 }
 
 function isPlayAgain() {
@@ -314,13 +319,23 @@ function addFeedbackMessage(noOfWords) {
 
 }
 
-function showHint (hint) {
+function showHint(hint) {
     hintMessage.innerText = hint;
-    $("#hint-button").click(function(){
+    $("#hint-button").click(function () {
         $("#hint-area").css('display', 'block');
     });
 }
 
+function quitGame() {
+    quitGameButton.addEventListener("click", (event) => {
+        hideGameWhenGameOver();
+        isPlayAgain();
+        writeCorrectGuessedWords(correctGuessedWord);
+        addFeedbackMessage(noOfCorrectWords);
+        lives.style.display = "none";
+
+    });
+}
 
 if (typeof module !== 'undefined') module.exports = {
     startGame,
