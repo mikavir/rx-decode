@@ -23,6 +23,11 @@ let wonGameModal = document.getElementById('won-game');
 let instructionButton = document.getElementById('instruction-btn');
 let instructionSection = document.getElementById('instructions');
 let closeInstructionButton = document.getElementById('close-instructions-btn');
+let contactButton = document.getElementById('contact-us-btn');
+let contactModal = document.getElementById('contact-modal');
+let closeContactIngame = document.getElementById('close-contact-btn-ingame');
+let closeContactOutgame = document.getElementById('close-contact-btn-outgame');
+
 // Global Variables for game.js
 let word = "";
 let hint = "";
@@ -92,9 +97,10 @@ let painDictionary = [{
 
 document.addEventListener("DOMContentLoaded", (event) => {
     showInstructions();
+    displayContactModal();
     for (let category of gameCategories) {
         category.addEventListener("click", function () {
-            {
+            {   
                 let gameType = this.getAttribute('data-type');
                 console.log(gameType);
                 let choice;
@@ -304,6 +310,7 @@ function isGameOver() {
         isPlayAgain();
         writeCorrectGuessedWords(correctGuessedWord);
         addFeedbackMessage(noOfCorrectWords);
+        startGame = false;
         return true;
     }
 }
@@ -373,8 +380,44 @@ function quitGame() {
         writeCorrectGuessedWords(correctGuessedWord);
         addFeedbackMessage(noOfCorrectWords);
         lives.style.display = "none";
+        startGame = false;
 
     });
+}
+
+function displayContactModal () {
+    contactButton.addEventListener("click", (event) => {
+        if(startGame) {
+            gameArea.style.display = "none";
+            letterArea.style.display = "none";
+            buttonArea.style.display = "none";
+            wordsGuessedTally.style.display = "none";
+            quitGameArea.style.display = "none";
+            lives.style.display = "none";
+            contactModal.style.display = "block";
+            closeContactIngame.removeAttribute("hidden");
+            closeContactIngame.addEventListener("click", (event) => {
+                gameArea.style.display = "block";
+                letterArea.style.display = "block";
+                buttonArea.style.display = "block";
+                wordsGuessedTally.style.display = "block";
+                quitGameArea.style.display = "block";
+                lives.style.display = "block";
+                closeContactIngame.setAttribute("hidden", true);
+                contactModal.style.display = "none";
+            });
+        } else {
+            startModal.style.display = "none";
+            contactModal.style.display = "block";
+            closeContactOutgame.removeAttribute("hidden");
+            closeContactOutgame.addEventListener("click", (event) => {
+                contactModal.style.display = "none";
+                startModal.style.display = "block";
+                closeContactOutgame.setAttribute("hidden", true);
+            })
+        }
+    })
+
 }
 
 
@@ -410,32 +453,7 @@ function showInstructions (){
     });
 }
 
-function handleGuessButton () {
-    guessButton.addEventListener("click", (event) => {
-        if (canSubmit) {
-            guessedWord = makeGuessedWord();
-            console.log(makeGuessedWord());
-            console.log(word);
-            if (isGuessedWordCorrect(word, guessedWord) === true) {
-                $(".letter-container").addClass('correct');
-                setTimeout(function () {
-                    nextWord();
-                    addCorrectGuessedWords(word);
-                    setUpGame(choice);
 
-                }, 1000)
-            } else {
-                $(".letter-container").addClass('incorrect');
-                setTimeout(function () {
-                    $(".letter-container").removeClass('incorrect')
-                }, 1000)
-                mistakeMade(livesLeft);
-                isGameOver(correctGuessedWord);
-            }
-        }
-    });
-
-}
 
 if (typeof module !== 'undefined') module.exports = {
     startGame,
