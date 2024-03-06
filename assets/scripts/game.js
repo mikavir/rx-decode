@@ -20,6 +20,9 @@ let hintMessage = document.getElementById('hint-message');
 let quitGameArea = document.getElementById('quit-game');
 let quitGameButton = document.getElementById('quit-game-btn');
 let wonGameModal = document.getElementById('won-game');
+let instructionButton = document.getElementById('instruction-btn');
+let instructionSection = document.getElementById('instructions');
+let closeInstructionButton = document.getElementById('close-instructions-btn');
 // Global Variables for game.js
 let word = "";
 let hint = "";
@@ -89,6 +92,7 @@ let painDictionary = [{
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
+    showInstructions();
     for (let category of gameCategories) {
         category.addEventListener("click", function () {
             {
@@ -106,9 +110,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     alert("No items chosen");
                 };
                 if (startGame) {
-                    // let chosenDrug = randomIndex(choice);
-                    // word = chosenDrug.drugName;
-                    // hint = chosenDrug.hint;
                     displayWhenGameStart();
                     setUpGame(choice);
                     // checks to see if all the letter container is filled then will change class of button
@@ -398,6 +399,17 @@ function wonGame() {
     lives.style.display = "none";
     isPlayAgain();
     writeCorrectGuessedWords(correctGuessedWord);
+}
+
+function showInstructions (){
+    instructionButton.addEventListener("click", (event) => {
+        instructionSection.style.display = "block";
+        startModal.style.display = 'none';
+    });
+    closeInstructionButton.addEventListener("click", (event) => {
+        instructionSection.style.display = "none";
+        startModal.style.display = 'block';
+    });
 }
 
 if (typeof module !== 'undefined') module.exports = {

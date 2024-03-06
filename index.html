@@ -31,9 +31,9 @@
 
 
     <main class="container d-flex flex-column ">
-        <section  id="start-menu" class="row bg-white p-5">
+        <section  id="start-menu" class="row bg-white p-5" >
             <div class="col-12 col-md-6 mx-auto text-center">
-                <h4> Start the game by clicking a category of drug below </h4>
+                <p class="text-decoration-none"> Welcome to the Rx Decoder! To start cracking the code, select a drug category to decode. Are you ready to unravel the secrets of Cardiac Medications, Pain Medications, or Antibiotics? Choose your challenge and let's decode some drugs!</p>
                 <div class="row menu-option">
                     <div class="col-12 col-md-6">
                         <button class="game-categories" data-type="cardiac">Cardiac</button>
@@ -44,9 +44,29 @@
                 </div>
                 <div class="row">
                     <div class=" col-12 instructions">
-                        <button>How to play?</button>
+                        <button id="instruction-btn">How to play?</button>
                     </div>
                 </div>
+            </div>
+        </section>
+        <section  id="instructions" class="row bg-white p-5">
+            <div class="col-12 col-md-6 mx-auto text-center">
+                <h4>How to play? </h4>
+                <ol>
+                    <li>Unscramble drug names by rearranging letter tiles into the correct order.</li>
+                    <li>Click and hold (or tap and hold on mobile) a letter tile, then drag it to the desired position.</li>
+                    <li>Release your mouse button (or lift your finger on mobile) to drop the tile; it will snap if placed correctly.</li>
+                    <li>Keep moving tiles until you think the drug name is unscrambled.</li>
+                    <li>Click the "Guess" button (or tap the button on mobile) to submit your answer.</li>
+                    <li>Proceed to the next challenge if your answer is correct; otherwise, keep trying.</li>
+                    <li>If you need help, click the "Hint" button (or tap the button on mobile) to reveal information about the drug</li>
+                    <li>Enjoy the game and test your decoding skills!</li>
+                </ol>
+
+            </div>
+            <div class="col-12 text-center">
+                <button id="close-instructions-btn">Let's decode!</button>
+
             </div>
         </section>
         <section  id="game-over" class="row bg-white p-5">

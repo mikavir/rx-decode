@@ -106,3 +106,7 @@ span.draggableLetters {
 #won-game {
   display: none;
 }
+
+#instructions {
+  display: none;
+}
