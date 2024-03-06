@@ -15,6 +15,17 @@
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/61cd806bb5.js" crossorigin="anonymous"></script>
 
+    <!-- Email Js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "F2EhInxPV6ikLORcL",
+            });
+        })();
+    </script>
+
 
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Rx Decoder</title>
@@ -31,9 +42,11 @@
 
 
     <main class="container d-flex flex-column ">
-        <section  id="start-menu" class="row bg-white p-5" >
+        <section id="start-menu" class="row bg-white p-5">
             <div class="col-12 col-md-6 mx-auto text-center">
-                <p class="text-decoration-none"> Welcome to the Rx Decoder! To start cracking the code, select a drug category to decode. Are you ready to unravel the secrets of Cardiac Medications, Pain Medications, or Antibiotics? Choose your challenge and let's decode some drugs!</p>
+                <p class="text-decoration-none"> Welcome to the Rx Decoder! To start cracking the code, select a drug
+                    category to decode. Are you ready to unravel the secrets of Cardiac Medications, Pain Medications,
+                    or Antibiotics? Choose your challenge and let's decode some drugs!</p>
                 <div class="row menu-option">
                     <div class="col-12 col-md-6">
                         <button class="game-categories" data-type="cardiac">Cardiac</button>
@@ -49,17 +62,20 @@
                 </div>
             </div>
         </section>
-        <section  id="instructions" class="row bg-white p-5">
+        <section id="instructions" class="row bg-white p-5">
             <div class="col-12 col-md-6 mx-auto text-center">
                 <h4>How to play? </h4>
                 <ol>
                     <li>Unscramble drug names by rearranging letter tiles into the correct order.</li>
-                    <li>Click and hold (or tap and hold on mobile) a letter tile, then drag it to the desired position.</li>
-                    <li>Release your mouse button (or lift your finger on mobile) to drop the tile; it will snap if placed correctly.</li>
+                    <li>Click and hold (or tap and hold on mobile) a letter tile, then drag it to the desired position.
+                    </li>
+                    <li>Release your mouse button (or lift your finger on mobile) to drop the tile; it will snap if
+                        placed correctly.</li>
                     <li>Keep moving tiles until you think the drug name is unscrambled.</li>
                     <li>Click the "Guess" button (or tap the button on mobile) to submit your answer.</li>
                     <li>Proceed to the next challenge if your answer is correct; otherwise, keep trying.</li>
-                    <li>If you need help, click the "Hint" button (or tap the button on mobile) to reveal information about the drug</li>
+                    <li>If you need help, click the "Hint" button (or tap the button on mobile) to reveal information
+                        about the drug</li>
                     <li>Enjoy the game and test your decoding skills!</li>
                 </ol>
 
@@ -69,95 +85,121 @@
 
             </div>
         </section>
-        <section  id="contact-modal" class="row bg-white p-5">
+        <section id="contact-modal" class="row bg-white p-5">
             <div class="col-12 col-md-6 mx-auto text-center">
                 <h4>Get in Touch!</h4>
-                <form>
+                <div class="row">
+                    <div class="col" id="feedback-email">
+
+                    </div>
+                </div>
+                <form onsubmit="return sendMail(this);">
                     <!-- input group for name field -->
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-12">
-                          <div class="input-group mb-3">
-                            <span class="input-group-text" id="name-input">
-                              <i class="fa-solid fa-person fa-xl"></i>
-                            </span>
-                            <input type="text" class="form-control" id="name" name="name-input" placeholder="Name" aria-label="Name" aria-describedby="name-input" required>
-                          </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="name-input">
+                                    <i class="fa-solid fa-person fa-xl"></i>
+                                </span>
+                                <input type="text" class="form-control" id="name" name="name-input" placeholder="Name"
+                                    aria-label="Name" aria-describedby="name-input" required>
+                            </div>
                         </div>
-                      </div>
-  
-                      <!-- input group for email field -->
-                      <div class="row">
+                    </div>
+
+                    <!-- input group for email field -->
+                    <div class="row">
                         <div class="col-12 col-md-12 col-lg-12">
-                          <div class="input-group mb-3">
-                            <span class="input-group-text" id="email-input">
-                              <i class="fa-solid fa-envelope"></i>
-                            </span>
-                            <input type="text" class="form-control" id="email" name="email-input" placeholder="Email" aria-label="Email" aria-describedby="email-input" required>
-                          </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="email-input">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </span>
+                                <input type="text" class="form-control" id="email" name="email-input"
+                                    placeholder="Email" aria-label="Email" aria-describedby="email-input" required>
+                            </div>
                         </div>
-                      </div>
-                      <div class="row">
+                    </div>
+
+                    <!-- Input group for title field -->
+                    <div class="row">
                         <div class="col-12 col-md-12 col-lg-12">
-                          <div class="input-group mb-3">
-                            <span class="input-group-text" id="enquiry-input">
-                              <i class="fa-solid fa-message"></i>
-                            </span>
-                            <textarea cols="35" rows="5" id="enquiry" class="form-control" name="enquiry-input" placeholder="Enquiry" aria-label="Enquiry" aria-describedby="enquiry-input" required></textarea>
-                          </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="subject-input">
+                                    <i class="fa-solid fa-tags"></i>
+                                </span>
+                                <input type="text" class="form-control" id="title" name="subject-input"
+                                    placeholder="Title" aria-label="title" aria-describedby="title-input" required>
+                            </div>
                         </div>
-                      </div>
-                      <div class="row">
+                    </div>
+
+
+
+                    <!-- input group for enquiry field -->
+                    <div class="row">
                         <div class="col-12 col-md-12 col-lg-12">
-                          <input type="submit" value="Submit Message">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="enquiry-input">
+                                    <i class="fa-solid fa-message"></i>
+                                </span>
+                                <textarea cols="35" rows="5" id="enquiry" class="form-control" name="enquiry-input"
+                                    placeholder="Enquiry" aria-label="Enquiry" aria-describedby="enquiry-input"
+                                    required></textarea>
+                            </div>
                         </div>
-                      </div>
-                </form>               
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-12">
+                            <input type="submit" value="Submit Message">
+                        </div>
+                    </div>
+                </form>
 
             </div>
             <div class="col-12 text-center">
                 <button id="close-contact-btn-ingame" hidden>Go Back to game!</button>
             </div>
             <div class="col-12 text-center">
-                <button id="close-contact-btn-outgame" hidden >Menu</button>
+                <button id="close-contact-btn-outgame" hidden>Menu</button>
             </div>
 
         </section>
-        <section  id="game-over" class="row bg-white p-5">
+        <section id="game-over" class="row bg-white p-5">
             <div class="col-12 col-md-6 mx-auto text-center">
-              <h1>Game Over</h1>
-              <div class="row">
-                <div id="feedback-message" class="col">
+                <h1>Game Over</h1>
+                <div class="row">
+                    <div id="feedback-message" class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="col" id="words-guessed-correctly">
+                    </ul>
 
                 </div>
-              </div>
-              <div class="row">
-                <ul class="col" id="words-guessed-correctly">
-                </ul>
-                
-              </div>
-              <div class="row text-center">
-                  <button id="play-again" class="col-12">Play Again</button>
-              </div>
+                <div class="row text-center">
+                    <button id="play-again" class="col-12">Play Again</button>
+                </div>
             </div>
         </section>
-        <section  id="won-game" class="row bg-white p-5">
+        <section id="won-game" class="row bg-white p-5">
             <div class="col-12 col-md-6 mx-auto text-center">
-              <h1>Congratualations!</h1>
-              <div class="row">
-                <div class="col">
-                    <p> Call yourself a master of the drug book! You have guessed all the drug names. 
-                        Challenge yourself to a different category</p>
+                <h1>Congratualations!</h1>
+                <div class="row">
+                    <div class="col">
+                        <p> Call yourself a master of the drug book! You have guessed all the drug names.
+                            Challenge yourself to a different category</p>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="col" id="words-guessed-correctly">
+                    </ul>
 
                 </div>
-              </div>
-              <div class="row">
-                <ul class="col" id="words-guessed-correctly">
-                </ul>
-                
-              </div>
-              <div class="row text-center">
-                  <button id="play-again" class="col-12">Play Again</button>
-              </div>
+                <div class="row text-center">
+                    <button id="play-again" class="col-12">Play Again</button>
+                </div>
             </div>
         </section>
         <section class="row">
@@ -195,14 +237,14 @@
                 <span>
                     <button id="guess-button">Guess Word</button>
                 </span>
-                <span >
+                <span>
                     <button id="hint-button"> Hint <i class="fa-regular fa-lightbulb"></i></button>
                 </span>
             </div>
         </section>
         <section class="row text-center m-3" id="hint-area">
             <p id="hint-message"></p>
-            
+
         </section>
         <section class="row text-center m-3" id="quit-game" hidden>
             <div class="col">
@@ -220,10 +262,10 @@
             <div class="col-sm text-md-start text-center">
                 <a href="/" class="text-muted text-decoration-none">
                     &copy; 2024 Rx Decoder
-                    
+
                 </a>
             </div>
-            <div class="col-sm text-md-end text-center">        
+            <div class="col-sm text-md-end text-center">
                 <span class="me-2">
                     <button id="contact-us-btn">Contact us!</button>
                 </span>
@@ -232,13 +274,13 @@
                         <i class="fa-brands fa-lg fa-github" aria-hidden="true"></i>
                     </a>
                 </span>
-                
-            
+
+
             </div>
-        </div>    
+        </div>
     </footer>
-    
-    
+
+
     <!-- JQuery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
@@ -253,6 +295,8 @@
 
     <!-- script file cdn-->
     <script src="assets/scripts/game.js"></script>
+
+    <script src="assets/scripts/email.js"></script>
 
 
 
