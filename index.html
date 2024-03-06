@@ -69,6 +69,56 @@
 
             </div>
         </section>
+        <section  id="contact-modal" class="row bg-white p-5">
+            <div class="col-12 col-md-6 mx-auto text-center">
+                <h4>Get in Touch!</h4>
+                <form>
+                    <!-- input group for name field -->
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-12">
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="name-input">
+                              <i class="fa-solid fa-person fa-xl"></i>
+                            </span>
+                            <input type="text" class="form-control" id="name" name="name-input" placeholder="Name" aria-label="Name" aria-describedby="name-input" required>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <!-- input group for email field -->
+                      <div class="row">
+                        <div class="col-12 col-md-12 col-lg-12">
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="email-input">
+                              <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <input type="text" class="form-control" id="email" name="email-input" placeholder="Email" aria-label="Email" aria-describedby="email-input" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 col-md-12 col-lg-12">
+                          <div class="input-group mb-3">
+                            <span class="input-group-text" id="enquiry-input">
+                              <i class="fa-solid fa-message"></i>
+                            </span>
+                            <textarea cols="35" rows="5" id="enquiry" class="form-control" name="enquiry-input" placeholder="Enquiry" aria-label="Enquiry" aria-describedby="enquiry-input" required></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 col-md-12 col-lg-12">
+                          <input type="submit" value="Submit Message">
+                        </div>
+                      </div>
+                </form>               
+
+            </div>
+            <div class="col-12 text-center">
+                <button id="close-instructions-btn">Let's decode!</button>
+
+            </div>
+        </section>
         <section  id="game-over" class="row bg-white p-5">
             <div class="col-12 col-md-6 mx-auto text-center">
               <h1>Game Over</h1>
@@ -171,14 +221,17 @@
 
                 </a>
             </div>
-
-            <div class="col">
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <div class="col align-items-end text-right">
+                <ul class="nav justify-content-end list-unstyled d-flex ">
+                    <li>
+                        <button id="contact-us-btn">Contact us!</button>
+                    </li>
                     <li class="me-3">
                         <a class="text-muted" href="https://github.com/mikavir/rx-decoder" target="_blank">
                             <i class="fa-brands fa-lg fa-github" aria-hidden="true"></i>
                         </a>
                     </li>
+                    
                 </ul>
             </div>
         </div>

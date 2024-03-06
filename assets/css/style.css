@@ -110,3 +110,7 @@ span.draggableLetters {
 #instructions {
   display: none;
 }
+
+#contact-modal {
+  display: none;
+}
