@@ -31,7 +31,6 @@ let canSubmit = false;
 let livesLeft = 5;
 let livesTaken = 0;
 let noOfCorrectWords = 0;
-let tempArray = [];
 let cardiacDictionary = [{
         drugName: 'BISOPROLOL',
         hint: 'Beta-blocker to slow heart rate',
@@ -126,7 +125,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                     addCorrectGuessedWords(word);
                                     setUpGame(choice);
 
-                                }, 1000)
+                                }, 300)
                             } else {
                                 $(".letter-container").addClass('incorrect');
                                 setTimeout(function () {
@@ -410,6 +409,33 @@ function showInstructions (){
         instructionSection.style.display = "none";
         startModal.style.display = 'block';
     });
+}
+
+function handleGuessButton () {
+    guessButton.addEventListener("click", (event) => {
+        if (canSubmit) {
+            guessedWord = makeGuessedWord();
+            console.log(makeGuessedWord());
+            console.log(word);
+            if (isGuessedWordCorrect(word, guessedWord) === true) {
+                $(".letter-container").addClass('correct');
+                setTimeout(function () {
+                    nextWord();
+                    addCorrectGuessedWords(word);
+                    setUpGame(choice);
+
+                }, 1000)
+            } else {
+                $(".letter-container").addClass('incorrect');
+                setTimeout(function () {
+                    $(".letter-container").removeClass('incorrect')
+                }, 1000)
+                mistakeMade(livesLeft);
+                isGameOver(correctGuessedWord);
+            }
+        }
+    });
+
 }
 
 if (typeof module !== 'undefined') module.exports = {
