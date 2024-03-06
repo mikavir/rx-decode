@@ -156,7 +156,7 @@ function displayWhenGameStart() {
 
 function setUpGame(choice) {
     if (!(hasUserWonTheGame(choice))) {
-        let chosenDrug = randomIndex(choice);
+        let chosenDrug = getRandomDrug(choice);
     
         word = chosenDrug.drugName;
         hint = chosenDrug.hint;
@@ -183,10 +183,9 @@ function addBox(word) {
 
 // https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
 // function to generate a random index
-function randomIndex(array) {
+function getRandomDrug(array) {
     // should return a random number between the array lenght
     let randomNumber = Math.floor(Math.random() * array.length)
-    console.log(randomNumber);
     let randomDrug = array.splice(randomNumber, 1)[0];
     return randomDrug;
 }
