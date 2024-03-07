@@ -34,59 +34,23 @@ A responsive interactive game that can be used in a range of devices. It is aime
 
 ## UX
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-In this section, you will briefly explain your design processes.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 ### Colour Scheme
+After researching healthcare web applications, I've discovered that specific colors are recommended for use. Among them, blue stands out as particularly advantageous due to its ability to evoke feelings of trust and security. Incorporating the color blue into the design can foster associations with medical professionalism, enhancing user confidence and comfort. Additionally, I've examined medical websites like [BMJ](https://www.bmj.com/) and the [NHS](https://www.nhs.uk/), drawing inspiration from their use of blue hues. This analysis has helped me determine the most suitable shade of blue to incorporate into the web application's design, aligning it with established standards and user expectations within the healthcare field.
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
+- `#333` used for primary text.
+- `#2a6ebb` used for primary highlights.
 
-Explain your colours and the colour scheme.
+I used [coolors.co](https://coolors.co/2a6ebb-97b6da-ffffff-333333) to generate my colour palette.
 
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
+![screenshot](documentation/rx-decoder.png)
 
-- `#000000` used for primary text.
-- `#E84610` used for primary highlights.
-- `#4A4A4F` used for secondary text.
-- `#009FE3` used for secondary highlights.
+These colors serve as visual cues for user feedback on their answers: green signifies correctness, while red indicates an incorrect response.
 
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
+I have used [coolors.co](https://coolors.co/007f3b-ff0000) to generate these colours.
 
-Consider adding a link and screenshot for your colour scheme using "coolors".
-https://coolors.co/generate
+![screenshot](documentation/rx-decoder-1.png)
 
-When you add a colour to the palette, the URL is dynamically updated, making it easier for you to return back to your colour palette later if needed.
-
-Example:
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-I used [coolors.co](https://coolors.co/e84610-009fe3-4a4a4f-445261-d63649-e6ecf0-000000) to generate my colour palette.
-
-![screenshot](documentation/coolors.png)
-
-🛑🛑🛑🛑🛑 START OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-If you've used CSS `:root` variables, consider also including a code snippet here!
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-I've used CSS `:root` variables to easily update the global colour scheme by changing only one value, instead of everywhere in the CSS file.
-
-```css
-:root {
-    /* P = Primary | S = Secondary */
-    --p-text: #000000;
-    --p-highlight: #E84610;
-    --s-text: #4A4A4F;
-    --s-highlight: #009FE3;
-    --white: #FFFFFF;
-    --black: #000000;
-}
-```
 
 ### Typography
 
