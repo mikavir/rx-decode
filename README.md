@@ -1,7 +1,6 @@
 # [RX DECODER](http://mikavir.github.io/rx-decoder)
-
-
-
+![screenshot](documentation/mockup.png)
+*Please see the responsiveness using [Am I Responsive](https://ui.dev/amiresponsive?url=http://mikavir.github.io/rx-decoder)*
 
 **Rx Decoder:** Unlock the *Formula*, Master the *Cure*!
 
