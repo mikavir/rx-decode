@@ -410,6 +410,7 @@ function displayContactModal () {
             });
         } else {
             startModal.style.display = "none";
+            instructionSection.style.display = "none";
             gameOverModal.style.display = "none";
             contactModal.style.display = "block";
             closeContactOutgame.removeAttribute("hidden");
