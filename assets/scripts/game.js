@@ -320,6 +320,7 @@ function hideGameWhenGameOver() {
     gameArea.style.display = "none";
     letterArea.style.display = "none";
     buttonArea.style.display = "none";
+    hintArea.style.display = "none";
     wordsGuessedTally.style.display = "none";
     quitGameArea.style.display = "none";
 }
@@ -394,6 +395,7 @@ function displayContactModal () {
             wordsGuessedTally.style.display = "none";
             quitGameArea.style.display = "none";
             lives.style.display = "none";
+            hintArea.style.display ="none";
             contactModal.style.display = "block";
             closeContactIngame.removeAttribute("hidden");
             closeContactIngame.addEventListener("click", (event) => {

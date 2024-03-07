@@ -59,7 +59,7 @@ span.draggableLetters {
   .letter-box {
     height: 90px;
     width: 40px;
-    margin: .2rem;
+    margin: .15rem;
     border-radius: 10px;
     font: large;
   }
@@ -150,4 +150,9 @@ button:hover {
   background-color: rgba(42,110,187, 0.3);
   border:  #2a6ebb 2px solid;
   color: #333;
+}
+
+#hint-area {
+  background-color: white;
+  border-radius: 15px;
 }

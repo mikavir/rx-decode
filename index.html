@@ -56,7 +56,8 @@
                 </div>
                 <div class="row">
                     <div class=" col-12 instructions">
-                        <button id="instruction-btn">How to play?</button>
+                        <button id="instruction-btn"><i class="fa fa-info-circle" aria-hidden="true"></i>
+                            How to play?</button>
                     </div>
                 </div>
             </div>
@@ -92,7 +93,7 @@
 
                     </div>
                 </div>
-                <form onsubmit="return sendMail(this);">
+                <form onsubmit="return sendMail(this);" class="col">
                     <!-- input group for name field -->
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-12">
@@ -177,7 +178,7 @@
 
                 </div>
                 <div class="row text-center">
-                    <button id="play-again" class="col-12">Play Again</button>
+                    <button id="play-again" class="col">Play Again</button>
                 </div>
             </div>
         </section>
@@ -197,7 +198,7 @@
 
                 </div>
                 <div class="row text-center">
-                    <button id="play-again" class="col-12">Play Again</button>
+                    <button id="play-again" class="col">Play Again</button>
                 </div>
             </div>
         </section>
@@ -217,7 +218,7 @@
         </section>
 
         <section class="row">
-            <div class="col-12">
+            <div class="col">
                 <div id="game-area" class="text-center">
 
                 </div>
@@ -225,7 +226,7 @@
         </section>
 
         <section class="row">
-            <div class="col-12">
+            <div class="col">
                 <div id="letter-area" class="text-center">
 
                 </div>
@@ -241,8 +242,11 @@
                 </span>
             </div>
         </section>
-        <section class="row text-center m-3" id="hint-area">
-            <p id="hint-message"></p>
+        <section class="row text-start m-3" id="hint-area">
+            <div class="col">
+                <span><i class="fa-solid fa-lightbulb"></i></span>
+                <p id="hint-message" class="inline-block"></p>
+            </div>
 
         </section>
         <section class="row text-center m-3" id="quit-game" hidden>
