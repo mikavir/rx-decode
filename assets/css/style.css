@@ -156,3 +156,7 @@ button:hover {
   background-color: white;
   border-radius: 15px;
 }
+
+#hint-icon {
+  color: orange;
+}
