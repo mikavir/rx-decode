@@ -110,7 +110,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         category.addEventListener("click", function () {
             {   
                 let gameType = this.getAttribute('data-type');
-                console.log(gameType);
                 let choice;
                 if (gameType === 'cardiac') {
                     choice = cardiacDictionary;
@@ -130,8 +129,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     guessButton.addEventListener("click", (event) => {
                         if (canSubmit) {
                             guessedWord = makeGuessedWord();
-                            console.log(makeGuessedWord());
-                            console.log(word);
                             if (isGuessedWordCorrect(word, guessedWord) === true) {
                                 $(".letter-container").addClass('correct');
                                 setTimeout(function () {
@@ -174,7 +171,6 @@ function setUpGame(choice) {
     
         word = chosenDrug.drugName;
         hint = chosenDrug.hint;
-        console.log(word);
         addBox(word);
         addGuessletterBox(word);
         dragAndDrop();
@@ -215,11 +211,8 @@ function shuffleWord(word) {
 }
 
 function addGuessletterBox(word) {
-
     let shuffledWord = shuffleWord(word);
-
-    console.log(shuffledWord);
-
+    
     for (letter of shuffledWord) {
         let outerBoxContainer = document.createElement('div');
         outerBoxContainer.className = "letter-box col-2";
@@ -372,7 +365,6 @@ function addFeedbackMessage(noOfWords) {
         feedback = `Well Done! You have guessed ${noOfWords} drugs. Call yourself a master of drugs`
     }
     feedbackMessage.innerText = feedback;
-
 }
 
 function showHint(hint) {
