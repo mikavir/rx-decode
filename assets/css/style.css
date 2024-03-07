@@ -113,6 +113,8 @@ span.draggableLetters {
 
 #game-over {
   display: none;
+  border-radius: 15px;
+  border: #333 solid 1px;
 }
 
 #words-guessed-correctly {
