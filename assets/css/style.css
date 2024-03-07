@@ -136,3 +136,9 @@ button {
   padding-left: 15px;
   margin-bottom: 0.5rem;
 }
+
+button:hover {
+  background-color: rgba(42,110,187, 0.5);
+  border:  #2a6ebb 2px solid;
+  color: #333;
+}
