@@ -6,6 +6,7 @@ let draggableLetters = document.getElementsByClassName('draggableLetters');
 let letterContainers = document.getElementsByClassName('letter-container');
 let gameArea = document.getElementById('game-area');
 let letterArea = document.getElementById('letter-area');
+let gameContainer = document.getElementById('game-container');
 let playAgainButton = document.getElementById('play-again');
 let gameOverModal = document.getElementById('game-over');
 let lives = document.getElementById('lives');
@@ -36,6 +37,7 @@ let canSubmit = false;
 let livesLeft = 5;
 let livesTaken = 0;
 let noOfCorrectWords = 0;
+let gameIsOver = false;
 let cardiacDictionary = [{
         drugName: 'BISOPROLOL',
         hint: 'Hint: Treatment for hypertension and heart failure. It works by selectively blocking certain receptors in the body, resulting in decreased heart rate and blood pressure.',
@@ -318,12 +320,12 @@ function isGameOver() {
 
 function hideGameWhenGameOver() {
     gameOverModal.style.display = "block";
-    gameArea.style.display = "none";
-    letterArea.style.display = "none";
+    gameContainer.style.display = "none";
     buttonArea.style.display = "none";
     hintArea.style.display = "none";
     wordsGuessedTally.style.display = "none";
     quitGameArea.style.display = "none";
+    gameIsOver = true;
 }
 
 function isPlayAgain() {
@@ -389,8 +391,7 @@ function quitGame() {
 function displayContactModal () {
     contactButton.addEventListener("click", (event) => {
         if(startGame) {
-            gameArea.style.display = "none";
-            letterArea.style.display = "none";
+            gameContainer.style.display = "none";
             buttonArea.style.display = "none";
             wordsGuessedTally.style.display = "none";
             quitGameArea.style.display = "none";
@@ -399,8 +400,7 @@ function displayContactModal () {
             contactModal.style.display = "block";
             closeContactIngame.removeAttribute("hidden");
             closeContactIngame.addEventListener("click", (event) => {
-                gameArea.style.display = "block";
-                letterArea.style.display = "block";
+                gameContainer.style.display = "block";
                 buttonArea.style.display = "block";
                 wordsGuessedTally.style.display = "block";
                 quitGameArea.style.display = "block";
@@ -415,9 +415,16 @@ function displayContactModal () {
             contactModal.style.display = "block";
             closeContactOutgame.removeAttribute("hidden");
             closeContactOutgame.addEventListener("click", (event) => {
-                contactModal.style.display = "none";
-                startModal.style.display = "block";
-                closeContactOutgame.setAttribute("hidden", true);
+                if (gameIsOver) {
+                    gameOverModal.style.display = "block";
+                    contactModal.style.display = "none";
+                    closeContactOutgame.setAttribute("hidden", true);
+
+                } else {
+                    contactModal.style.display = "none";
+                    startModal.style.display = "block";
+                    closeContactOutgame.setAttribute("hidden", true);
+                }
             })
         }
     })
@@ -436,8 +443,7 @@ function hasUserWonTheGame(guessedWordList) {
 
 function wonGame() {
     wonGameModal.style.display = "block";
-    gameArea.style.display = "none";
-    letterArea.style.display = "none";
+    gameContainer.style.display = "none";
     buttonArea.style.display = "none";
     wordsGuessedTally.style.display = "none";
     quitGameArea.style.display = "none";
