@@ -75,7 +75,7 @@ span.draggableLetters {
     margin: .1rem;
     border-radius: 5px;
     font: large;
-  }
+  };
 }
 
 
@@ -155,6 +155,7 @@ button:hover {
 #hint-area {
   background-color: white;
   border-radius: 15px;
+  font-size: small;
 }
 
 #hint-icon {
