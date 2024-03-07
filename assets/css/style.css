@@ -127,3 +127,12 @@ span.draggableLetters {
 #contact-modal {
   display: none;
 }
+
+button {
+  background-color: #2a6ebb;
+  color: white;
+  border-radius: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-bottom: 0.5rem;
+}
