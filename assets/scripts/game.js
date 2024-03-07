@@ -185,7 +185,7 @@ function setUpGame(choice) {
 function addBox(word) {
     for (letter of word) {
         let letterPerBox = document.createElement('div');
-        letterPerBox.className = "letter-box col-1 letter-container";
+        letterPerBox.className = "letter-box letter-container";
         letterPerBox.dataset.letter = letter; // https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
         document.getElementById("game-area").appendChild(letterPerBox);
     }
@@ -215,7 +215,7 @@ function addGuessletterBox(word) {
     
     for (letter of shuffledWord) {
         let outerBoxContainer = document.createElement('div');
-        outerBoxContainer.className = "letter-box col-2";
+        outerBoxContainer.className = "letter-box";
         let draggableletterBox = document.createElement('span');
         draggableletterBox.className = "draggableLetters text-center";
         draggableletterBox.dataset.letter = letter;
