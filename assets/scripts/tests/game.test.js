@@ -10,9 +10,9 @@ const {
     painDictionary,
     displayGuessButton,
     isEmpty,
-    isGuessedWordCorrect
+    isGuessedWordCorrect,
+    getRandomDrug
 } = require("../game");
-// creating a mock dom:
 
 
 // Test for start game: 
@@ -33,5 +33,12 @@ describe("is Guessed Word and word the same", () => {
     });
     test("guessed word and word is the same", () => {
         expect(isGuessedWordCorrect(word, correctGuessedWord)).toBe(true);
+    });
+})
+
+describe("is getRandomDrug function working", () => {
+    test("is the drug removed in the array", () => {
+        let randomDrug = getRandomDrug(cardiacDictionary);
+        expect(cardiacDictionary.includes(randomDrug)).toBe(false);
     });
 })

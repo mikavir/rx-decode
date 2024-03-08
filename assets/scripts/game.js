@@ -523,5 +523,6 @@ if (typeof module !== 'undefined') module.exports = {
     addBox,
     isGuessedWordCorrect,
     cardiacDictionary,
-    painDictionary
+    painDictionary,
+    getRandomDrug
 }
