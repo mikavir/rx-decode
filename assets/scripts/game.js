@@ -521,7 +521,7 @@ if (typeof module !== 'undefined') module.exports = {
     startGame,
     gameCategories,
     addBox,
-    randomIndex,
+    isGuessedWordCorrect,
     cardiacDictionary,
     painDictionary
 }

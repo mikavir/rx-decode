@@ -2,25 +2,36 @@
  * @jest-environment jsdom
  */
 
-const { startGame , gameCategories, addBox, randomIndex , cardiacDictionary, painDictionary} = require("../game");
+const {
+    startGame,
+    gameCategories,
+    addBox,
+    cardiacDictionary,
+    painDictionary,
+    displayGuessButton,
+    isEmpty,
+    isGuessedWordCorrect
+} = require("../game");
 // creating a mock dom:
 
-beforeAll(() => {
-    let fs = require("fs");
-    let fileContents = fs.readFileSync("index.html", "utf-8");
-    document.open();
-    document.write(fileContents);
-    document.close()
-})
 
 // Test for start game: 
-describe("start game works",() =>{
+describe("Global Variables return the right content", () => {
     test("startGame is false", () => {
-         expect(startGame).toBe(false);
-    });
-    test('gameCategories returns an array of buttons with with 2 game categories', () => {
-        expect(gameCategories).toHaveLength(2);   
+        expect(startGame).toBe(false);
     });
 });
 
-// test for addBox function:
+// test for isGuessed Word and check word function:
+
+describe("is Guessed Word and word the same", () => {
+    let word = "MELATONIN";
+    let wrongGuessedWord = ["M", "E", "L", "I", "T", "O", "N", "I", "N"];
+    let correctGuessedWord = ["M", "E", "L", "A", "T", "O", "N", "I", "N"];
+    test("guessed word and word is not the same", () => {
+        expect(isGuessedWordCorrect(word, wrongGuessedWord)).toBe(false);
+    });
+    test("guessed word and word is the same", () => {
+        expect(isGuessedWordCorrect(word, correctGuessedWord)).toBe(true);
+    });
+})
