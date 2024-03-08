@@ -182,6 +182,7 @@ function displayWhenGameStart() {
     wordsGuessedTally.removeAttribute('hidden');
     numberOfWordsSpan.innerText = noOfCorrectWords;
     quitGameArea.removeAttribute('hidden');
+    handleInfoButtonIngame();
 }
 
 function setUpGame(choice) {
@@ -497,13 +498,23 @@ function showInstructions() {
         startModal.style.display = 'none';
     });
     closeInstructionButton.addEventListener("click", (event) => {
-        instructionSection.style.display = "none";
-        startModal.style.display = 'block';
+        if(startGame) {
+            instructionSection.style.display = "none";
+        } else {
+            instructionSection.style.display = "none";
+            instructionSection.removeClass = "modal";
+            startModal.style.display = 'block';
+        }
     });
 }
 
 function resetHintButton () {
     $("#hint-button").removeClass("disabled");
+}
+function handleInfoButtonIngame () {
+    $("#instruction-btn-ingame").click(function () {
+        $("#instructions").css("display", "block").addClass("modal");        
+    });
 }
 
 if (typeof module !== 'undefined') module.exports = {
