@@ -478,7 +478,6 @@ function hasUserWonTheGame(guessedWordList) {
         return true;
     }
     return false;
-
 }
 
 function wonGame() {
@@ -525,4 +524,5 @@ if (typeof module !== 'undefined') module.exports = {
     painDictionary,
     getRandomDrug,
     shuffleWord,
+    hasUserWonTheGame,
 }
