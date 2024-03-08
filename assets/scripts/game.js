@@ -7,7 +7,7 @@ let letterContainers = document.getElementsByClassName('letter-container');
 let gameArea = document.getElementById('game-area');
 let letterArea = document.getElementById('letter-area');
 let gameContainer = document.getElementById('game-container');
-let playAgainButton = document.getElementById('play-again');
+let playAgainButton = document.getElementsByClassName('play-again');
 let gameOverModal = document.getElementById('game-over');
 let lives = document.getElementById('lives');
 let guessButton = document.getElementById('guess-button');
@@ -38,6 +38,7 @@ let livesLeft = 5;
 let livesTaken = 0;
 let noOfCorrectWords = 0;
 let gameIsOver = false;
+let gameIsWon = false;
 let cardiacDictionary = [{
         drugName: 'BISOPROLOL',
         hint: 'Hint: Treatment for hypertension and heart failure. It works by selectively blocking certain receptors in the body, resulting in decreased heart rate and blood pressure.',
@@ -104,13 +105,23 @@ let painDictionary = [{
 
 ];
 
+let antibioticsDictionary = [{
+    drugName: "CEFUROXIME",
+    hint: "abx"
+},
+{
+    drugName: "MEROPENUM",
+    hint: "abx"
+}
+];
+
 
 document.addEventListener("DOMContentLoaded", (event) => {
     showInstructions();
     displayContactModal();
     for (let category of gameCategories) {
         category.addEventListener("click", function () {
-            {   
+            {
                 let gameType = this.getAttribute('data-type');
                 let choice;
                 if (gameType === 'cardiac') {
@@ -119,6 +130,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
                 } else if (gameType === 'pain') {
                     choice = painDictionary;
+                    startGame = true;
+                } else if (gameType == 'antibiotics'){
+                    choice = antibioticsDictionary;
                     startGame = true;
                 } else {
                     alert("No items chosen");
@@ -137,6 +151,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                     nextWord();
                                     addCorrectGuessedWords(word);
                                     setUpGame(choice);
+                                    if (gameIsWon) {
+                                        wonGame(correctGuessedWord);
+                                    }
 
                                 }, 300)
                             } else {
@@ -150,7 +167,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         }
                     });
                     quitGame();
-                    
+
                 };
             }
         });
@@ -170,7 +187,7 @@ function displayWhenGameStart() {
 function setUpGame(choice) {
     if (!(hasUserWonTheGame(choice))) {
         let chosenDrug = getRandomDrug(choice);
-    
+
         word = chosenDrug.drugName;
         hint = chosenDrug.hint;
         addBox(word);
@@ -178,9 +195,9 @@ function setUpGame(choice) {
         dragAndDrop();
         showHint(hint);
     } else {
-        wonGame();
+        gameIsWon = true;
+        startGame = false;
     }
-
 }
 
 // Add div per letter of word
@@ -214,7 +231,7 @@ function shuffleWord(word) {
 
 function addGuessletterBox(word) {
     let shuffledWord = shuffleWord(word);
-    
+
     for (letter of shuffledWord) {
         let outerBoxContainer = document.createElement('div');
         outerBoxContainer.className = "letter-box";
@@ -329,9 +346,11 @@ function hideGameWhenGameOver() {
 }
 
 function isPlayAgain() {
-    playAgainButton.addEventListener("click", (event) => {
-        window.location.reload();
-    });
+    for (let btn of playAgainButton) {
+        btn.addEventListener("click", (event) => {
+            window.location.reload();
+        });
+    }
 }
 
 //https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
@@ -388,15 +407,15 @@ function quitGame() {
     });
 }
 
-function displayContactModal () {
+function displayContactModal() {
     contactButton.addEventListener("click", (event) => {
-        if(startGame) {
+        if (startGame) {
             gameContainer.style.display = "none";
             buttonArea.style.display = "none";
             wordsGuessedTally.style.display = "none";
             quitGameArea.style.display = "none";
             lives.style.display = "none";
-            hintArea.style.display ="none";
+            hintArea.style.display = "none";
             contactModal.style.display = "block";
             closeContactIngame.removeAttribute("hidden");
             closeContactIngame.addEventListener("click", (event) => {
@@ -408,37 +427,53 @@ function displayContactModal () {
                 closeContactIngame.setAttribute("hidden", true);
                 contactModal.style.display = "none";
             });
-        } else {
-            startModal.style.display = "none";
-            instructionSection.style.display = "none";
+        } else if (gameIsWon) {
+            wonGameModal.style.display = "none";
+            contactModal.style.display = "block";        
+            closeContactOutgame.removeAttribute("hidden");
+            handleCloseContactBtn();
+        } else if (gameIsOver) {
             gameOverModal.style.display = "none";
             contactModal.style.display = "block";
             closeContactOutgame.removeAttribute("hidden");
-            closeContactOutgame.addEventListener("click", (event) => {
-                if (gameIsOver) {
-                    gameOverModal.style.display = "block";
-                    contactModal.style.display = "none";
-                    closeContactOutgame.setAttribute("hidden", true);
-
-                } else {
-                    contactModal.style.display = "none";
-                    startModal.style.display = "block";
-                    closeContactOutgame.setAttribute("hidden", true);
-                }
-            })
+            handleCloseContactBtn();
+        } else {
+            instructionSection.style.display = "none";
+            startModal.style.display = "none";
+            contactModal.style.display = "block";
+            closeContactOutgame.removeAttribute("hidden");
+            handleCloseContactBtn();
         }
+        
     })
 
 }
 
+function handleCloseContactBtn() {
+    closeContactOutgame.addEventListener("click", (event) => {
+        if (gameIsOver) {
+            gameOverModal.style.display = "block";
+            contactModal.style.display = "none";
+            closeContactOutgame.setAttribute("hidden", true);
 
+        } else if (gameIsWon) {
+            wonGameModal.style.display = "block";
+            contactModal.style.display = "none";
+            closeContactOutgame.setAttribute("hidden", true);
+        } else {
+            contactModal.style.display = "none";
+            startModal.style.display = "block";
+            closeContactOutgame.setAttribute("hidden", true);
+        }
+    });
+}
 
 function hasUserWonTheGame(guessedWordList) {
-  if (guessedWordList.length === 0) {
-    return true;
-  }
-  return false;
-  
+    if (guessedWordList.length === 0) {
+        return true;
+    }
+    return false;
+
 }
 
 function wonGame() {
@@ -452,7 +487,7 @@ function wonGame() {
     writeCorrectGuessedWords(correctGuessedWord);
 }
 
-function showInstructions (){
+function showInstructions() {
     instructionButton.addEventListener("click", (event) => {
         instructionSection.style.display = "block";
         startModal.style.display = 'none';
