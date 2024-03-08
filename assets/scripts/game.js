@@ -193,6 +193,7 @@ function setUpGame(choice) {
         addBox(word);
         addGuessletterBox(word);
         dragAndDrop();
+        resetHintButton();
         showHint(hint);
     } else {
         gameIsWon = true;
@@ -298,9 +299,11 @@ function isLetterContainersFilled() {
 function handleSubmitButton() {
     let guessButton = document.getElementById('guess-button');
     if (isLetterContainersFilled()) {
+        guessButton.classList.remove('disabled');
         guessButton.classList.add('enabled');
         canSubmit = true;
     } else {
+        guessButton.classList.add('disabled');
         guessButton.classList.remove('enabled');
         canSubmit = false;
     }
@@ -392,6 +395,7 @@ function showHint(hint) {
     hintMessage.innerText = hint;
     $("#hint-button").click(function () {
         $("#hint-area").css('display', 'block');
+        $(this).addClass("disabled");
     });
 }
 
@@ -498,7 +502,9 @@ function showInstructions() {
     });
 }
 
-
+function resetHintButton () {
+    $("#hint-button").removeClass("disabled");
+}
 
 if (typeof module !== 'undefined') module.exports = {
     startGame,
