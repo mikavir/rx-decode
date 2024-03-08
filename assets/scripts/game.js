@@ -518,11 +518,19 @@ function handleInfoButtonIngame () {
 
 if (typeof module !== 'undefined') module.exports = {
     startGame,
-    gameCategories,
     isGuessedWordCorrect,
     cardiacDictionary,
     painDictionary,
     getRandomDrug,
     shuffleWord,
     hasUserWonTheGame,
+    word,
+    hint,
+    correctGuessedWord,
+    canSubmit,
+    livesLeft,
+    livesTaken,
+    noOfCorrectWords,
+    gameIsOver,
+    gameIsWon,
 }

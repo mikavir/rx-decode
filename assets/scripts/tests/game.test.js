@@ -4,21 +4,58 @@
 
 const {
     startGame,
-    gameCategories,
     isGuessedWordCorrect,
     cardiacDictionary,
     painDictionary,
     getRandomDrug,
     shuffleWord,
     hasUserWonTheGame,
+    word,
+    hint,
+    correctGuessedWord,
+    canSubmit,
+    livesLeft,
+    livesTaken,
+    noOfCorrectWords,
+    gameIsOver,
+    gameIsWon,
 } = require("../game");
 
 
-// Test for start game: 
+// Test for global variables in game: 
 describe("Global Variables return the right content", () => {
     test("startGame is false", () => {
         expect(startGame).toBe(false);
     });
+    test("Word should be an empty array", () => {
+        expect(word.length).toBe(0);
+    });
+    test("Hint should be an empty array", () => {
+        expect(hint.length).toBe(0);
+    });
+    test("correctGuessedWord should be an empty array", () => {
+        expect(correctGuessedWord.length).toBe(0);
+    });
+    test("canSubmit is false", () => {
+        expect(canSubmit).toBe(false);
+    });
+    test("livesLeft is 5", () => {
+        expect(livesLeft).toBe(5);
+    });
+    test("livesTaken is 0", () => {
+        expect(livesTaken).toBe(0);
+    });
+    test("noOfCorrectGuessedWord should be 0", () => {
+        expect(noOfCorrectWords).toBe(0);
+    });
+    test("gameIsOver is false", () => {
+        expect(gameIsOver).toBe(false);
+    });
+    test("gameIsWon is false", () => {
+        expect(gameIsWon).toBe(false);
+    });
+
+
 });
 
 // test for isGuessed Word and check word function:
