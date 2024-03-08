@@ -5,13 +5,11 @@
 const {
     startGame,
     gameCategories,
-    addBox,
+    isGuessedWordCorrect,
     cardiacDictionary,
     painDictionary,
-    displayGuessButton,
-    isEmpty,
-    isGuessedWordCorrect,
-    getRandomDrug
+    getRandomDrug,
+    shuffleWord,
 } = require("../game");
 
 
@@ -36,9 +34,19 @@ describe("is Guessed Word and word the same", () => {
     });
 })
 
+// Test for get random drug fn
 describe("is getRandomDrug function working", () => {
     test("is the drug removed in the array", () => {
         let randomDrug = getRandomDrug(cardiacDictionary);
         expect(cardiacDictionary.includes(randomDrug)).toBe(false);
+    });
+})
+
+// Test for shuffle word
+describe("is shuffle word function working", () => {
+    let word = painDictionary[0].drugName;
+    let shuffledWord = shuffleWord(word);
+    test("word and shuffled word is not the same and should return false", () => {
+        expect(word === shuffledWord).toBe(false);
     });
 })
