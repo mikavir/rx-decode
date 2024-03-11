@@ -1,3 +1,4 @@
+
 // Variables from Dom
 let startGame = false;
 const gameCategories = document.getElementsByClassName('game-categories');
@@ -29,6 +30,7 @@ let contactModal = document.getElementById('contact-modal');
 let closeContactIngame = document.getElementById('close-contact-btn-ingame');
 let closeContactOutgame = document.getElementById('close-contact-btn-outgame');
 
+
 // Global Variables for game.js
 let word = "";
 let hint = "";
@@ -39,6 +41,7 @@ let livesTaken = 0;
 let noOfCorrectWords = 0;
 let gameIsOver = false;
 let gameIsWon = false;
+const jsConfetti = new JSConfetti();
 let cardiacDictionary = [{
         drugName: 'BISOPROLOL',
         hint: 'Hint: Treatment for hypertension and heart failure. It works by selectively blocking certain receptors in the body, resulting in decreased heart rate and blood pressure.',
@@ -106,13 +109,13 @@ let painDictionary = [{
 ];
 
 let antibioticsDictionary = [{
-    drugName: "CEFUROXIME",
-    hint: "abx"
-},
-{
-    drugName: "MEROPENUM",
-    hint: "abx"
-}
+        drugName: "CEFUROXIME",
+        hint: "abx"
+    },
+    {
+        drugName: "MEROPENUM",
+        hint: "abx"
+    }
 ];
 
 
@@ -131,7 +134,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 } else if (gameType === 'pain') {
                     choice = painDictionary;
                     startGame = true;
-                } else if (gameType == 'antibiotics'){
+                } else if (gameType == 'antibiotics') {
                     choice = antibioticsDictionary;
                     startGame = true;
                 } else {
@@ -434,7 +437,7 @@ function displayContactModal() {
             });
         } else if (gameIsWon) {
             wonGameModal.style.display = "none";
-            contactModal.style.display = "block";        
+            contactModal.style.display = "block";
             closeContactOutgame.removeAttribute("hidden");
             handleCloseContactBtn();
         } else if (gameIsOver) {
@@ -449,7 +452,7 @@ function displayContactModal() {
             closeContactOutgame.removeAttribute("hidden");
             handleCloseContactBtn();
         }
-        
+
     })
 
 }
@@ -487,8 +490,11 @@ function wonGame() {
     wordsGuessedTally.style.display = "none";
     quitGameArea.style.display = "none";
     lives.style.display = "none";
+    // https://www.npmjs.com/package/js-confetti
+    jsConfetti.addConfetti({
+        emojis : ['💊'],
+     })
     isPlayAgain();
-    writeCorrectGuessedWords(correctGuessedWord);
 }
 
 function showInstructions() {
@@ -497,7 +503,7 @@ function showInstructions() {
         startModal.style.display = 'none';
     });
     closeInstructionButton.addEventListener("click", (event) => {
-        if(startGame) {
+        if (startGame) {
             instructionSection.style.display = "none";
         } else {
             instructionSection.style.display = "none";
@@ -507,14 +513,17 @@ function showInstructions() {
     });
 }
 
-function resetHintButton () {
+function resetHintButton() {
     $("#hint-button").removeClass("disabled");
 }
-function handleInfoButtonIngame () {
+
+function handleInfoButtonIngame() {
     $("#instruction-btn-ingame").click(function () {
-        $("#instructions").css("display", "block").addClass("modal");        
+        $("#instructions").css("display", "block").addClass("modal");
     });
 }
+
+
 
 if (typeof module !== 'undefined') module.exports = {
     startGame,
