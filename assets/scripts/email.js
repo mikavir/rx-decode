@@ -12,6 +12,7 @@ function sendMail(contactForm) {
                 function (response) {
                     console.log("SUCCESS", response);
                     emailFeedBack.innerText = "Email succesfully sent!";
+                    contactForm.setAttribute("hidden", true);
                     
                 },
                 function (error) {
