@@ -94,6 +94,12 @@ span.draggableLetters {
   color: white;
 }
 
+.enabled:hover {
+  border: 1px #007f3b solid; 
+  background-color: rgba(0,127,59, 0.2);
+  color: #007f3b;
+}
+
 .correct {
   border: #007f3b 2px solid;
 }
@@ -123,11 +129,12 @@ button, #submit-button {
   padding-right: 15px;
   padding-left: 15px;
   margin-bottom: 0.5rem;
-  &:not(.disabled):hover {
+  &:not(.disabled):hover&:not(.enabled):hover {
     background-color: rgba(42,110,187, 0.3);
     border:  #2a6ebb 2px solid;
     color: #333;
-  };    
+  };  
+    
 }
 
 .disabled {
