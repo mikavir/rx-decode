@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 });
 
-
+/** Display the game area */
 function displayWhenGameStart() {
     startModal.style.display = 'none';
     displayLives();
@@ -205,10 +205,10 @@ function displayWhenGameStart() {
     handleInfoButtonIngame();
 }
 
+/** Set up the game as long as user has not won */
 function setUpGame(choice) {
     if (!(hasUserWonTheGame(choice))) {
         let chosenDrug = getRandomDrug(choice);
-
         word = chosenDrug.drugName;
         hint = chosenDrug.hint;
         addBox(word);
@@ -222,7 +222,7 @@ function setUpGame(choice) {
     }
 }
 
-// Add div per letter of word
+/** Add a div to the game area per letter of the chosen word*/
 function addBox(word) {
     for (letter of word) {
         let letterPerBox = document.createElement('div');
@@ -233,7 +233,7 @@ function addBox(word) {
 };
 
 // https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
-// function to generate a random index
+/** Removes a random drug from the array and returns it to be used */ 
 function getRandomDrug(array) {
     // should return a random number between the array lenght
     let randomNumber = Math.floor(Math.random() * array.length)
@@ -242,6 +242,7 @@ function getRandomDrug(array) {
 }
 
 // https://stackoverflow.com/questions/3943772/how-do-i-shuffle-the-characters-in-a-string-in-javascript
+/** Shuffle the word array */
 function shuffleWord(word) {
     let shuffledWord = '';
     word = word.split('');
@@ -251,6 +252,7 @@ function shuffleWord(word) {
     return shuffledWord;
 }
 
+/** Add a div and a span per letter of the word to the letter-area of the game container */
 function addGuessletterBox(word) {
     let shuffledWord = shuffleWord(word);
 
@@ -264,7 +266,6 @@ function addGuessletterBox(word) {
         draggableletterBox.innerText = letter;
         outerBoxContainer.appendChild(draggableletterBox);
         document.getElementById("letter-area").appendChild(outerBoxContainer);
-
     }
 }
 
@@ -304,10 +305,12 @@ function dragAndDrop() {
 
 }
 
+/** Bool to check if parent div has no children */
 function isEmpty(parent) {
     return parent.children.length == 0;
 }
 
+/** Checks if all the letter containers are filled */
 function isLetterContainersFilled() {
     for (let letterContainer of letterContainers) {
         if (!(letterContainer.children.length > 0)) {
