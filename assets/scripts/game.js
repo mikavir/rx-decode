@@ -110,13 +110,30 @@ let painDictionary = [{
 
 let antibioticsDictionary = [{
         drugName: "CEFUROXIME",
-        hint: "abx"
+        hint: "Hint: This antibiotic is a second-generation cephalosporin commonly used to treat a variety of bacterial infections, including respiratory tract infections, skin infections, and urinary tract infections. It shares structural similarities with other cephalosporins but possesses enhanced activity against some Gram-negative bacteria."
     },
     {
-        drugName: "MEROPENUM",
-        hint: "abx"
-    }
+        drugName: "MEROPENEM",
+        hint: "Hint: This broad-spectrum antibiotic is a carbapenem often used for severe bacterial infections, including intra-abdominal infections, pneumonia, and complicated urinary tract infections. Its spectrum of activity includes both Gram-positive and Gram-negative bacteria, making it a potent choice for serious infections where other antibiotics may be ineffective."
+    },
+    {
+        drugName: "VANCOMYCIN",
+        hint: `Hint: This antibiotic is often referred to as a "last resort" medication due to its potency against multidrug-resistant bacteria, particularly Gram-positive organisms such as MRSA (Methicillin-resistant Staphylococcus aureus). It's commonly used to treat serious infections like bloodstream infections, pneumonia, and infections caused by Clostridium difficile.`
+    },
+    {
+        drugName: "GENTAMICIN",
+        hint: "Hint: This antibiotic belongs to the aminoglycoside class and is commonly used to treat severe bacterial infections, particularly those caused by Gram-negative bacteria such as Escherichia coli and Pseudomonas aeruginosa. It's often administered parenterally and is known for its efficacy against a wide range of bacteria, but it's also associated with potential side effects such as nephrotoxicity and ototoxicity."
+    },
+    {
+        drugName: "PENICILLIN",
+        hint: "Hint: This widely used antibiotic was the first discovered member of the beta-lactam class of antibiotics. It's effective against a broad range of bacterial infections, especially those caused by Gram-positive bacteria such as Streptococcus and Staphylococcus species. Despite its effectiveness, some strains of bacteria have developed resistance to it over time."
+    },
+    {
+        drugName: "TAZOCIN",
+        hint: "Hint: This antibiotic combination is known for its broad spectrum of activity against both Gram-positive and Gram-negative bacteria, including many strains that are resistant to other antibiotics. It's commonly used in hospital settings for serious infections where a potent antibiotic is required."
+    },
 ];
+
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
