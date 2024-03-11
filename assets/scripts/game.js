@@ -48,7 +48,7 @@ let cardiacDictionary = [{
         hint: "Hint: It's commonly found in foods like bananas, oranges, and potatoes, and its deficiency can lead to symptoms like muscle weakness and irregular heartbeat.",
     },
     {
-        drugName: 'AMLODOPINE',
+        drugName: 'AMLODIPINE',
         hint: 'Hint: This medication is widely prescribed to treat hypertension (high blood pressure) and certain cardiovascular conditions. It belongs to a class of drugs known as calcium channel blockers and works by relaxing blood vessels, thereby improving blood flow and lowering blood pressure.'
     },
     {
@@ -56,7 +56,7 @@ let cardiacDictionary = [{
         hint: 'Hint: This medication is often prescribed for the treatment of hypertension (high blood pressure) and heart failure. It belongs to a class of drugs known as angiotensin-converting enzyme (ACE) inhibitors, which work by relaxing blood vessels, reducing blood pressure, and improving heart function.'
     },
     {
-        drugName: 'LISONOPRIL',
+        drugName: 'LISINOPRIL',
         hint: 'Hint: This medication is commonly prescribed to treat hypertension (high blood pressure) and heart failure. It belongs to a class of drugs known as angiotensin-converting enzyme (ACE) inhibitors, which work by relaxing blood vessels and reducing the workload on the heart.'
     },
     {
@@ -75,7 +75,7 @@ let cardiacDictionary = [{
 ];
 
 let painDictionary = [{
-        drugName: 'OROMORPH',
+        drugName: 'ORAMORPH',
         hint: "Hint: This medication is a powerful opioid painkiller commonly used for the relief of severe pain, particularly in palliative care or end-of-life situations. It's often prescribed in liquid form for ease of administration, especially for patients who have difficulty swallowing tablets or capsules.",
     },
     {
