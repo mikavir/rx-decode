@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     alert("No items chosen");
                 };
                 if (startGame) {
-                    displayWhenGameStart();
+                    displayWhenGameStart(gameType, choice);
                     setUpGame(choice);
                     // checks to see if all the letter container is filled then will change class of button
                     setInterval(handleSubmitButton, 1000);
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 $(".letter-container").addClass('correct');
                                 setTimeout(function () {
                                     nextWord();
-                                    addCorrectGuessedWords(word);
+                                    addCorrectGuessedWords(gameType, choice, word);
                                     setUpGame(choice);
                                     if (gameIsWon) {
                                         wonGame(correctGuessedWord);
@@ -195,12 +195,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 /** Display the game area */
-function displayWhenGameStart() {
+function displayWhenGameStart(gameType, choice) {
     startModal.style.display = 'none';
     displayLives();
     buttonArea.removeAttribute('hidden');
     wordsGuessedTally.removeAttribute('hidden');
-    numberOfWordsSpan.innerText = noOfCorrectWords;
+    numberOfWordsSpan.innerText = `${gameType} drug: ${noOfCorrectWords+1}/${choice.length}`;
     quitGameArea.removeAttribute('hidden');
     handleInfoButtonIngame();
 }
@@ -269,20 +269,26 @@ function addGuessletterBox(word) {
     }
 }
 
-
+/** Display lives by removing hidden attribute */
 function displayLives() {
     lives.removeAttribute('hidden');
 }
 
+/** Drag and Drop functionality */
 function dragAndDrop() {
     $('.draggableLetters').css({
         'left': '0px',
 
-  
     });
     $('.draggableLetters').draggable({
         revert: true,
         zIndex: 100,
+        start: function(event, ui){
+            $(this).addClass("dragging");   
+        },
+        stop: function(event, ui){
+            $(this).removeClass("dragging");   
+        }
 
     });
     $(".letter-container").droppable({
@@ -359,6 +365,9 @@ function isGameOver() {
         isPlayAgain();
         writeCorrectGuessedWords(correctGuessedWord);
         addFeedbackMessage(noOfCorrectWords);
+        jsConfetti.addConfetti({
+            emojis : ['☠️'],
+         });
         startGame = false;
         return true;
     }
@@ -391,10 +400,10 @@ function nextWord() {
     hintArea.style.display = "none";
 }
 
-function addCorrectGuessedWords(guessedWord) {
+function addCorrectGuessedWords(gameType, choice, guessedWord) {
     correctGuessedWord.push(guessedWord);
     noOfCorrectWords = correctGuessedWord.length;
-    numberOfWordsSpan.innerText = noOfCorrectWords;
+    numberOfWordsSpan.innerText = `${gameType} drug: ${noOfCorrectWords+1}/${choice.length}`;
 }
 
 function writeCorrectGuessedWords(wordList) {
@@ -408,13 +417,13 @@ function writeCorrectGuessedWords(wordList) {
 function addFeedbackMessage(noOfWords) {
     let feedback = ""
     if (noOfWords === 0) {
-        feedback = "Boohoo! You have guessed none of the drugs. Time to read the British National Formulary (BNF)"
+        feedback = `Boohoo! You have guessed none of the drugs. Time to read the <a target="_blank" href="https://bnf.nice.org.uk/" rel="nofollow noreferrer">British National Formulary (BNF)</a>`;
     } else if (noOfWords === 1) {
-        feedback = `Well done! You have guessed a drug. Read the British National Formulary (BNF) to learn more drugs`
+        feedback = `Well done! You have guessed a drug. Read the <a target="_blank" href="https://bnf.nice.org.uk/" rel="nofollow noreferrer">British National Formulary (BNF)</a> to learn more drugs`;
     } else {
-        feedback = `Well Done! You have guessed ${noOfWords} drugs. Call yourself a master of drugs`
+        feedback = `Well Done! You have guessed ${noOfWords} drugs. Call yourself a master of drugs`;
     }
-    feedbackMessage.innerText = feedback;
+    feedbackMessage.innerHTML = feedback;
 }
 
 function showHint(hint) {
@@ -432,7 +441,12 @@ function quitGame() {
         writeCorrectGuessedWords(correctGuessedWord);
         addFeedbackMessage(noOfCorrectWords);
         lives.style.display = "none";
+        jsConfetti.addConfetti({
+            emojis : ['😭'],
+         });
+
         startGame = false;
+
 
     });
 }
