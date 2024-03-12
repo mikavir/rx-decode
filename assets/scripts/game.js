@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                     addCorrectGuessedWords(gameType, noOfDrugs, word);
                                     setUpGame(choice);
                                     if (gameIsWon) {
-                                        wonGame(correctGuessedWord);
+                                        wonGame();
                                     }
 
                                 }, 300)
@@ -367,7 +367,7 @@ function mistakeMade() {
 }
 
 /** Handle a game over event and add animation */
-function isGameOver() {
+function isGameOver(correctGuessedWord) {
     if (livesLeft === 0) {
         hideGameWhenGameOver();
         isPlayAgain();
@@ -410,7 +410,7 @@ function nextWord() {
 }
 
 /** Display and add correct guessed words to the array*/
-function addCorrectGuessedWords(gameType, guessedWord) {
+function addCorrectGuessedWords(gameType, noOfDrugs, guessedWord) {
     correctGuessedWord.push(guessedWord);
     noOfCorrectWords = correctGuessedWord.length;
     numberOfWordsSpan.innerText = `${gameType} drug: ${noOfCorrectWords+1}/${noOfDrugs}`;
