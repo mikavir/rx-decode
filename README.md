@@ -155,21 +155,6 @@ Contact
 
 ## Features
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-In this section, you should go over the different parts of your project,
-and describe each in a sentence or so.
-
-You will need to explain what value each of the features provides for the user,
-focusing on who this website is for, what it is that they want to achieve,
-and how your project is the best way to help them achieve these things.
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-IMPORTANT: Remember to always include a screenshot of each individual feature!
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### Existing Features
 
 - **Logo**
@@ -178,25 +163,96 @@ IMPORTANT: Remember to always include a screenshot of each individual feature!
 
 ![screenshot](documentation/features/feature01.png)
 
-- **{{ YOUR-TITLE-FOR-FEATURE-#2 }}**
+- **Start Modal**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - The start modal serves as the initial display of the game, presenting a clear layout of its mechanics. Users are prompted to begin gameplay by selecting one of the categorized buttons, while also having the option to access instructions through a dedicated button. It sets expectations by communications the goals and rewards of the game.
 
 ![screenshot](documentation/features/feature02.png)
 
-- **{{ YOUR-TITLE-FOR-FEATURE-#3 }}**
+- **"How to Play" Modal**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - The "How to Play" modal provides clear instructions on the rules and gameplay mechanics, ensuring that players understand how to play the game correctly and avoid confusion or frustration. It helps newcomers understand the game mechanics of the drag and drop, and objectives quickly and efficiently, reducing the learning curve and enhancing their overall gaming experience.
 
 ![screenshot](documentation/features/feature03.png)
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+- **"Contact" button**
 
-Repeat as necessary for as many features as your site contains.
+    - A contact button that's easy to find in the game helps players access help when they need it. Putting it in a visible spot shows that the game cares about its players and can boost its reputation.
 
-Hint: the more, the merrier!
+![screenshot](documentation/features/feature04.png)
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+- **"Contact" Modal**
+
+    - The implentation of contact modal in a game allows players to easily get help and report issues, improving their experience. It encourages players to engage with developers and ensures accessibility for all. This is beneficial for the developer as they can receive feedback on the game. When user have filled the contact form, they will receive a auto-reply email for confirmation that their form had submitted. Otherwise, error messages will appear.
+
+![screenshot](documentation/features/feature05.png)
+
+- **"Go Back to Game" Button**
+
+    - Including a "Go Back to Game" button on the contact screen enables users to return to their game session seamlessly. This feature instills confidence in users when reporting bugs or issues, as they know they can easily resume their gameplay afterward.
+    
+![screenshot](documentation/features/feature06.png)
+
+- **"Hint" Button and Section**
+
+    - Implementing a "Hint Button" enables players to receive assistance when they're stuck, reducing frustration and improving their chances of completing the game. The hints, which outline drug actions, aid medical professionals in identifying unfamiliar medications and offer a learning opportunity for those unfamiliar with drug actions.
+    
+![screenshot](documentation/features/feature07.png)
+
+- **"Exit Game" Button**
+
+    - The "Exit Game" button will allow users to quit the game. Its presence will improve user experience as it will allow users to control their gaming sessions and choose when to end them, enhancing their overall satisfaction and autonomy. Having a clearly labeled exit button helps prevent player frustration by eliminating the need for complex or time-consuming steps to exit the game.
+    
+![screenshot](documentation/features/feature08.png)
+
+- **Lives and Dissapearing Hearts Animation**
+
+    - The game features five lives represented by hearts. When a mistake is made while guessing the word, the user loses a life, and a heart vanishes using jQuery animation. The limited number of lives adds a sense of challenge and excitement, prompting players to strategize and persevere to advance in the game. Conserving lives and conquering challenging drug names enhances the gaming experience, making their wins feel more rewarding.
+
+![screenshot](documentation/features/feature09.png)
+
+- **Progress Tracker**
+
+    - The game incorporates a progress tracker, indicating both the number of drugs guessed and those remaining, aiding users in tracking their progress and setting goals to decipher the remaining drug names. Moreover, the displayed drug titles adapt based on the chosen category, for instance, displaying "cardiac drug" if the cardiac category is selected.
+
+![screenshot](documentation/features/feature10.png)
+
+- **Game Over Modal**
+
+    -This modal appears when the user quits or loses the game. It showcases a confetti of emojis, generated through [js-confetti](https://www.npmjs.com/package/js-confetti), tailored to the situation. When the user quits, a "crying emoji" 😭 is displayed, while losing lives prompts a "skull and crossbones" ☠️. This feature provides visual feedback to enhance user engagement and also highlights the drug names guessed by the user, recognizing their achievements. 
+
+    -The messages in the game over modal also differs in depending on the number of words that the user have guessed.
+    
+    *No words guessed* :
+    "Boohoo! You have guessed none of the drugs. Time to read the British National Formulary (BNF)"
+
+    *1 words guessed* : 
+    "Well done! You have guessed a drug. Read theBritish National Formulary (BNF) to learn more drugs"
+
+    *More than 1 word* :
+    "Well Done! You have guessed (*number of drugs*) drugs. Call yourself a master of drugs"
+
+
+![screenshot](documentation/features/feature11.png)
+
+- **Won Game modal**
+
+    - When the user successfully guesses all the drug names, the "Won Game" modal appears, accompanied by a confetti of emojis resembling pills 💊 using [js-confetti](https://www.npmjs.com/package/js-confetti). This modal serves to recognize the user's achievement and celebrate their success. It includes a call-to-action prompting users to try another category, encouraging them to stay engaged with the game.
+
+![screenshot](documentation/features/feature12.png)
+
+- **Play Again Button**
+
+    - The "Play Again" button enables users to replay the game by reloading the page back to the "Start Modal". Conveniently placed within both the "Game Over" and "Won Game" modals, it encourages users to engage in another round of gameplay.
+    
+![screenshot](documentation/features/feature13.png)
+
+- **Drag and Drop Game Area**
+
+    - The use of "Drag and Drop" mechanics encourages accesibility as it is easy to understand increasing to wider target audience. 
+    
+![screenshot](documentation/features/feature14.png)
+
 
 ### Future Features
 
