@@ -10,7 +10,6 @@ function sendMail(contactForm) {
             })
             .then(
                 function (response) {
-                    console.log("SUCCESS", response);
                     emailFeedBack.innerText = "Email succesfully sent!";
                     contactForm.setAttribute("hidden", true);
                     
