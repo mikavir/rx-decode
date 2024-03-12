@@ -45,6 +45,7 @@ span.draggableLetters {
   position: absolute;
   top: 0;
   bottom: 0;
+  z-index: 1;
   background-color: inherit;
   border-radius: inherit;
   color: inherit;
@@ -156,6 +157,7 @@ button, #submit-button {
   border: 2px solid #333;
   border-radius: 15px;
   background: white;
+  margin: 0;
   
 }
 

@@ -277,10 +277,12 @@ function displayLives() {
 function dragAndDrop() {
     $('.draggableLetters').css({
         'left': '0px',
-        'justify-content': 'center',
+
+  
     });
     $('.draggableLetters').draggable({
         revert: true,
+        zIndex: 100,
 
     });
     $(".letter-container").droppable({
