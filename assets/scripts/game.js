@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                         wonGame();
                                     }
 
-                                }, 300)
+                                }, 1000)
                             } else {
                                 $(".letter-container").addClass('incorrect');
                                 setTimeout(function () {
@@ -576,7 +576,7 @@ function handleInfoButtonIngame() {
 // Add confetti based on events, Named Ignore line for jest to ignore;
 // https://www.npmjs.com/package/js-confetti
 // https://codewithhugo.com/jest-exclude-coverage/
-function ignoreLine(){
+function ignoreLine() {
     const jsConfetti = new JSConfetti();
     if (gameIsWon) {
         jsConfetti.addConfetti({
