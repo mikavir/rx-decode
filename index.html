@@ -16,9 +16,9 @@
     <script src="https://kit.fontawesome.com/61cd806bb5.js" crossorigin="anonymous"></script>
 
     <!-- Email Js -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    <script  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
-    <script type="text/javascript">
+    <script>
         (function () {
             emailjs.init({
                 publicKey: "F2EhInxPV6ikLORcL",
@@ -49,10 +49,10 @@
     <main class="container d-flex flex-column ">
 
         <!-- Start Modal -->
-        <section id="start-menu" class=" pop-up row p-5">
+        <aside id="start-menu" class=" pop-up row p-5">
             <div class="col-12 col-md-6 mx-auto text-center">
-                <p> Welcome to the Rx Decoder! To start cracking the code, select a drug
-                    category to decode. Let's decode some drugs!</p>
+                <h6> Welcome to the Rx Decoder! To start cracking the code, select a drug
+                    category to decode. Let's decode some drugs!</h6>
                 <div class="row menu-option">
                     <div class="col-12 col-md-4">
                         <button class="game-categories" data-type="cardiac">Cardiac</button>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </aside>
 
         <!-- Instructions Modal -->
         <section id="instructions" class="pop-up row p-5">
@@ -143,7 +143,7 @@
                                         <i class="fa-solid fa-tags"></i>
                                     </span>
                                     <input type="text" class="form-control" id="title" name="subject-input"
-                                        placeholder="Title" aria-label="title" aria-describedby="title-input" required>
+                                        placeholder="Title" aria-label="title" aria-describedby="subject-input" required>
                                 </div>
                             </div>
                         </div>
@@ -206,11 +206,6 @@
 
                     </div>
                 </div>
-                <div class="row">
-                    <ul class="col" id="words-guessed-correctly">
-                    </ul>
-
-                </div>
                 <div class="row text-center">
                     <button class="play-again col">Play Again</button>
                 </div>
@@ -218,7 +213,7 @@
         </section>
 
         <!-- Lives and Words won -->
-        <section class="row">
+        <aside class="row">
             <div class="col-sm text-center" id="lives" hidden>
                 <span id="life1"><i class="fa-solid fa-heart p-1 "></i></span>
                 <span id="life2"><i class="fa-solid fa-heart p-1"></i></span>
@@ -230,10 +225,10 @@
             <div class="col-sm text-center" id="words-guessed" hidden>
                 <span id="number-words-guessed" class="text-uppercase"></span>
             </div>
-        </section>
+        </aside>
 
         <!-- Game Container -->       
-        <section id="game-container" class="row mt-2">
+        <div id="game-container" class="row mt-2">
             <div class="col-12">
                 <div id="game-area" class="text-center">
 
@@ -244,9 +239,9 @@
     
                 </div>
             </div>    
-        </section>
+        </div>
 
-        <section class="row" id="button-area" hidden>
+        <aside class="row" id="button-area" hidden>
             <div class="col text-center">
                 <span>
                     <button id="guess-button" class="disabled">Guess Drug</button>
@@ -255,10 +250,10 @@
                     <button id="hint-button"> Hint <i class="fa-regular fa-lightbulb"></i></button>
                 </span>
             </div>
-        </section>
+        </aside>
 
         <!-- Hint Area -->
-        <section class="row  m-3 p-3" id="hint-area">
+        <aside class="row  m-3 p-3" id="hint-area">
             <div class="col">
                 <div class="row">
                     <div class="col text-center">
@@ -267,14 +262,14 @@
                     </div>
                 </div>
                 <div class="row text-start">
-                    <span class="col"><p id="hint-message" class="inline-block"></p></span>
+                    <p id="hint-message" class="inline-block col"></p>
 
                 </div>         
             </div>
-        </section>
+        </aside>
 
         <!-- Exit game -->
-        <section class="row text-center m-3" id="quit-game" hidden>
+        <aside class="row text-center m-3" id="quit-game" hidden>
             <div class="col">
                 <span>
                     <button id="instruction-btn-ingame"><i class="fa-solid fa-circle-info"></i></button>
@@ -283,7 +278,7 @@
                     <button id="quit-game-btn"><i class="fa-solid fa-door-open"></i> Exit Game</button>
                 </span>
             </div> 
-        </section>
+        </aside>
     </main>
 
     <!-- Footer -->
