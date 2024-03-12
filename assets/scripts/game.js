@@ -134,7 +134,7 @@ let antibioticsDictionary = [{
 ];
 let noOfDrugs = 0;
 
-
+// MAIN FUNCTION:
 document.addEventListener("DOMContentLoaded", (event) => {
     showInstructions();
     displayContactModal();
@@ -189,7 +189,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         }
                     });
                     quitGame();
-
                 };
             }
         });
@@ -232,13 +231,13 @@ function addBox(word) {
         letterPerBox.dataset.letter = letter; // https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
         document.getElementById("game-area").appendChild(letterPerBox);
     }
-};
+}
 
 // https://stackoverflow.com/questions/5915096/get-a-random-item-from-a-javascript-array
-/** Removes a random drug from the array and returns it to be used */ 
+/** Removes a random drug from the array and returns it to be used */
 function getRandomDrug(array) {
     // should return a random number between the array lenght
-    let randomNumber = Math.floor(Math.random() * array.length)
+    let randomNumber = Math.floor(Math.random() * array.length);
     let randomDrug = array.splice(randomNumber, 1)[0];
     return randomDrug;
 }
@@ -285,11 +284,11 @@ function dragAndDrop() {
     $('.draggableLetters').draggable({
         revert: true,
         zIndex: 100,
-        start: function(event, ui){
-            $(this).addClass("dragging");   
+        start: function (event, ui) {
+            $(this).addClass("dragging");
         },
-        stop: function(event, ui){
-            $(this).removeClass("dragging");   
+        stop: function (event, ui) {
+            $(this).removeClass("dragging");
         }
 
     });
@@ -330,6 +329,7 @@ function isLetterContainersFilled() {
     return true;
 }
 
+/** Enable submit button only when the containers are filled otherwise it is diabled */
 function handleSubmitButton() {
     let guessButton = document.getElementById('guess-button');
     if (isLetterContainersFilled()) {
@@ -343,6 +343,7 @@ function handleSubmitButton() {
     }
 }
 
+/** Make an array of the user guess */
 function makeGuessedWord() {
     let guessedWord = [];
     for (let letter of draggableLetters) {
@@ -351,16 +352,19 @@ function makeGuessedWord() {
     return guessedWord;
 }
 
+/** Check to see if the user guessed word is equal to the chosen word */
 function isGuessedWordCorrect(chosenWord, guessedWord) {
     return chosenWord === guessedWord.join("");
 }
 
+/** Removes a life when when mistake have been made and add jquery animation */
 function mistakeMade() {
     livesLeft--;
     livesTaken = 5 - livesLeft;
     $(`#life${livesTaken}`).fadeOut("slow");
 }
 
+/** Handle a game over event and add animation */
 function isGameOver() {
     if (livesLeft === 0) {
         hideGameWhenGameOver();
@@ -368,13 +372,14 @@ function isGameOver() {
         writeCorrectGuessedWords(correctGuessedWord);
         addFeedbackMessage(noOfCorrectWords);
         jsConfetti.addConfetti({
-            emojis : ['☠️'],
-         });
+            emojis: ['☠️'],
+        });
         startGame = false;
         return true;
     }
 }
 
+/** Shows game over modal and hides game area when game is over */
 function hideGameWhenGameOver() {
     gameOverModal.style.display = "block";
     gameContainer.style.display = "none";
@@ -385,6 +390,7 @@ function hideGameWhenGameOver() {
     gameIsOver = true;
 }
 
+/** Event listener for play again and reloads the page */
 function isPlayAgain() {
     for (let btn of playAgainButton) {
         btn.addEventListener("click", (event) => {
@@ -393,6 +399,7 @@ function isPlayAgain() {
     }
 }
 
+/** Removes old word divs to proceed to the next word */
 //https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
 function nextWord() {
     while (gameArea.firstChild) {
@@ -402,12 +409,14 @@ function nextWord() {
     hintArea.style.display = "none";
 }
 
+/** Display and add correct guessed words to the array*/
 function addCorrectGuessedWords(gameType, guessedWord) {
     correctGuessedWord.push(guessedWord);
     noOfCorrectWords = correctGuessedWord.length;
     numberOfWordsSpan.innerText = `${gameType} drug: ${noOfCorrectWords+1}/${noOfDrugs}`;
 }
 
+/** Display the number of guessed words to game over modal */
 function writeCorrectGuessedWords(wordList) {
     for (word of wordList) {
         let guessedWord = document.createElement('li');
@@ -416,6 +425,7 @@ function writeCorrectGuessedWords(wordList) {
     }
 }
 
+/** Add a feedback message to game over modal */
 function addFeedbackMessage(noOfWords) {
     let feedback = ""
     if (noOfWords === 0) {
@@ -428,6 +438,7 @@ function addFeedbackMessage(noOfWords) {
     feedbackMessage.innerHTML = feedback;
 }
 
+/** Display the hint and handle hint button */
 function showHint(hint) {
     hintMessage.innerText = hint;
     $("#hint-button").click(function () {
@@ -436,6 +447,7 @@ function showHint(hint) {
     });
 }
 
+/** Handles the quit game button removes display of game area and add game over modal */
 function quitGame() {
     quitGameButton.addEventListener("click", (event) => {
         hideGameWhenGameOver();
@@ -444,8 +456,8 @@ function quitGame() {
         addFeedbackMessage(noOfCorrectWords);
         lives.style.display = "none";
         jsConfetti.addConfetti({
-            emojis : ['😭'],
-         });
+            emojis: ['😭'],
+        });
 
         startGame = false;
 
@@ -453,6 +465,7 @@ function quitGame() {
     });
 }
 
+/** Handles display of contact modal both in game and out of game */
 function displayContactModal() {
     contactButton.addEventListener("click", (event) => {
         if (startGame) {
@@ -490,11 +503,10 @@ function displayContactModal() {
             closeContactOutgame.removeAttribute("hidden");
             handleCloseContactBtn();
         }
-
     })
-
 }
 
+/** Handles when close contact button in game or out of game */
 function handleCloseContactBtn() {
     closeContactOutgame.addEventListener("click", (event) => {
         if (gameIsOver) {
@@ -514,6 +526,7 @@ function handleCloseContactBtn() {
     });
 }
 
+/** Checks if user has won by returning true when the array's length is 0 */
 function hasUserWonTheGame(guessedWordList) {
     if (guessedWordList.length === 0) {
         return true;
@@ -521,6 +534,7 @@ function hasUserWonTheGame(guessedWordList) {
     return false;
 }
 
+/** Handles won game vent by adding confetti and displaying won game modal*/
 function wonGame() {
     wonGameModal.style.display = "block";
     gameContainer.style.display = "none";
@@ -530,11 +544,12 @@ function wonGame() {
     lives.style.display = "none";
     // https://www.npmjs.com/package/js-confetti
     jsConfetti.addConfetti({
-        emojis : ['💊'],
-     })
+        emojis: ['💊'],
+    })
     isPlayAgain();
 }
 
+/** Handles show and close instructions buttons to show instructions in game and out game */
 function showInstructions() {
     instructionButton.addEventListener("click", (event) => {
         instructionSection.style.display = "block";
@@ -551,18 +566,19 @@ function showInstructions() {
     });
 }
 
+/** Removes the disabled class to hint button */
 function resetHintButton() {
     $("#hint-button").removeClass("disabled");
 }
 
+/** Handles instructions button in game */
 function handleInfoButtonIngame() {
     $("#instruction-btn-ingame").click(function () {
         $("#instructions").css("display", "block").addClass("modal");
     });
 }
 
-
-
+// Module exports for jest testing
 if (typeof module !== 'undefined') module.exports = {
     startGame,
     isGuessedWordCorrect,
