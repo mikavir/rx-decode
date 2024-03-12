@@ -63,10 +63,10 @@ You are not required to validate external libraries/frameworks, such as imported
 
 I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
 
-| Directory | File | Screenshot | Notes |
+| Validator| File | Screenshot | Notes |
 | --- | --- | --- | --- |
-|  | 404.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-|  | index.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+|[W3C Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmikavir.github.io%2Frx-decoder%2F404.html)| 404.html | ![screenshot](documentation/validation/html-validation-404.png) | |
+|[W3C Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmikavir.github.io%2Frx-decoder%2Findex.html)  | index.html | ![screenshot](documentation/validation/html-validation.png) | No errors found|
 
             
 ### CSS
@@ -75,7 +75,7 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| assets | style.css | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| assets | style.css | ![screenshot](documentation/validation/css-validation.png) | No error on CSS file, errors marked on the libraries used |
 
             
 ### JavaScript
