@@ -1,9 +1,9 @@
-/* jshint esversion: 11, jquery: true */
 
 /**
  * @jest-environment jsdom
- */
+*/
 
+/* jshint esversion: 11, jquery: true */
 const {
     startGame,
     isGuessedWordCorrect,
@@ -21,6 +21,8 @@ const {
     noOfCorrectWords,
     gameIsOver,
     gameIsWon,
+    gameIsExited,
+    noOfDrugs,
 } = require("../game");
 
 
@@ -55,6 +57,12 @@ describe("Global Variables return the right content", () => {
     });
     test("gameIsWon is false", () => {
         expect(gameIsWon).toBe(false);
+    });
+    test("gameIsExited is false", () => {
+        expect(gameIsExited).toBe(false);
+    });
+    test("noOfDrugs is 0", () => {
+        expect(noOfDrugs).toBe(0);
     });
 
 

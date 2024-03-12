@@ -40,7 +40,8 @@ let livesTaken = 0;
 let noOfCorrectWords = 0;
 let gameIsOver = false;
 let gameIsWon = false;
-const jsConfetti = new JSConfetti();
+let gameIsExited = false;
+
 let cardiacDictionary = [{
         drugName: 'BISOPROLOL',
         hint: 'Hint: Treatment for hypertension and heart failure. It works by selectively blocking certain receptors in the body, resulting in decreased heart rate and blood pressure.',
@@ -133,6 +134,7 @@ let antibioticsDictionary = [{
     },
 ];
 let noOfDrugs = 0;
+
 
 // MAIN FUNCTION:
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -237,7 +239,7 @@ function addBox(word) {
 /** Removes a random drug from the array and returns it to be used */
 function getRandomDrug(array) {
     // should return a random number between the array lenght
-    let randomNumber = Math.floor(Math.random() * array.length);
+    let randomNumber = Math.floor(Math.random() * array.length)
     let randomDrug = array.splice(randomNumber, 1)[0];
     return randomDrug;
 }
@@ -371,9 +373,7 @@ function isGameOver() {
         isPlayAgain();
         writeCorrectGuessedWords(correctGuessedWord);
         addFeedbackMessage(noOfCorrectWords);
-        jsConfetti.addConfetti({
-            emojis: ['☠️'],
-        });
+        ignoreLine();
         startGame = false;
         return true;
     }
@@ -455,10 +455,8 @@ function quitGame() {
         writeCorrectGuessedWords(correctGuessedWord);
         addFeedbackMessage(noOfCorrectWords);
         lives.style.display = "none";
-        jsConfetti.addConfetti({
-            emojis: ['😭'],
-        });
-
+        gameIsExited = true;
+        ignoreLine();
         startGame = false;
 
 
@@ -542,10 +540,7 @@ function wonGame() {
     wordsGuessedTally.style.display = "none";
     quitGameArea.style.display = "none";
     lives.style.display = "none";
-    // https://www.npmjs.com/package/js-confetti
-    jsConfetti.addConfetti({
-        emojis: ['💊'],
-    })
+    ignoreLine();
     isPlayAgain();
 }
 
@@ -578,6 +573,29 @@ function handleInfoButtonIngame() {
     });
 }
 
+// Add confetti based on events, Named Ignore line for jest to ignore;
+// https://www.npmjs.com/package/js-confetti
+// https://codewithhugo.com/jest-exclude-coverage/
+function ignoreLine(){
+    const jsConfetti = new JSConfetti();
+    if (gameIsWon) {
+        jsConfetti.addConfetti({
+            emojis: ['💊'],
+        })
+    } else if (gameIsExited) {
+        jsConfetti.addConfetti({
+            emojis: ['😭'],
+        });
+    } else if (gameIsOver) {
+        jsConfetti.addConfetti({
+            emojis: ['☠️'],
+        });
+    } else {
+        return;
+    }
+}
+
+
 // Module exports for jest testing
 if (typeof module !== 'undefined') module.exports = {
     startGame,
@@ -596,4 +614,6 @@ if (typeof module !== 'undefined') module.exports = {
     noOfCorrectWords,
     gameIsOver,
     gameIsWon,
+    gameIsExited,
+    noOfDrugs,
 }
