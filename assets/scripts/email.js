@@ -1,3 +1,5 @@
+/* jshint esversion: 11, jquery: true */
+
 let emailFeedBack = document.getElementById('feedback-email');
 
 function sendMail(contactForm) {

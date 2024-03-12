@@ -1,4 +1,4 @@
-
+/* jshint esversion: 11, jquery: true */
 // Variables from Dom
 let startGame = false;
 const gameCategories = document.getElementsByClassName('game-categories');
