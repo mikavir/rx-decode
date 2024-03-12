@@ -13,14 +13,11 @@ body > footer {
 }
 /* background color */
 body {
-    background-color: rgb(151, 182, 218);
-    font-family: "Quicksand", sans-serif;
-    overflow-x: hidden;
-  }
-
-img.pill {
-    height: 4rem;
+  background-color: rgb(151, 182, 218);
+  font-family: "Quicksand", sans-serif;
+  overflow-x: hidden;
 }
+
 
 #logo {
   max-height: 12rem;
