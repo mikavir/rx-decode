@@ -30,7 +30,6 @@ let contactModal = document.getElementById('contact-modal');
 let closeContactIngame = document.getElementById('close-contact-btn-ingame');
 let closeContactOutgame = document.getElementById('close-contact-btn-outgame');
 
-
 // Global Variables for game.js
 let word = "";
 let hint = "";
@@ -133,7 +132,7 @@ let antibioticsDictionary = [{
         hint: "Hint: This antibiotic combination is known for its broad spectrum of activity against both Gram-positive and Gram-negative bacteria, including many strains that are resistant to other antibiotics. It's commonly used in hospital settings for serious infections where a potent antibiotic is required."
     },
 ];
-
+let noOfDrugs = 0;
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -146,19 +145,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 let choice;
                 if (gameType === 'cardiac') {
                     choice = cardiacDictionary;
+                    noOfDrugs = cardiacDictionary.length;
                     startGame = true;
 
                 } else if (gameType === 'pain') {
                     choice = painDictionary;
+                    noOfDrugs = painDictionary.length;
                     startGame = true;
                 } else if (gameType == 'antibiotics') {
                     choice = antibioticsDictionary;
+                    noOfDrugs = antibioticsDictionary.length;
                     startGame = true;
                 } else {
                     alert("No items chosen");
                 };
                 if (startGame) {
-                    displayWhenGameStart(gameType, choice);
+                    displayWhenGameStart(gameType, noOfDrugs);
                     setUpGame(choice);
                     // checks to see if all the letter container is filled then will change class of button
                     setInterval(handleSubmitButton, 1000);
@@ -169,7 +171,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                 $(".letter-container").addClass('correct');
                                 setTimeout(function () {
                                     nextWord();
-                                    addCorrectGuessedWords(gameType, choice, word);
+                                    addCorrectGuessedWords(gameType, noOfDrugs, word);
                                     setUpGame(choice);
                                     if (gameIsWon) {
                                         wonGame(correctGuessedWord);
@@ -195,12 +197,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 /** Display the game area */
-function displayWhenGameStart(gameType, choice) {
+function displayWhenGameStart(gameType, noOfDrugs) {
     startModal.style.display = 'none';
     displayLives();
     buttonArea.removeAttribute('hidden');
     wordsGuessedTally.removeAttribute('hidden');
-    numberOfWordsSpan.innerText = `${gameType} drug: ${noOfCorrectWords+1}/${choice.length}`;
+    numberOfWordsSpan.innerText = `${gameType} drug: ${noOfCorrectWords+1}/${noOfDrugs}`;
     quitGameArea.removeAttribute('hidden');
     handleInfoButtonIngame();
 }
@@ -400,10 +402,10 @@ function nextWord() {
     hintArea.style.display = "none";
 }
 
-function addCorrectGuessedWords(gameType, choice, guessedWord) {
+function addCorrectGuessedWords(gameType, guessedWord) {
     correctGuessedWord.push(guessedWord);
     noOfCorrectWords = correctGuessedWord.length;
-    numberOfWordsSpan.innerText = `${gameType} drug: ${noOfCorrectWords+1}/${choice.length}`;
+    numberOfWordsSpan.innerText = `${gameType} drug: ${noOfCorrectWords+1}/${noOfDrugs}`;
 }
 
 function writeCorrectGuessedWords(wordList) {
