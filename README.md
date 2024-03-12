@@ -44,6 +44,7 @@ A responsive interactive game that can be used in a range of devices. It is aime
 ## UX
 
 
+
 ### Colour Scheme
 
 After researching healthcare web applications, I've discovered that specific colors are recommended for use. Among them, blue stands out as particularly advantageous due to its ability to evoke feelings of trust and security. Incorporating the color blue into the design can foster associations with medical professionalism, enhancing user confidence and comfort. Additionally, I've examined medical websites like [BMJ](https://www.bmj.com/) and the [NHS](https://www.nhs.uk/), drawing inspiration from their use of blue hues. This analysis has helped me determine the most suitable shade of blue to incorporate into the web application's design, aligning it with established standards and user expectations within the healthcare field.
@@ -171,9 +172,9 @@ IMPORTANT: Remember to always include a screenshot of each individual feature!
 
 ### Existing Features
 
-- **{{ YOUR-TITLE-FOR-FEATURE-#1 }}**
+- **Logo**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - Incorporating a logo into the game design can offer a powerful visual symbol that resonates with users, fostering a memorable connection to the game. By utilizing a logo with a color scheme harmonious with the game's aesthetic, coherence is maintained, providing users with a consistent and cohesive experience. This approach not only aims to appeal to the intended audience of medical professionals by presenting a clinical image but also contributes to establishing a unique identity for the game itself.
 
 ![screenshot](documentation/features/feature01.png)
 
