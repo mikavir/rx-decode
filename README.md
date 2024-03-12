@@ -253,24 +253,23 @@ Contact
     
 ![screenshot](documentation/features/feature14.png)
 
+- **Animation with Incorrect Guess**
+
+    - When the user makes an incorrect guess of the drug name, the box turns red. This provides visual feedback to the user, aiding in understanding and learning from their mistakes.
+    
+![screenshot](documentation/features/feature16.png)
+
+- **Animation with Correct Guess**
+
+    - When the user makes a correct guess of the drug name, the box turns green, providing visual feedback to acknowledge their achievement. This helps users track their progress and feel rewarded for their success.
+    
+![screenshot](documentation/features/feature15.png)
 
 ### Future Features
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+- Leaderboards
+    - Due to the limited number of drug names available in this game, implementing a leaderboard was deemed inappropriate since the same number of winners would always emerge. However, with an increased pool of drug names to win, introducing a leaderboard would become a desirable feature, allowing for competition among players and adding depth to the gaming experience.
 
-Do you have additional ideas that you'd like to include on your project in the future?
-Fantastic! List them here!
-It's always great to have plans for future improvements!
-Consider adding any helpful links or notes to help remind you in the future, if you revisit the project in a couple years.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- {{ YOUR-TITLE-FOR-FUTURE-FEATURE-#1 }}
-    - Any additional notes about this feature.
-- {{ YOUR-TITLE-FOR-FUTURE-FEATURE-#2 }}
-    - Any additional notes about this feature.
-- {{ YOUR-TITLE-FOR-FUTURE-FEATURE-#3 }}
-    - Any additional notes about this feature.
 
 ## Tools & Technologies Used
 
