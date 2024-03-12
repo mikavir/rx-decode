@@ -86,19 +86,18 @@ span.draggableLetters {
 
 }
 
-button, #submit-button {
+button {
   background-color: #2a6ebb;
   color: white;
   border-radius: 10px;
   padding-right: 15px;
   padding-left: 15px;
   margin-bottom: 0.5rem;
-  &:not(.disabled):hover&:not(.enabled):hover {
-    background-color: rgba(42,110,187, 0.3);
-    border:  #2a6ebb 2px solid;
-    color: #333;
-  };  
-    
+}
+button:not(.disabled,.enabled):hover {
+  background-color: rgba(42,110,187, 0.3);
+  border:  #2a6ebb 2px solid;
+  color: #333;
 }
 
 .disabled {
@@ -120,8 +119,7 @@ button, #submit-button {
   border: 2px solid #333;
   border-radius: 15px;
   background: white;
-  margin: 0;
-  
+  margin: 0;  
 }
 
 /*  Media Queries for responsiveness of the letter boxes */
@@ -142,9 +140,8 @@ button, #submit-button {
     margin: .1rem;
     border-radius: 5px;
     font: large;
-  };
+  }
 }
-
 
 @media only screen and (max-width: 400px) {
   .letter-box {
