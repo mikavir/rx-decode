@@ -113,7 +113,7 @@ Sample responsiveness testing documentation:
 
 I've tested my deployed project on multiple devices to check for responsiveness issues.
 
-| Device | Home | About | Contact | etc | Notes |
+| Device | Start Game | About | Contact | etc | Notes |
 | --- | --- | --- | --- | --- | --- |
 | Mobile (DevTools) | ![screenshot](documentation/responsiveness/responsive-mobile-home.png) | ![screenshot](documentation/responsiveness/responsive-mobile-about.png) | ![screenshot](documentation/responsiveness/responsive-mobile-contact.png) | ![screenshot](documentation/responsiveness/responsive-mobile-etc.png) | Works as expected |
 | Tablet (DevTools) | ![screenshot](documentation/responsiveness/responsive-tablet-home.png) | ![screenshot](documentation/responsiveness/responsive-tablet-about.png) | ![screenshot](documentation/responsiveness/responsive-tablet-contact.png) | ![screenshot](documentation/responsiveness/responsive-tablet-etc.png) | Works as expected |
