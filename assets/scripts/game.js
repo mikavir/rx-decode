@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     startGame = true;
                 } else {
                     alert("No items chosen");
-                };
+                }
                 if (startGame) {
                     displayWhenGameStart(gameType, noOfDrugs);
                     setUpGame(choice);
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     setInterval(handleSubmitButton, 1000);
                     guessButton.addEventListener("click", (event) => {
                         if (canSubmit) {
-                            guessedWord = makeGuessedWord();
+                            let guessedWord = makeGuessedWord();
                             if (isGuessedWordCorrect(word, guessedWord) === true) {
                                 $(".letter-container").addClass('correct');
                                 setTimeout(function () {
@@ -179,19 +179,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
                                         wonGame();
                                     }
 
-                                }, 1000)
+                                }, 1000);
                             } else {
                                 $(".letter-container").addClass('incorrect');
                                 setTimeout(function () {
-                                    $(".letter-container").removeClass('incorrect')
-                                }, 1000)
+                                    $(".letter-container").removeClass('incorrect');
+                                }, 1000);
                                 mistakeMade(livesLeft);
                                 isGameOver(correctGuessedWord);
                             }
                         }
                     });
                     quitGame();
-                };
+                }
             }
         });
     }
@@ -227,7 +227,7 @@ function setUpGame(choice) {
 
 /** Add a div to the game area per letter of the chosen word*/
 function addBox(word) {
-    for (letter of word) {
+    for (let letter of word) {
         let letterPerBox = document.createElement('div');
         letterPerBox.className = "letter-box letter-container";
         letterPerBox.dataset.letter = letter; // https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
@@ -239,7 +239,7 @@ function addBox(word) {
 /** Removes a random drug from the array and returns it to be used */
 function getRandomDrug(array) {
     // should return a random number between the array lenght
-    let randomNumber = Math.floor(Math.random() * array.length)
+    let randomNumber = Math.floor(Math.random() * array.length);
     let randomDrug = array.splice(randomNumber, 1)[0];
     return randomDrug;
 }
@@ -259,7 +259,7 @@ function shuffleWord(word) {
 function addGuessletterBox(word) {
     let shuffledWord = shuffleWord(word);
 
-    for (letter of shuffledWord) {
+    for (let letter of shuffledWord) {
         let outerBoxContainer = document.createElement('div');
         outerBoxContainer.className = "letter-box";
         let draggableletterBox = document.createElement('span');
@@ -324,9 +324,9 @@ function isEmpty(parent) {
 /** Checks if all the letter containers are filled */
 function isLetterContainersFilled() {
     for (let letterContainer of letterContainers) {
-        if (!(letterContainer.children.length > 0)) {
+        if (letterContainer.children.length === 0) {
             return false;
-        };
+        }
     }
     return true;
 }
@@ -427,7 +427,7 @@ function writeCorrectGuessedWords(wordList) {
 
 /** Add a feedback message to game over modal */
 function addFeedbackMessage(noOfWords) {
-    let feedback = ""
+    let feedback = "";
     if (noOfWords === 0) {
         feedback = `Boohoo! You have guessed none of the drugs. Time to read the <a target="_blank" href="https://bnf.nice.org.uk/" rel="nofollow noreferrer">British National Formulary (BNF)</a>`;
     } else if (noOfWords === 1) {
@@ -501,7 +501,7 @@ function displayContactModal() {
             closeContactOutgame.removeAttribute("hidden");
             handleCloseContactBtn();
         }
-    })
+    });
 }
 
 /** Handles when close contact button in game or out of game */
@@ -581,7 +581,7 @@ function ignoreLine() {
     if (gameIsWon) {
         jsConfetti.addConfetti({
             emojis: ['💊'],
-        })
+        });
     } else if (gameIsExited) {
         jsConfetti.addConfetti({
             emojis: ['😭'],
@@ -616,4 +616,4 @@ if (typeof module !== 'undefined') module.exports = {
     gameIsWon,
     gameIsExited,
     noOfDrugs,
-}
+};
