@@ -74,7 +74,7 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 | --- | --- | --- | --- |
 | assets | email.js | ![screenshot](documentation/validation/js-hint-email.png) | undefined variable of emailjs and unused variable of sendmail. This function was called in the index.html |
 | assets | game.js | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| assets | game.test.js | ![screenshot](documentation/validation/js-hint-test.png) | undefined variables from jest |
+| assets | game.test.js | ![screenshot](documentation/validation/jshint-game.test.png) | undefined variables  of require from jest |
 
             
 ## Browser Compatibility
@@ -336,11 +336,6 @@ I fully acknowledge and understand that, in a real-world scenario, an extensive 
 
 ### JavaScript (Jest Testing)
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Adjust the code below (file names, etc.) to match your own project files/folders.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 I have used the [Jest](https://jestjs.io) JavaScript testing framework to test the application functionality.
 
@@ -368,19 +363,7 @@ Due to a change in Jest's default configuration, you'll need to add the followin
  * @jest-environment jsdom
  */
 
-const { test, expect } = require("@jest/globals");
-const { function1, function2, function3, etc. } = require("../script-name");
-
-beforeAll(() => {
-    let fs = require("fs");
-    let fileContents = fs.readFileSync("index.html", "utf-8");
-    document.open();
-    document.write(fileContents);
-    document.close();
-});
-```
-
-Remember to adjust the `fs.readFileSync()` to the specific file you'd like you test.
+```like you test.
 The example above is testing the `index.html` file.
 
 Finally, at the bottom of the script file where your primary scripts are written, include the following at the bottom of the file.
@@ -412,7 +395,77 @@ Below are the results from the tests that I've written for this application:
 
 #### Jest Test Issues
 
+**JS confetti undefined**
 
+As js-confetti was implemented using a cdn, It was not being recognised by Jest testing and was interrupting it from testing.
+![screenshot](documentation/tests/jest-test-error1.png)
+
+- To fix this, I have searched online on "How to get jest to ignore a function". [CodeWithHugo](https://codewithhugo.com/jest-exclude-coverage/) explains that it can be done with an ignore line. Although, I understand that this should not be used all the time as all code should be tested. However, as js confetti is an external function, I found it appropriate for this case. Please see below my implementation: 
+
+    ```
+    function ignoreLine() {
+        const jsConfetti = new JSConfetti();
+        if (gameIsWon) {
+            jsConfetti.addConfetti({
+                emojis: ['💊'],
+            });
+        } else if (gameIsExited) {
+            jsConfetti.addConfetti({
+                emojis: ['😭'],
+            });
+        } else if (gameIsOver) {
+            jsConfetti.addConfetti({
+                emojis: ['☠️'],
+            });
+        } else {
+            return;
+        }
+    }
+    ```
+
+**JS hint Configuration**
+
+The imput of jshint configuration to the game.test.js have caused errors as it it was not recognising the jest environment. Please see below the code that was executed and the error it threw: 
+
+    ```
+    /* jshint esversion: 11, jquery: true */
+    /**
+    * @jest-environment jsdom
+    */
+
+    ```
+
+![screenshot](documentation/tests/jest-test-error2.png)
+
+- To fix this, I have changed the order of the lines: 
+
+    ```
+    /**
+    * @jest-environment jsdom
+    */
+
+    /* jshint esversion: 11, jquery: true */
+    ```
+**Mocking The Index.html**
+ 
+ When mocking the index.html, I ran into issues of where it was not recognising the email.js that I have implemented as an API. 
+
+    ```js
+    beforeAll(() => {
+    let fs = require("fs");
+    let fileContents = fs.readFileSync("index.html", "utf-8");
+    document.open();
+    document.write(fileContents);
+    document.close();
+    });
+    ```
+Please see below the error: 
+
+![screenshot](documentation/tests/jest-test-error2.png)
+
+- To fix this, I have made a decision to stop mocking the index.html as I was not able to test it as there was a lot of event handlers. Jest testing was not appropriate for event handlers. In the future, I wish to practice a different testing framework.
+
+Overall, the majority of documentation on Jest testing pertains to the latest version, [Jest v29](https://jestjs.io/). However, troubleshooting became challenging for me as my project relied on Jest v26. While attempting to upgrade to Jest 29, I encountered difficulties due to changes in the syntax for mocking the DOM, and unfortunately, I couldn't find relevant documentation on this specific aspect.
 
 ## Bugs
 
