@@ -341,13 +341,13 @@ In order to fix this, I had to override the default styling of jquery ui with jq
 - [![JavaScript](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) used for user interaction on the site.
 - [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-grey?logo=githubpages&logoColor=222222)](https://pages.github.com) used for hosting the deployed front-end site.
 - [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
-- ![jQuery](https://jquery.com/) used for JavaScript library to easily manipulate the Document Object Model (DOM) and do animations.
-- ![jQuery User Interface](https://jqueryui.com/) used for JavaScript library to easily manipulate the Document Object Model (DOM) and manipulate the drag and drop mechanism.
-- ![jQuery UI Touch Punch](https://www.npmjs.com/package/jquery-ui-touch-punch) used to allow touch events use for jQuery UI widgets.
-- ![Balsamiq](https://balsamiq.com/) used to mame wireframes.
-- ![js-confetti](https://www.npmjs.com/package/js-confetti) used to create confettis for animation.
-- ![Jest](https://jestjs.io/) used for JavaScript testing.
-- ![Font Awesome](https://fontawesome.com/) used for icons all throughout the game.
+- [![jQuery](https://img.shields.io/badge/jQuery-grey?logo=jquery&logoColor=0769AD)](https://jquery.com) used for user interaction on the site.
+- [jQuery User Interface](https://jqueryui.com/) used for JavaScript library to easily manipulate the Document Object Model (DOM) and manipulate the drag and drop mechanism.
+- [jQuery UI Touch Punch](https://www.npmjs.com/package/jquery-ui-touch-punch) used to allow touch events use for jQuery UI widgets.
+- [![Balsamiq](https://img.shields.io/badge/Balsamiq-grey?logo=barmenia&logoColor=CE0908)](https://balsamiq.com/wireframes) used for creating wireframes.
+- [js-confetti](https://www.npmjs.com/package/js-confetti) used to create confettis for animation.
+- [Jest](https://jestjs.io/) used for JavaScript testing.
+- [Font Awesome](https://fontawesome.com/) used for icons all throughout the game.
 
 ## Testing
 
