@@ -47,18 +47,6 @@ If applicable, mention how user feedback has been taken into account and impleme
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ## Code Validation
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use the space to discuss code validation for any of your own code files (where applicable).
-You are not required to validate external libraries/frameworks, such as imported Bootstrap, Materialize, Font Awesome, etc.
-
-**IMPORTANT**: You must provide a screenshot for each file you validate.
-
-**PRO TIP**: Always validate the live site pages, not your local code. There could be subtle/hidden differences.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### HTML
 
 I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
@@ -84,9 +72,9 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| assets | email.js | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| assets | email.js | ![screenshot](documentation/validation/js-hint-email.png) | undefined variable of emailjs and unused variable of sendmail. This function was called in the index.html |
 | assets | game.js | ![screenshot](documentation/validation/path-to-screenshot.png) | |
-| assets | game.test.js | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| assets | game.test.js | ![screenshot](documentation/validation/js-hint-test.png) | undefined variables from jest |
 
             
 ## Browser Compatibility
@@ -424,14 +412,7 @@ Below are the results from the tests that I've written for this application:
 
 #### Jest Test Issues
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
 
-Use this section to list any known issues you ran into while writing your Jest tests.
-Remember to include screenshots (where possible), and a solution to the issue (if known).
-
-This can be used for both "fixed" and "unresolved" issues.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ## Bugs
 
