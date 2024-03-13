@@ -236,28 +236,22 @@ The aforementioned tests are just an example of a few different project scenario
 
 ## User Story Testing
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Testing user stories is actually quite simple, once you've already got the stories defined on your README.
-
-Most of your project's **features** should already align with the **user stories**,
-so this should as simple as creating a table with the user story, matching with the re-used screenshot
-from the respective feature.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 | User Story | Screenshot |
 | --- | --- |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature01.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature02.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature03.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature04.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature05.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/features/feature06.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature07.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature08.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/features/feature09.png) |
-| repeat for all remaining user stories | x |
+| As a new game user, I would like to see a memorable logo, so that I can remember the game. | ![screenshot](documentation/features/feature01.png) |
+| As a new game user, I would like to see instructions, so that I can know how to play the game. | ![screenshot](documentation/features/feature03.png) |
+|  As a new game user, I would like to see a contact information, so that I can email when I have questions. | ![screenshot](documentation/features/feature04.png) |
+|   As a new game user, I would like to have hints, so that I can easily play the game. | ![screenshot](documentation/features/feature07.png) |
+|  As a new game user, I would like to be able to easily quit the game, so that I can stop playing the game as desired. | ![screenshot](documentation/features/feature08.png) |
+| As a returning game user, I would like to have different categories, so that I can challenge myself more. | ![screenshot](documentation/features/feature02.png) |
+| As a returning game user, I would like to have a log of the drug names that I scored, so that I can remember how well I did. | ![screenshot](documentation/features/feature11.png) |
+| As a returning game user, I would like to see contact information, so that I can contact the developer if I encounter any bugs. | ![screenshot](documentation/features/feature05.png) |
+| As a returning game user, I would like to be able to keep track on how many drug name I need to guess so that I can be motivated to finish the game. | ![screenshot](documentation/features/feature10.png) |
+| As a site administrator, I should be able to make the game more challenging by incorporating lives, so that I can make the users enjoy playing the game. | ![screenshot](documentation/features/feature07.png) |
+|As a site administrator, I would like to have a platform for users contact me, so that they can report when they have a bug. | ![screenshot](documentation/features/feature05.png) |
+| As a site administrator, I would like the user to be able to go back to the game after contacting me, so that they can keep playing the game and improve their experience.
+| ![screenshot](documentation/features/feature06.png) |
+
 
 ## Automated Testing
 
