@@ -86,9 +86,14 @@ Based on research from the [Print Authority](https://theprintauthority.com/best-
 ### Returning Site Users
 
 - As a returning game user, I would like to have different categories, so that I can challenge myself more.
-- As a returning game user, I would like to have a log of my scores, so that I can remember how well I did.
+- As a returning game user, I would like to have a log of the drug names that I scored, so that I can remember how well I did.
 - As a returning game user, I would like to see contact information, so that I can contact the developer if I encounter any bugs.
+- As a returning game user, I would like to be able to keep track on how many drug name I need to guess so that I can be motivated to finish the game.
 
+### Site Administrator
+- As a site administrator, I should be able to make the game more challenging by incorporating lives, so that I can make the users enjoy playing the game.
+- As a site administrator, I would like to have a platform for users contact me, so that they can report when they have a bug.
+- As a site administrator, I would like the user to be able to go back to the game after contacting me, so that they can keep playing the game and improve their experience.
 
 ## Wireframes
 
