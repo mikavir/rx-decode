@@ -90,39 +90,15 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 ## Responsiveness
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to discuss testing the live/deployed site on various device sizes.
-
-The minimum requirement is for the following 3 tests:
-- Mobile
-- Tablet
-- Desktop
-
-**IMPORTANT**: You must provide screenshots of the tested responsiveness, to "prove" that you've actually tested them.
-
-Using the "amiresponsive" mockup image (or similar) does not suffice the requirements.
-Consider using some of the built-in device sizes in the Developer Tools.
-
-If you have tested the project on your actual mobile phone or tablet, consider also including screenshots of these as well.
-It showcases a higher level of manual tests, and can be seen as a positive inclusion!
-
-Sample responsiveness testing documentation:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 I've tested my deployed project on multiple devices to check for responsiveness issues.
 
-| Device | Start Game | About | Contact | etc | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Mobile (DevTools) | ![screenshot](documentation/responsiveness/responsive-mobile-home.png) | ![screenshot](documentation/responsiveness/responsive-mobile-about.png) | ![screenshot](documentation/responsiveness/responsive-mobile-contact.png) | ![screenshot](documentation/responsiveness/responsive-mobile-etc.png) | Works as expected |
-| Tablet (DevTools) | ![screenshot](documentation/responsiveness/responsive-tablet-home.png) | ![screenshot](documentation/responsiveness/responsive-tablet-about.png) | ![screenshot](documentation/responsiveness/responsive-tablet-contact.png) | ![screenshot](documentation/responsiveness/responsive-tablet-etc.png) | Works as expected |
-| Desktop | ![screenshot](documentation/responsiveness/responsive-desktop-home.png) | ![screenshot](documentation/responsiveness/responsive-desktop-about.png) | ![screenshot](documentation/responsiveness/responsive-desktop-contact.png) | ![screenshot](documentation/responsiveness/responsive-desktop-etc.png) | Works as expected |
-| XL Monitor | ![screenshot](documentation/responsiveness/responsive-xl-home.png) | ![screenshot](documentation/responsiveness/responsive-xl-about.png) | ![screenshot](documentation/responsiveness/responsive-xl-contact.png) | ![screenshot](documentation/responsiveness/responsive-xl-etc.png) | Scaling starts to have minor issues |
-| 4K Monitor | ![screenshot](documentation/responsiveness/responsive-4k-home.png) | ![screenshot](documentation/responsiveness/responsive-4k-about.png) | ![screenshot](documentation/responsiveness/responsive-4k-contact.png) | ![screenshot](documentation/responsiveness/responsive-4k-etc.png) | Noticeable scaling issues |
-| Google Pixel 7 Pro | ![screenshot](documentation/responsiveness/responsive-pixel-home.png) | ![screenshot](documentation/responsiveness/responsive-pixel-about.png) | ![screenshot](documentation/responsiveness/responsive-pixel-contact.png) | ![screenshot](documentation/responsiveness/responsive-pixel-etc.png) | Works as expected |
-| iPhone 14 | ![screenshot](documentation/responsiveness/responsive-iphone-home.png) | ![screenshot](documentation/responsiveness/responsive-iphone-about.png) | ![screenshot](documentation/responsiveness/responsive-iphone-contact.png) | ![screenshot](documentation/responsiveness/responsive-iphone-etc.png) | Works as expected |
-| repeat for any other tested browsers | x | x | x | x | x |
+| Device | Start Game | In-Game | Game Over | Won Game | Instructions | Contact | 404 | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Mobile (DevTools) (320px) | ![screenshot](documentation/responsiveness/mobile-startgame.png) | ![screenshot](documentation/responsiveness/mobile-ingame2.png) | ![screenshot](documentation/responsiveness/mobile-gameover.png) | ![screenshot](documentation/responsiveness/mobile-wongame.png) | ![screenshot](documentation/responsiveness/mobile-instructions.png) |![screenshot](documentation/responsiveness/mobile-contact.png)  | ![screenshot](documentation/responsiveness/mobile-404.png)  | Works as expected |
+| Tablet (DevTools) (768px) | ![screenshot](documentation/responsiveness/tablet-startgame.png) | ![screenshot](documentation/responsiveness/tablet-game.png) | ![screenshot](documentation/responsiveness/tablet-game-over.png) | ![screenshot](documentation/responsiveness/tablet-won-game.png) | ![screenshot](documentation/responsiveness/tablet-instructions.png) |![screenshot](documentation/responsiveness/tablet-contact.png)  | ![screenshot](documentation/responsiveness/tablet-404.png)  | Modals not centered due to the length |
+| Desktop | ![screenshot](documentation/responsiveness/desktop-start-game.png) | ![screenshot](documentation/responsiveness/desktop-ingame.png) | ![screenshot](documentation/responsiveness/desktop-gameover.png) | ![screenshot](documentation/responsiveness/desktop-wongame.png) | ![screenshot](documentation/responsiveness/desktop-instructions.png) |![screenshot](documentation/responsiveness/desktop-contact.png)  | ![screenshot](documentation/responsiveness/desktop-404.png)  | Works as expected |
+| Personal Mobile (iphone 13 pro) | ![screenshot](documentation/responsiveness/iphone13-startgame.PNG) | ![screenshot](documentation/responsiveness/iphone13-ingame.PNG) | ![screenshot](documentation/responsiveness/iphone13-gameover.PNG) | ![screenshot](documentation/responsiveness/iphone13-wongame.PNG) | ![screenshot](documentation/responsiveness/iphone13-instructions.PNG) |![screenshot](documentation/responsiveness/iphone13-contact.PNG)  | ![screenshot](documentation/responsiveness/iphone13-404.PNG)  | Works as expected |
+
 
 ## Lighthouse Audit
 
