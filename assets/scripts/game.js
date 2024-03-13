@@ -250,7 +250,7 @@ function shuffleWord(word) {
     let shuffledWord = '';
     word = word.split('');
     while (word.length > 0) {
-        shuffledWord += word.splice(word.length * Math.random() << 0, 1);
+        shuffledWord += word.splice(Math.floor(word.length * Math.random()), 1);
     }
     return shuffledWord;
 }
