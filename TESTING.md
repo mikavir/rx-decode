@@ -363,15 +363,30 @@ Due to a change in Jest's default configuration, you'll need to add the followin
  * @jest-environment jsdom
  */
 
-```like you test.
-The example above is testing the `index.html` file.
+```
 
-Finally, at the bottom of the script file where your primary scripts are written, include the following at the bottom of the file.
-Make sure to include the name of all of your functions that are being tested in the `.test.js` file.
+Make sure to include the name of all of your functions that are being tested in the `game.test.js` file.
 
 ```js
-if (typeof module !== "undefined") module.exports = {
-    function1, function2, function3, etc.
+if (typeof module !== 'undefined') module.exports = {
+    startGame,
+    isGuessedWordCorrect,
+    cardiacDictionary,
+    painDictionary,
+    getRandomDrug,
+    shuffleWord,
+    hasUserWonTheGame,
+    word,
+    hint,
+    correctGuessedWord,
+    canSubmit,
+    livesLeft,
+    livesTaken,
+    noOfCorrectWords,
+    gameIsOver,
+    gameIsWon,
+    gameIsExited,
+    noOfDrugs,
 };
 ```
 
@@ -390,7 +405,7 @@ Below are the results from the tests that I've written for this application:
 
 | Test Suites | Tests | Screenshot |
 | --- | --- | --- |
-| 1 passed | 16 passed | ![screenshot](documentation/tests/js-test-coverage.png) |
+| 1 passed | 18 passed | ![screenshot](documentation/tests/js-test-coverage.png) |
 | x | x | repeat for all remaining tests |
 
 #### Jest Test Issues
@@ -439,7 +454,7 @@ The imput of jshint configuration to the game.test.js have caused errors as it i
 
 - To fix this, I have changed the order of the lines: 
 
-    ```
+    ```js
     /**
     * @jest-environment jsdom
     */
