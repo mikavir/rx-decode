@@ -46,7 +46,7 @@ function validateForm() {
         emailInput.classList.add("is-invalid");
         return false;
     } else if (subjectInput.value === "") {
-        emailFeedBack = "Please input a subject to your message";
+        emailFeedBack.innerText = "Please input a subject to your message";
         subjectInput.classList.add("is-invalid");
         return false;
     } else if (enquiryInput.value === "") {
