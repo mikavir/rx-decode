@@ -80,7 +80,7 @@ describe("is Guessed Word and word the same", () => {
     test("guessed word and word is the same", () => {
         expect(isGuessedWordCorrect(word, correctGuessedWord)).toBe(true);
     });
-})
+});
 
 // Test for get random drug fn
 describe("is getRandomDrug function working", () => {
@@ -88,7 +88,7 @@ describe("is getRandomDrug function working", () => {
         let randomDrug = getRandomDrug(cardiacDictionary);
         expect(cardiacDictionary.includes(randomDrug)).toBe(false);
     });
-})
+});
 
 // Test for shuffle word
 describe("is shuffle word function working", () => {
@@ -97,7 +97,7 @@ describe("is shuffle word function working", () => {
     test("word and shuffled word is not the same and should return false", () => {
         expect(word === shuffledWord).toBe(false);
     });
-})
+});
 
 // Test to check if user has won the game 
 describe("is hasUserWonTheGame function working", () => {
@@ -109,4 +109,4 @@ describe("is hasUserWonTheGame function working", () => {
     test("hasUserWonTheGame should return true with an empty list", () => {
         expect(hasUserWonTheGame(emptyGuessedList)).toBe(true);
     });
-})
+});
