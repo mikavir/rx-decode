@@ -270,6 +270,66 @@ Contact
 - Leaderboards
     - Due to the limited number of drug names available in this game, implementing a leaderboard was deemed inappropriate since the same number of winners would always emerge. However, with an increased pool of drug names to win, introducing a leaderboard would become a desirable feature, allowing for competition among players and adding depth to the gaming experience.
 
+## Development Story
+
+This section will outline the development process of the game. The objective is for users to guess the shuffled drug name. To aid users in progressing during challenging moments, hints will be provided. I will organize this section into distinct features that I have established for the game.
+
+- **Making the box for letter containers**
+In vision, I wanted to have a box per letter of the drug name. That box should have a data-set of the letter for me to use it in the logic. I have manage to implement this by making a function that will loop over the drugName word and creating a div per letter and appending it to the DOM. A similar approach was taken when implementing the letter containers for users guessed word.
+```js
+function addBox(word) {
+  for (let letter of word) {
+      let letterPerBox = document.createElement('div');
+      letterPerBox.className = "letter-box letter-container";
+      letterPerBox.dataset.letter = letter; // https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
+      document.getElementById("game-area").appendChild(letterPerBox);
+  }
+}
+```
+- **Shuffling the word**
+In order the shuffle the letters inside the word, I have research on how to shuffle an array as a word is an array of characters. I have initially adopted the Fisher-Yates algorithm explained by [FreeCodeCamp](https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/) as shown below.
+
+  ```js
+  function shuffleArray(arr) {
+      for(let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i+1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+          console.log(`${arr[i]} is swapped with ${arr[j]}`);
+      }
+      console.log(arr);
+      return arr;
+  }
+  ```
+However, with this function, the word was still not changing despite the console logs of the iterations shows the letter swapping. This can be seen below: 
+![screenshot](documentation/shuffling-word-error.png)
+
+This have made reconsider my function as the word was not immutable. I have found a solution in [StackOverflow](https://stackoverflow.com/questions/3943772/how-do-i-shuffle-the-characters-in-a-string-in-javascript) and was inspired by it to make this new function:
+
+  ```js
+    function shuffleWord(word) {
+      let shuffledWord = '';
+      word = word.split('');
+      while (word.length > 0) {
+          shuffledWord += word.splice(Math.floor(word.length * Math.random()), 1);
+      }
+      return shuffledWord;
+    }
+  ```
+This function involves creating a new array and splitting the word array into substrings. The "while" liip will then make the shuffled word with the randomised returned letter of the words.splice(). The function itself will then return the shuffled word.
+
+- **Drag and Drop**
+As I have wanted to create a drag and drop mechanics. I have researched on how to create this mechanism. Using [Jquery UI](https://jqueryui.com/) [draggables](https://jqueryui.com/draggable/) and [droppable](https://api.jqueryui.com/droppable/), I was able to achieve this. I did encounter issues with the appending of "draggable letters" to the "letter containers" due to the default styling and behaviours of JQuery UI as shown in the below screenshot:
+![screenshot](documentation/jquery-styling.png)
+
+In order to fix this, I had to override the default styling of jquery ui with jquery: 
+
+  ```js
+  $('.draggableLetters').css({
+          'left': '0px',
+
+      });
+  ```
+
 
 ## Tools & Technologies Used
 
@@ -370,14 +430,6 @@ There are no differences between local and deployment.
 
 ### Acknowledgements
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Use this space to provide attribution to any supports that helped, encouraged, or supported you throughout the development stages of this project.
-A few examples have been provided below to give you some ideas.
-
-⚠️⚠️ EXAMPLES ONLY - REPLACE WITH YOUR OWN ⚠️⚠️
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
