@@ -190,8 +190,7 @@ Below are the results from the tests that I've written for this application:
 
 | Test Suites | Tests | Screenshot |
 | --- | --- | --- |
-| 1 passed | 18 passed | ![screenshot](documentation/tests/js-test-coverage.png) |
-| x | x | repeat for all remaining tests |
+| 1 passed | 18 passed | ![screenshot](documentation/tests/jest-test-coverage.png) |
 
 #### Jest Test Issues
 
