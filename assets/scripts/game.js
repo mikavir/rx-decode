@@ -159,7 +159,7 @@ function categorySelection(category) {
         choice = painDictionary;
         noOfDrugs = painDictionary.length;
         startGame = true;
-    } else if (gameType == 'antibiotics') {
+    } else if (gameType == 'antibiotic') {
         choice = antibioticsDictionary;
         noOfDrugs = antibioticsDictionary.length;
         startGame = true;
