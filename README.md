@@ -68,10 +68,10 @@ Based on research from the  [Print Authority](https://theprintauthority.com/best
 - As a returning game user, I would like to see contact information, so that I can contact the developer if I encounter any bugs.
 - As a returning game user, I would like to be able to keep track on how many drug name I need to guess so that I can be motivated to finish the game.
 
-### Site Administrator
-- As a site administrator, I would like be able to make the game more challenging by incorporating lives, so that I can make the users enjoy playing the game.
-- As a site administrator, I would like to have a platform for users contact me, so that they can report when they have a bug.
-- As a site administrator, I would like the user to be able to go back to the game after contacting me, so that they can keep playing the game and improve their experience.
+### Game Administrator
+- As a game administrator, I would like be able to make the game more challenging by incorporating lives, so that I can make the users enjoy playing the game.
+- As a game administrator, I would like to have a platform for users contact me, so that they can report when they have a bug.
+- As a game administrator, I would like the user to be able to go back to the game after contacting me, so that they can keep playing the game and improve their experience.
 
 ## Wireframes
 
@@ -501,8 +501,9 @@ There are no differences between local and deployment.
 | [W3 Schools](https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_remove) | game.js: getRandomDrug() | How to remove an element from an array using splice() |
 | [W3 Schools](https://www.w3schools.com/js/js_validation.asp)  | email.js: validateForm() | How to retrieve elements from form for validating |
 | [Stack Overflow](https://stackoverflow.com/questions/35536562/how-to-make-drag-and-drop-jquery)  | game.js : dragAndDrop() | How to make drag and drop jquery |
-| [JQuery UI](https://api.jqueryui.com/draggable/)  | game.js : dragAndDrop() | draggable widget and methods |
-| [JQuery UI](https://api.jqueryui.com/droppable/)  | game.js : dragAndDrop() | droppable widget and methods |
+| [JQuery UI](https://api.jqueryui.com/draggable/)  | game.js : dragAndDrop() | Draggable widget and methods |
+| [JQuery UI](https://api.jqueryui.com/droppable/)  | game.js : dragAndDrop() | Droppable widget and methods |
+|[StackOverflow](https://stackoverflow.com/questions/16715075/preventing-multiple-clicks-on-button)| game.js main function() | Preventing multiple clicks |
 
 
 ### Media

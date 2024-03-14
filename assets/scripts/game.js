@@ -172,6 +172,8 @@ function categorySelection(category) {
         // checks to see if all the letter container is filled then will change class of button
         setInterval(handleSubmitButton, 50);
         guessButton.addEventListener("click", (e) => {
+            // https://stackoverflow.com/questions/16715075/preventing-multiple-clicks-on-button
+            // Prevents multiple clicks
             let hasBeenClicked = e.detail === 1;
             if (canSubmit && hasBeenClicked) {
                 let guessedWord = makeGuessedWord();
@@ -338,6 +340,7 @@ function isLetterContainersFilled() {
 function handleSubmitButton() {
     let guessButton = document.getElementById('guess-button');
     if (isLetterContainersFilled()) {
+        //https://stackoverflow.com/questions/73978586/javascript-onclick-set-to-false
         guessButton.disabled = false;
         guessButton.classList.remove('disabled');
         guessButton.classList.add('enabled');
