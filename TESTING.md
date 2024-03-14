@@ -30,7 +30,7 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
 | assets | email.js | ![screenshot](documentation/validation/js-hint-email.png) | Undefined variable of emailjs and unused variable of sendmail. This function was called in the index.html |
-| assets | game.js | ![screenshot](ddocumentation/validation/js-hint-test.png) | No warnings, undefined variables of module exports and js-confetti which is known and is external|
+| assets | game.js | ![screenshot](documentation/validation/js-hint-game.png) | No warnings, undefined variables of module exports and js-confetti which is known and is external|
 | assets | game.test.js | ![screenshot](documentation/validation/jshint-game.test.png) | Undefined variables  of 'require' from jest |
 
             
@@ -202,26 +202,26 @@ Since [js-confetti](https://www.npmjs.com/package/js-confetti) was implemented u
 
 - To fix this, I have searched online on "How to get jest to ignore a function". [CodeWithHugo](https://codewithhugo.com/jest-exclude-coverage/) explains that it can be done with an ignore line. Although, I understand that this should not be used all the time as all code should be tested. However, as `new JSConfetti()` is an external function, I found it appropriate for this case. Please see below my implementation: 
 
-    ```
-    function ignoreLine() {
-        const jsConfetti = new JSConfetti();
-        if (gameIsWon) {
-            jsConfetti.addConfetti({
-                emojis: ['💊'],
-            });
-        } else if (gameIsExited) {
-            jsConfetti.addConfetti({
-                emojis: ['😭'],
-            });
-        } else if (gameIsOver) {
-            jsConfetti.addConfetti({
-                emojis: ['☠️'],
-            });
-        } else {
-            return;
-        }
+```js
+function ignoreLine() {
+    const jsConfetti = new JSConfetti();
+    if (gameIsWon) {
+        jsConfetti.addConfetti({
+            emojis: ['💊'],
+        });
+    } else if (gameIsExited) {
+        jsConfetti.addConfetti({
+            emojis: ['😭'],
+        });
+    } else if (gameIsOver) {
+        jsConfetti.addConfetti({
+            emojis: ['☠️'],
+        });
+    } else {
+        return;
     }
-    ```
+}
+```
 
 **JS hint Configuration**
 
