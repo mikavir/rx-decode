@@ -110,6 +110,12 @@ button, #submit-button  {
 .disabled {
   background-color: #333;
   color: white;
+
+
+}
+
+.noevents {
+  pointer-events: none;
 }
 
 /* Hint area styles */

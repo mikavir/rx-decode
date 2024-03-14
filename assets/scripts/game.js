@@ -181,7 +181,7 @@ function categorySelection(category) {
                 if (isGuessedWordCorrect(word, guessedWord) === true) {
                     $(".letter-container").addClass('correct');
                     setTimeout(function () {
-                        guessButton.disabled;
+                        guessButton.classList.add(".noevents");
                         nextWord();
                         canSubmit = false;
                         addCorrectGuessedWords(gameType, noOfDrugs, word);
@@ -343,6 +343,7 @@ function handleSubmitButton() {
     let guessButton = document.getElementById('guess-button');
     if (isLetterContainersFilled()) {
         //https://stackoverflow.com/questions/73978586/javascript-onclick-set-to-false
+        guessButton.classList.remove("noevents")
         guessButton.disabled = false;
         guessButton.classList.remove('disabled');
         guessButton.classList.add('enabled');
