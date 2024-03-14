@@ -170,7 +170,7 @@ function categorySelection(category) {
         displayWhenGameStart(gameType, noOfDrugs);
         setUpGame(choice);
         // checks to see if all the letter container is filled then will change class of button
-        setInterval(handleSubmitButton, 1000);
+        setInterval(handleSubmitButton, 100);
         guessButton.addEventListener("click", (e) => {
             if (canSubmit) {
                 let guessedWord = makeGuessedWord();
@@ -178,6 +178,7 @@ function categorySelection(category) {
                     $(".letter-container").addClass('correct');
                     setTimeout(function () {
                         nextWord();
+                        canSubmit = false;
                         addCorrectGuessedWords(gameType, noOfDrugs, word);
                         setUpGame(choice);
                         if (gameIsWon) {
