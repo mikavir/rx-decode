@@ -282,6 +282,21 @@ Overall, the majority of documentation on Jest testing pertains to the latest ve
     emailFeedBack.innerText = "Please input a subject to your message";
     ```
 
+- When user double clicks on the guess-button, this moves on the next word even without the letter containers not filled. The multiple clicks was not being handled well.
+
+    ![gif](documentation/bugs/multiple-clicks-bug.gif)
+
+    - To fix this, I introduced an additional conditional statement within my guessButton event handler to ensure submission only occurs when the number of clicks (i.e., `e.detail`) equals 1. Additionally, I ensured that the guess button is `disabled`(`disabled` set to true) when `canSubmit` is false. This solution was inspired by insights from[StackOverflow](https://stackoverflow.com/questions/16715075/preventing-multiple-clicks-on-button). . Please find my implementation in the code block below:
+
+    ```js
+
+    let hasBeenClicked = e.detail === 1;
+            if (canSubmit && hasBeenClicked) {
+                // Please see more of the code in game.js
+            }
+
+    ```
+
 
 ## Unfixed Bugs
 
