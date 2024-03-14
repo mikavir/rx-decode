@@ -143,7 +143,7 @@ Contact
 > Answer sheet below.
 
 <details>
-<summary> **Cardiac Drugs** </summary>
+<summary> Cardiac Drugs </summary>
 
 | Drug Name|  Hint |
 | -- | --- |
@@ -159,7 +159,7 @@ Contact
 </details>
 
 <details>
-<summary> **Pain Drugs** </summary>
+<summary> Pain Drugs </summary>
 
 | Drug Name|  Hint |
 | -- | --- |
@@ -174,7 +174,7 @@ Contact
 </details>
 
 <details>
-<summary> **Antibiotic Drugs** </summary>
+<summary> Antibiotic Drugs </summary>
 
 | Drug Name|  Hint |
 | -- | --- |
