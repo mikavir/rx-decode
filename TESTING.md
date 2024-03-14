@@ -107,8 +107,10 @@ Defensive programming was manually tested with the below user acceptance testing
 | As a returning game user, I would like to be able to keep track on how many drug name I need to guess so that I can be motivated to finish the game. | ![screenshot](documentation/features/feature10.png) |
 | As a site administrator, I should be able to make the game more challenging by incorporating lives, so that I can make the users enjoy playing the game. | ![screenshot](documentation/features/feature07.png) |
 |As a site administrator, I would like to have a platform for users contact me, so that they can report when they have a bug. | ![screenshot](documentation/features/feature05.png) |
-| As a site administrator, I would like the user to be able to go back to the game after contacting me, so that they can keep playing the game and improve their experience.
-| ![screenshot](documentation/features/feature06.png) |
+| As a site administrator, I would like the user to be able to go back to the game after contacting me, so that they can keep playing the game and improve their experience.| ![screenshot](documentation/features/feature06.png) |
+
+## User Feedback
+This game was tested by a registered nurse. I was given a feedback of that it was a fun and interactive game. However, there were a few typo in the drug names. This has been fixed since then.
 
 
 ## Automated Testing
