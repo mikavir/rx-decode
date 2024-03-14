@@ -384,6 +384,37 @@ The site was deployed to GitHub Pages. The steps to deploy are as follows:
 
 The live link can be found [here](https://mikavir.github.io/rx-decoder)
 
+### Obtaining Email.js API 
+1. Sign up for a [EmailJS](https://www.emailjs.com/docs/) account in the EmailJS website.
+2. Create an email service in your EmailJS dashboard.
+3. Install EmailJS Library. You can do this by including the EmailJS script in your HTML file or by installing it via npm if you're using a package manager like npm or yarn.
+  ```
+  npm install --save @emailjs/browser
+  ```
+or
+  ```
+  $ yarn add @emailjs/browser
+  ```
+4. In your EmailJS dashboard, navigate to the "API Keys" section and copy your API key.
+5. Add this code snippet before your closing tags. Making sure you have added your public key.
+```js
+  <script type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function(){
+        emailjs.init({
+          publicKey: "YOUR_PUBLIC_KEY",
+        });
+    })();
+  </script>
+```
+6.  Create an email template in your EmailJS dashboard. This template will define the content and structure of the emails you'll send.
+7. Write JavaScript function to send email using EmailJS. Below is a basic syntax for the code: 
+  ```
+  emailjs.send(serviceID, templateID, templateParams, options);
+  ```
+8. Call your function whenever you want to send an email.
 ### Local Deployment
 
 This project can be cloned or forked in order to make a local copy on your own system.
