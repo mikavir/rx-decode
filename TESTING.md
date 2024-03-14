@@ -306,7 +306,7 @@ Overall, the majority of documentation on Jest testing pertains to the latest ve
 
     - I have made several attempts to fix this and none have worked:
 
-    - Making `dblclick` event false as adviced by [StackOverflow](https://stackoverflow.com/questions/2424377/javascript-suppress-double-click-selection): 
+    - Making `dblclick` event false as advised by [StackOverflow](https://stackoverflow.com/questions/2424377/javascript-suppress-double-click-selection): 
     Result: No change.
 
     ```js

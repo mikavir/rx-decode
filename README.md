@@ -393,6 +393,7 @@ Another behavior of jQuery UI draggable appending is the jumping animation it ex
 - [![js-confetti](https://img.shields.io/badge/js--confetti-grey?logo=javascript&logoColor=F7DF1E)](https://www.npmjs.com/package/js-confetti) used to create confettis for animation.
 - [![Jest](https://img.shields.io/badge/Jest-grey?logo=jest&logoColor=c21325)](https://jestjs.io/) used for JavaScript testing.
 - [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528dd7)](https://fontawesome.com/) used for icons all throughout the game.
+- [![Chrome Developer Tools](https://img.shields.io/badge/Chrome_Developer_Tools-grey?logo=googlechrome&logoColor=4285F4)](https://developer.chrome.com/docs/devtools/open) was used to debug.
 
 ## Testing
 
