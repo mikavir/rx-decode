@@ -4,33 +4,6 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/mikavir/rx-decoder)](https://github.com/mikavir/rx-decoder/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/mikavir/rx-decoder)](https://github.com/mikavir/rx-decoder)
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
-
-GitHub now supports CALLOUTS in Markdown files.
-There are some callouts already embedded in this application for you.
-However, if you feel that you want to add more, there are certain ones you can use.
-
-NOTE: the preview for callouts isn't yet supported in Gitpod/Codeanywhere/VSCode/etc.
-You'll have to commit/push the changes to GitHub to see it in action.
-
-> [!NOTE]  
-> BLUE: Highlights information that users should take into account, even when skimming.
-
-> [!TIP]
-> GREEN: Optional information to help a user be more successful.
-
-> [!IMPORTANT]  
-> PURPLE: Crucial information necessary for users to succeed.
-
-> [!WARNING]  
-> YELLOW: Critical content demanding immediate user attention due to potential risks.
-
-> [!CAUTION]
-> RED: Negative potential consequences of an action.
-
-Source: https://github.com/orgs/community/discussions/16925
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 ![screenshot](documentation/mockup.png)
 *Please see the responsiveness using [Am I Responsive](https://ui.dev/amiresponsive?url=http://mikavir.github.io/rx-decoder)*
 
@@ -157,6 +130,43 @@ Contact
   - ![screenshot](documentation/wireframes/contact-page-desktop.png)
 
 </details>
+
+## Drug Name Data
+> [!TIP]
+> GREEN: Optional information to help a user be more successful.
+
+**Cardiac Drugs**
+| Drug Name|  Hint |
+| -- | --- |
+| Bisoprolol | Hint: Treatment for hypertension and heart failure. It works by selectively blocking certain receptors in the body, resulting in decreased heart rate and blood pressure. |
+| Potassium | Hint: It's commonly found in foods like bananas, oranges, and potatoes, and its deficiency can lead to symptoms like muscle weakness and irregular heartbeat. |
+| Amlodipine | Hint: This medication is widely prescribed to treat hypertension (high blood pressure) and certain cardiovascular conditions. It belongs to a class of drugs known as calcium channel blockers and works by relaxing blood vessels, thereby improving blood flow and lowering blood pressure.|
+| Ramipril | Hint: This medication is often prescribed for the treatment of hypertension (high blood pressure) and heart failure. It belongs to a class of drugs known as angiotensin-converting enzyme (ACE) inhibitors, which work by relaxing blood vessels, reducing blood pressure, and improving heart function. |
+| Lisinopril | Hint: This medication is commonly prescribed to treat hypertension (high blood pressure) and heart failure. It belongs to a class of drugs known as angiotensin-converting enzyme (ACE) inhibitors, which work by relaxing blood vessels and reducing the workload on the heart. |
+| Amiodarone | Hint: This medication is often prescribed to treat hypertension (high blood pressure) and certain cardiovascular conditions. It belongs to a class of drugs known as calcium channel blockers and works by relaxing blood vessels, thereby improving blood flow and lowering blood pressure. |
+| Magnesium | Hint: This essential mineral is crucial for muscle and nerve function, heart rhythm regulation, and overall health. It's commonly found in various foods and can be taken as a supplement. |
+| Aspirin | Hint: This medication is commonly prescribed to reduce the risk of heart attacks and strokes by preventing blood clots. It achieves this by inhibiting the action of certain enzymes involved in the clotting process. |
+
+**Pain Drugs**
+| Drug Name|  Hint |
+| -- | --- |
+| Oramorph | Hint: This medication is a powerful opioid painkiller commonly used for the relief of severe pain, particularly in palliative care or end-of-life situations. It's often prescribed in liquid form for ease of administration, especially for patients who have difficulty swallowing tablets or capsules. |
+| Fentanyl | Hint: This medication is a potent synthetic opioid analgesic used for the management of severe pain, particularly in cases such as surgery, cancer treatment, or chronic pain where other opioids may not provide sufficient relief. It's available in various formulations, including transdermal patches, lozenges, and injectable solutions. |
+| Tramadol | Hint: This medication is a synthetic opioid analgesic often prescribed for the management of moderate to moderately severe pain. It works by binding to opioid receptors in the brain, altering the perception of pain, and inhibiting the reuptake of certain neurotransmitters. |
+| Morphine | Hint: This medication is a powerful opioid analgesic derived from the opium poppy plant. It's commonly used for the management of severe pain, such as that experienced after surgery or in cancer patients. It works by binding to opioid receptors in the brain and spinal cord, effectively reducing the perception of pain. |
+| Ibuprofen | Hint: This widely used medication is a nonsteroidal anti-inflammatory drug (NSAID) commonly found in many over-the-counter pain relievers. It's often used to reduce pain, inflammation, and fever, making it a versatile option for various conditions such as headaches, muscle aches, arthritis, and menstrual cramps. |
+| Gabapentin | Hint: This medication is primarily used to treat seizures and nerve pain associated with conditions like shingles and diabetic neuropathy. Additionally, it's sometimes prescribed off-label for other conditions such as fibromyalgia and anxiety disorders. It works by altering the activity of certain neurotransmitters in the brain. |
+| Codeine | Hint: This medication is a narcotic pain reliever and cough suppressant derived from the opium poppy plant. It's often used to treat mild to moderately severe pain and as a cough suppressant. |
+
+**Antibiotic Drugs**
+| Drug Name|  Hint |
+| -- | --- |
+| Cefuroxime | Hint: This antibiotic is a second-generation cephalosporin commonly used to treat a variety of bacterial infections, including respiratory tract infections, skin infections, and urinary tract infections. It shares structural similarities with other cephalosporins but possesses enhanced activity against some Gram-negative bacteria. | 
+| Meropenem | Hint: This broad-spectrum antibiotic is a carbapenem often used for severe bacterial infections, including intra-abdominal infections, pneumonia, and complicated urinary tract infections. Its spectrum of activity includes both Gram-positive and Gram-negative bacteria, making it a potent choice for serious infections where other antibiotics may be ineffective. |
+| Vancomycin | Hint: This antibiotic is often referred to as a "last resort" medication due to its potency against multidrug-resistant bacteria, particularly Gram-positive organisms such as MRSA (Methicillin-resistant Staphylococcus aureus). It's commonly used to treat serious infections like bloodstream infections, pneumonia, and infections caused by Clostridium difficile. |
+| Gentamicin | Hint: This antibiotic belongs to the aminoglycoside class and is commonly used to treat severe bacterial infections, particularly those caused by Gram-negative bacteria such as Escherichia coli and Pseudomonas aeruginosa. It's often administered parenterally and is known for its efficacy against a wide range of bacteria, but it's also associated with potential side effects such as nephrotoxicity and ototoxicity. |
+| Penicillin | Hint: This widely used antibiotic was the first discovered member of the beta-lactam class of antibiotics. It's effective against a broad range of bacterial infections, especially those caused by Gram-positive bacteria such as Streptococcus and Staphylococcus species. Despite its effectiveness, some strains of bacteria have developed resistance to it over time. | 
+| Tazocin | Hint: This antibiotic combination is known for its broad spectrum of activity against both Gram-positive and Gram-negative bacteria, including many strains that are resistant to other antibiotics. It's commonly used in hospital settings for serious infections where a potent antibiotic is required. |
 
 ## Features
 
