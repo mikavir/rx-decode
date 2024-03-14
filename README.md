@@ -374,7 +374,7 @@ $('.draggableLetters').css({
     'left': '0px',
 });
 ```
-
+Another behavior of jQuery UI draggable appending is the jumping animation it exhibits. This is caused by the `revert: true` statement, which mandates that the draggable element returns to any of the letter containers.
 
 ## Tools & Technologies Used
 
