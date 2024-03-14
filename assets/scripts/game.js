@@ -199,33 +199,6 @@ function categorySelection(category) {
                 }
             }
         });
-        guessButton.addEventListener("touch-start", (e) => {
-            // https://stackoverflow.com/questions/16715075/preventing-multiple-clicks-on-button
-            // Prevents multiple clicks
-            let hasBeenClicked = e.detail === 1;
-            if (canSubmit && hasBeenClicked) {
-                let guessedWord = makeGuessedWord();
-                if (isGuessedWordCorrect(word, guessedWord) === true) {
-                    $(".letter-container").addClass('correct');
-                    setTimeout(function () {
-                        nextWord();
-                        canSubmit = false;
-                        addCorrectGuessedWords(gameType, noOfDrugs, word);
-                        setUpGame(choice);
-                        if (gameIsWon) {
-                            wonGame();
-                        }
-                    }, 500);
-                } else {
-                    $(".letter-container").addClass('incorrect');
-                    setTimeout(function () {
-                        $(".letter-container").removeClass('incorrect');
-                    }, 1000);
-                    mistakeMade(livesLeft);
-                    isGameOver(correctGuessedWord);
-                }
-            }
-        });
         quitGame();
     }
 
