@@ -310,6 +310,7 @@ This section will outline the development process of the game. The objective is 
 
 - **Making the box for letter containers**
 In vision, I wanted to have a box per letter of the drug name. That box should have a data-set of the letter for me to use it in the logic. I have manage to implement this by making a function that will loop over the drugName word and creating a div per letter and appending it to the DOM. A similar approach was taken when implementing the letter containers for users guessed word.
+
 ```js
 function addBox(word) {
   for (let letter of word) {
@@ -320,35 +321,38 @@ function addBox(word) {
   }
 }
 ```
+
 - **Shuffling the word**
 In order the shuffle the letters inside the word, I have research on how to shuffle an array as a word is an array of characters. I have initially adopted the Fisher-Yates algorithm explained by [FreeCodeCamp](https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/) as shown below.
 
-  ```js
-  function shuffleArray(arr) {
-      for(let i = arr.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i+1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-          console.log(`${arr[i]} is swapped with ${arr[j]}`);
-      }
-      console.log(arr);
-      return arr;
-  }
-  ```
+```js
+function shuffleArray(arr) {
+    for(let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i+1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+        console.log(`${arr[i]} is swapped with ${arr[j]}`);
+    }
+    console.log(arr);
+    return arr;
+}
+```
+
 However, with this function, the word was still not changing despite the console logs of the iterations shows the letter swapping. This can be seen below: 
 ![screenshot](documentation/shuffling-word-error.png)
 
 This have made reconsider my function as the word was not immutable. I have found a solution in [StackOverflow](https://stackoverflow.com/questions/3943772/how-do-i-shuffle-the-characters-in-a-string-in-javascript) and was inspired by it to make this new function:
 
-  ```js
-    function shuffleWord(word) {
-      let shuffledWord = '';
-      word = word.split('');
-      while (word.length > 0) {
-          shuffledWord += word.splice(Math.floor(word.length * Math.random()), 1);
-      }
-      return shuffledWord;
+```js
+  function shuffleWord(word) {
+    let shuffledWord = '';
+    word = word.split('');
+    while (word.length > 0) {
+        shuffledWord += word.splice(Math.floor(word.length * Math.random()), 1);
     }
-  ```
+    return shuffledWord;
+  }
+```
+
 This function involves creating a new array and splitting the word array into substrings. The "while" liip will then make the shuffled word with the randomised returned letter of the words.splice(). The function itself will then return the shuffled word.
 
 - **Drag and Drop**
@@ -357,12 +361,11 @@ As I have wanted to create a drag and drop mechanics. I have researched on how t
 
 In order to fix this, I had to override the default styling of jquery ui with jquery: 
 
-  ```js
-  $('.draggableLetters').css({
-          'left': '0px',
-
-      });
-  ```
+```js
+$('.draggableLetters').css({
+    'left': '0px',
+});
+```
 
 
 ## Tools & Technologies Used
@@ -376,12 +379,12 @@ In order to fix this, I had to override the default styling of jquery ui with jq
 - [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-grey?logo=githubpages&logoColor=222222)](https://pages.github.com) used for hosting the deployed front-end site.
 - [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
 - [![jQuery](https://img.shields.io/badge/jQuery-grey?logo=jquery&logoColor=0769AD)](https://jquery.com) used for user interaction on the site.
-- [jQuery User Interface](https://jqueryui.com/) used for JavaScript library to easily manipulate the Document Object Model (DOM) and manipulate the drag and drop mechanism.
-- [jQuery UI Touch Punch](https://www.npmjs.com/package/jquery-ui-touch-punch) used to allow touch events use for jQuery UI widgets.
+- [![jQuery User Interface](https://img.shields.io/badge/jQuery_User_Interface-grey?logo=jquery&logoColor=0769AD)](https://jqueryui.com/) used for JavaScript library to easily manipulate the Document Object Model (DOM) and manipulate the drag and drop mechanism.
+- [![jQuery UI Touch Punch](https://img.shields.io/badge/jQuery_UI_Touch_Punch-grey?logo=jquery&logoColor=0769AD)](https://www.npmjs.com/package/jquery-ui-touch-punch) used to allow touch events use for jQuery UI widgets.
 - [![Balsamiq](https://img.shields.io/badge/Balsamiq-grey?logo=barmenia&logoColor=CE0908)](https://balsamiq.com/wireframes) used for creating wireframes.
-- [js-confetti](https://www.npmjs.com/package/js-confetti) used to create confettis for animation.
-- [Jest](https://jestjs.io/) used for JavaScript testing.
-- [Font Awesome](https://fontawesome.com/) used for icons all throughout the game.
+- [![js-confetti](https://img.shields.io/badge/js--confetti-grey?logo=javascript&logoColor=F7DF1E)](https://www.npmjs.com/package/js-confetti) used to create confettis for animation.
+- [![Jest](https://img.shields.io/badge/Jest-grey?logo=jest&logoColor=c21325)](https://jestjs.io/) used for JavaScript testing.
+- [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528dd7)](https://fontawesome.com/) used for icons all throughout the game.
 
 ## Testing
 
