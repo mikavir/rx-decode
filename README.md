@@ -137,10 +137,14 @@ Contact
 </details>
 
 ## Drug Name Data
-> [!TIP]
-> GREEN: Optional information to help a user be more successful.
 
-**Cardiac Drugs**
+> [!TIP]  
+> SPOILERS!
+> Answer sheet below.
+
+<details>
+<summary> **Cardiac Drugs** </summary>
+
 | Drug Name|  Hint |
 | -- | --- |
 | Bisoprolol | Hint: Treatment for hypertension and heart failure. It works by selectively blocking certain receptors in the body, resulting in decreased heart rate and blood pressure. |
@@ -152,7 +156,11 @@ Contact
 | Magnesium | Hint: This essential mineral is crucial for muscle and nerve function, heart rhythm regulation, and overall health. It's commonly found in various foods and can be taken as a supplement. |
 | Aspirin | Hint: This medication is commonly prescribed to reduce the risk of heart attacks and strokes by preventing blood clots. It achieves this by inhibiting the action of certain enzymes involved in the clotting process. |
 
-**Pain Drugs**
+</details>
+
+<details>
+<summary> **Pain Drugs** </summary>
+
 | Drug Name|  Hint |
 | -- | --- |
 | Oramorph | Hint: This medication is a powerful opioid painkiller commonly used for the relief of severe pain, particularly in palliative care or end-of-life situations. It's often prescribed in liquid form for ease of administration, especially for patients who have difficulty swallowing tablets or capsules. |
@@ -163,7 +171,11 @@ Contact
 | Gabapentin | Hint: This medication is primarily used to treat seizures and nerve pain associated with conditions like shingles and diabetic neuropathy. Additionally, it's sometimes prescribed off-label for other conditions such as fibromyalgia and anxiety disorders. It works by altering the activity of certain neurotransmitters in the brain. |
 | Codeine | Hint: This medication is a narcotic pain reliever and cough suppressant derived from the opium poppy plant. It's often used to treat mild to moderately severe pain and as a cough suppressant. |
 
-**Antibiotic Drugs**
+</details>
+
+<details>
+<summary> **Antibiotic Drugs** </summary>
+
 | Drug Name|  Hint |
 | -- | --- |
 | Cefuroxime | Hint: This antibiotic is a second-generation cephalosporin commonly used to treat a variety of bacterial infections, including respiratory tract infections, skin infections, and urinary tract infections. It shares structural similarities with other cephalosporins but possesses enhanced activity against some Gram-negative bacteria. | 
@@ -172,6 +184,8 @@ Contact
 | Gentamicin | Hint: This antibiotic belongs to the aminoglycoside class and is commonly used to treat severe bacterial infections, particularly those caused by Gram-negative bacteria such as Escherichia coli and Pseudomonas aeruginosa. It's often administered parenterally and is known for its efficacy against a wide range of bacteria, but it's also associated with potential side effects such as nephrotoxicity and ototoxicity. |
 | Penicillin | Hint: This widely used antibiotic was the first discovered member of the beta-lactam class of antibiotics. It's effective against a broad range of bacterial infections, especially those caused by Gram-positive bacteria such as Streptococcus and Staphylococcus species. Despite its effectiveness, some strains of bacteria have developed resistance to it over time. | 
 | Tazocin | Hint: This antibiotic combination is known for its broad spectrum of activity against both Gram-positive and Gram-negative bacteria, including many strains that are resistant to other antibiotics. It's commonly used in hospital settings for serious infections where a potent antibiotic is required. |
+
+</details>
 
 ## Features
 
