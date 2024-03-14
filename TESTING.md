@@ -30,7 +30,7 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
 | assets | email.js | ![screenshot](documentation/validation/js-hint-email.png) | undefined variable of emailjs and unused variable of sendmail. This function was called in the index.html |
-| assets | game.js | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+| assets | game.js | ![screenshot](ddocumentation/validation/js-hint-test.png) | No warnings, undefined variables of module exports and js-confetti which is known and is external|
 | assets | game.test.js | ![screenshot](documentation/validation/jshint-game.test.png) | undefined variables  of require from jest |
 
             
