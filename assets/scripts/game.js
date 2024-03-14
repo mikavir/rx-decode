@@ -147,6 +147,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     });
 });
 
+/** handles category and starts game with the chosen category */
 function categorySelection(category) {
     let gameType = category.getAttribute('data-type');
     let choice;
