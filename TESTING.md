@@ -300,5 +300,73 @@ Overall, the majority of documentation on Jest testing pertains to the latest ve
 
 ## Unfixed Bugs
 
-> [!NOTE]  
-> There are no remaining bugs that I am aware of.
+- When a user "double tap" on submit button, it skips a word on mobile devices. This occurance does not happen on chrome developer tools.
+
+    ![gif](documentation/bugs/mobile-unfixed bug.gif)
+
+    - I have made several attempts to fix this and none have worked:
+
+    - Making `dblclick` event false as adviced by [StackOverflow](https://stackoverflow.com/questions/2424377/javascript-suppress-double-click-selection): 
+    Result: No change.
+
+    ```js
+    $(guessButton).dblclick(function(){
+    return false;
+    });
+    ```
+
+    - Adding a class with `pointer-event: none` when `nextWord` is happening.
+    Result: No change.
+
+    ```css
+    .noevents {
+        pointer-events: none;
+    }
+
+    ```
+
+    - Making a `touch-start` event handler:
+    Result: No change.
+
+
+    ```js
+     guessButton.addEventListener("touch-start", (e) => {
+            // https://stackoverflow.com/questions/16715075/preventing-multiple-clicks-on-button
+            // Prevents multiple clicks
+            let hasBeenClicked = e.detail === 1;
+            if (canSubmit && hasBeenClicked) {
+                let guessedWord = makeGuessedWord();
+                if (isGuessedWordCorrect(word, guessedWord) === true) {
+                    $(".letter-container").addClass('correct');
+                    setTimeout(function () {
+                        nextWord();
+                        canSubmit = false;
+                        addCorrectGuessedWords(gameType, noOfDrugs, word);
+                        setUpGame(choice);
+                        if (gameIsWon) {
+                            wonGame();
+                        }
+                    }, 500);
+                } else {
+                    $(".letter-container").addClass('incorrect');
+                    setTimeout(function () {
+                        $(".letter-container").removeClass('incorrect');
+                    }, 1000);
+                    mistakeMade(livesLeft);
+                    isGameOver(correctGuessedWord);
+                }
+            }
+        });
+
+    ```
+
+    fter numerous attempts to address the issue and seeking solutions from various resources, I've concluded that the problem might be related to the behavior of event handles on mobile and touch screen devices.
+
+
+### GitHub **Issues**
+
+**Fixed Bugs**
+
+[![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3Amikavir/rx-decoder%20label%3Abug&label=bugs)](https://github.com/mikavir/rx-decoder/issues?q=is%3Aissue+is%3Aclosed+label%3Abug)
+
+All previously closed/fixed bugs can be tracked [here](https://github.com/mikavir/rx-decoder/issues?q=is%3Aissue+is%3Aclosed).
