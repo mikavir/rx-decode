@@ -178,7 +178,7 @@ function categorySelection(category) {
             let hasBeenClicked = e.detail === 1;
             if (canSubmit && hasBeenClicked) {
                 let guessedWord = makeGuessedWord();
-                if (isGuessedWordCorrect(word, guessedWord) === true) {
+                if ((isGuessedWordCorrect(word, guessedWord) === true) && hasBeenClicked) {
                     $(".letter-container").addClass('correct');
                     setTimeout(function () {
                         guessButton.classList.add(".noevents");
