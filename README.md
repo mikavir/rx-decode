@@ -4,8 +4,8 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/mikavir/rx-decoder)](https://github.com/mikavir/rx-decoder/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/mikavir/rx-decoder)](https://github.com/mikavir/rx-decoder)
 
-![screenshot](documentation/mockup.png)
-*Please see the responsiveness using [Am I Responsive](https://ui.dev/amiresponsive?url=http://mikavir.github.io/rx-decoder)*
+ ![screenshot](documentation/mockup.png)
+*[Am I Responsive](https://ui.dev/amiresponsive?url=http://mikavir.github.io/rx-decoder)*
 
 
 
