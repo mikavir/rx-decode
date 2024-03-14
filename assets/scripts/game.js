@@ -181,6 +181,7 @@ function categorySelection(category) {
                 if (isGuessedWordCorrect(word, guessedWord) === true) {
                     $(".letter-container").addClass('correct');
                     setTimeout(function () {
+                        guessButton.disabled;
                         nextWord();
                         canSubmit = false;
                         addCorrectGuessedWords(gameType, noOfDrugs, word);
