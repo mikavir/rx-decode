@@ -15,7 +15,12 @@ A responsive interactive game that can be used in a range of devices. It is aime
 
 
 ## UX
+ 
+This project was selected with the aim of enhancing the familiarity of medical professionals, including myself, with drug names and their corresponding actions.
 
+ Acknowledging the time constraints often faced in the medical field, I have developed this game to offer an enjoyable means of learning during leisure moments while also promoting continuous professional development. 
+ 
+ The game's design draws inspiration from the busy schedules of medical professionals, aiming for a clean and minimalist aesthetic to ensure easy comprehension and accessibility.
 
 
 ### Colour Scheme
@@ -449,5 +454,7 @@ There are no differences between local and deployment.
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
 - I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
-- I would like to thank my partner (John/Jane), for believing in me, and allowing me to make this transition into software development.
-- I would like to thank my employer, for supporting me in my career development change towards becoming a software developer.
+- I would like to thank my partner John, for believing in me, and being my rubber ducky and a tester.
+I would like to thank my brother Elan, for being my rubber ducky and as a tester.
+- I would like to thank my current coleagues and friends for testing the game.
+
