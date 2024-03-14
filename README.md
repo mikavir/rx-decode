@@ -281,11 +281,11 @@ Contact
     
 ![screenshot](documentation/features/feature13.png)
 
-- **Drag and Drop Game Area**
+- **Drag and Drop Game Mechanics**
 
     - The use of "Drag and Drop" mechanics encourages accesibility as it is easy to understand increasing to wider target audience. 
     
-![screenshot](documentation/features/feature14.png)
+![gif](documentation/features/feature14.gif)
 
 - **Animation with Incorrect Guess**
 
@@ -299,10 +299,18 @@ Contact
     
 ![screenshot](documentation/features/feature15.png)
 
+- **404 page**
+
+    - When the user navigates to a page that does not exist, they would encounter a 404 page.  It serves as a safety net for when users encounter broken links or mistyped URLs. Allowing this user, would improve the game reputation on how it handles errors.
+    
+![screenshot](documentation/features/feature17.png)
+
+
 ### Future Features
 
 - Leaderboards
     - Due to the limited number of drug names available in this game, implementing a leaderboard was deemed inappropriate since the same number of winners would always emerge. However, with an increased pool of drug names to win, introducing a leaderboard would become a desirable feature, allowing for competition among players and adding depth to the gaming experience.
+
 
 ## Development Story
 
