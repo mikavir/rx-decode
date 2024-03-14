@@ -409,37 +409,47 @@ The site was deployed to GitHub Pages. The steps to deploy are as follows:
 
 The live link can be found [here](https://mikavir.github.io/rx-decoder)
 
-### Obtaining Email.js API 
+### Obtaining EmailJS API 
+
 1. Sign up for a [EmailJS](https://www.emailjs.com/docs/) account in the EmailJS website.
 2. Create an email service in your EmailJS dashboard.
 3. Install EmailJS Library. You can do this by including the EmailJS script in your HTML file or by installing it via npm if you're using a package manager like npm or yarn.
-  ```
-  npm install --save @emailjs/browser
-  ```
+
+```
+npm install --save @emailjs/browser
+```
+
 or
-  ```
-  $ yarn add @emailjs/browser
-  ```
+
+```
+$ yarn add @emailjs/browser
+```
+
 4. In your EmailJS dashboard, navigate to the "API Keys" section and copy your API key.
 5. Add this code snippet before your closing tags. Making sure you have added your public key.
+
 ```js
-  <script type="text/javascript"
-          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
-  <script type="text/javascript">
-    (function(){
-        emailjs.init({
-          publicKey: "YOUR_PUBLIC_KEY",
-        });
-    })();
-  </script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function(){
+      emailjs.init({
+        publicKey: "YOUR_PUBLIC_KEY",
+      });
+  })();
+</script>
 ```
+
 6.  Create an email template in your EmailJS dashboard. This template will define the content and structure of the emails you'll send.
 7. Write JavaScript function to send email using EmailJS. Below is a basic syntax for the code: 
-  ```
-  emailjs.send(serviceID, templateID, templateParams, options);
-  ```
+
+```
+emailjs.send(serviceID, templateID, templateParams, options);
+```
+
 8. Call your function whenever you want to send an email.
+
 ### Local Deployment
 
 This project can be cloned or forked in order to make a local copy on your own system.
@@ -483,7 +493,7 @@ There are no differences between local and deployment.
 
 | Source | Location | Notes |
 | --- | --- | --- |
-| [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
+| [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | Tool to help generate the Markdown files |
 | [Team Tree House](https://teamtreehouse.com/community/any-one-know-how-to-make-a-restart-button) | game.js: (playAgain()) | How to reset game by reloading window |
 | [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) | index.html | Responsiveness of the game and adding pre-built classes |
 | [Stack Overflow](https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript ) | game.js: (nextWord()) | How to remove all child elements |
@@ -507,7 +517,7 @@ There are no differences between local and deployment.
 ### Acknowledgements
 
 
-- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
+- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project. I am very grateful for his encouragement in my pursuit for the drag and drop functionality.
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
 - I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
 - I would like to thank my partner Jon and my brother Elan, for believing in me, and being my rubber ducky and a tester.
