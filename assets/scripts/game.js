@@ -182,8 +182,8 @@ function categorySelection(category) {
                     $(".letter-container").addClass('correct');
                     setTimeout(function () {
                         guessButton.classList.add("noevents");
-                        nextWord();
                         canSubmit = false;
+                        nextWord();
                         addCorrectGuessedWords(gameType, noOfDrugs, word);
                         setUpGame(choice);
                         if (gameIsWon) {
