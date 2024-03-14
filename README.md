@@ -11,21 +11,21 @@
 
 **Rx Decoder:** Unlock the *Formula*, Master the *Cure*!
 
-A responsive interactive game that can be used in a range of devices. It is aimed for medical professionals to test their expertise in drug names by making them guess the name of the drug with helpful drug actions.
+A responsive, interactive game that can be used on a range of devices. It is aimed at medical professionals to test their expertise in drug names by challenging them to guess the name of the drug along with its helpful actions as hints.
 
 
 ## UX
  
-This project was selected with the aim of enhancing the familiarity of medical professionals, including myself, with drug names and their corresponding actions.
+This project was selected with the aim of enhancing familiarity among medical professionals, including myself, with drug names and their corresponding actions.
 
- Acknowledging the time constraints often faced in the medical field, I have developed this game to offer an enjoyable means of learning during leisure moments while also promoting continuous professional development. 
- 
- The game's design draws inspiration from the busy schedules of medical professionals, aiming for a clean and minimalist aesthetic to ensure easy comprehension and accessibility.
+Acknowledging the time constraints often faced in the medical field, I have developed this game to offer an enjoyable means of learning during leisure moments, while also promoting continuous professional development.
+
+The game's design draws inspiration from the busy schedules of medical professionals, aiming for a clean and minimalist aesthetic to ensure easy comprehension and accessibility.
 
 
 ### Colour Scheme
 
-After researching healthcare web applications, I've discovered that specific colors are recommended for use. Among them, blue stands out as particularly advantageous due to its ability to evoke feelings of trust and security. Incorporating the color blue into the design can foster associations with medical professionalism, enhancing user confidence and comfort. Additionally, I've examined medical websites like [BMJ](https://www.bmj.com/) and the [NHS](https://www.nhs.uk/), drawing inspiration from their use of blue hues. This analysis has helped me determine the most suitable shade of blue to incorporate into the web application's design, aligning it with established standards and user expectations within the healthcare field.
+After researching healthcare web applications, I've discovered that specific colors are recommended for use. Among them, blue stands out as particularly advantageous due to its ability to evoke feelings of trust and security. Incorporating the color blue into the design can foster associations with medical professionalism, enhancing user confidence and comfort. Additionally, I've examined medical websites like [BMJ](https://www.bmj.com/) and the [NHS](https://www.nhs.uk/), drawing inspiration from their use of blue hues. This analysis has helped me determine the most suitable shade of blue to incorporate into the web application's design, aligning it with established standards and meeting user expectations within the healthcare field.
 
 - `#333` used for primary text.
 - `#2a6ebb` used for primary highlights.
@@ -34,7 +34,7 @@ I used [coolors.co](https://coolors.co/2a6ebb-97b6da-ffffff-333333) to generate 
 
 ![screenshot](documentation/rx-decoder.png)
 
-These colors serve as visual cues for user feedback on their answers: green signifies correctness, while red indicates an incorrect response.
+These colors serve as visual cues for user feedback: green for correctness and red for incorrect responses.
 
 I have used [coolors.co](https://coolors.co/007f3b-ff0000) to generate these colours.
 
@@ -43,7 +43,7 @@ I have used [coolors.co](https://coolors.co/007f3b-ff0000) to generate these col
 
 ### Typography
 
-Based on research from the [Print Authority](https://theprintauthority.com/best-fonts-for-medical-printed-materials/), I've identified fonts commonly utilized in healthcare-related writing or web applications. One prominent example is QuickSands, which stands out due to its rounded terminals, enhancing readability. Opting for a font traditionally employed in healthcare communication fosters a sense of familiarity within the medical community. By leveraging such fonts, this game aims to resonate more effectively with its target audience, primarily medical professionals. 
+Based on research from the  [Print Authority](https://theprintauthority.com/best-fonts-for-medical-printed-materials/), I've identified fonts commonly used in healthcare-related writing or web applications. One prominent example is QuickSands, known for its rounded terminals, which enhance readability. Opting for a font traditionally employed in healthcare communication fosters familiarity within the medical community. By leveraging such fonts, this game aims to resonate more effectively with its target audience, primarily medical professionals.
 
 - [Quicksands](https://fonts.google.com/specimen/Quicksand) was used for all text.
 
@@ -69,7 +69,7 @@ Based on research from the [Print Authority](https://theprintauthority.com/best-
 - As a returning game user, I would like to be able to keep track on how many drug name I need to guess so that I can be motivated to finish the game.
 
 ### Site Administrator
-- As a site administrator, I should be able to make the game more challenging by incorporating lives, so that I can make the users enjoy playing the game.
+- As a site administrator, I would like be able to make the game more challenging by incorporating lives, so that I can make the users enjoy playing the game.
 - As a site administrator, I would like to have a platform for users contact me, so that they can report when they have a bug.
 - As a site administrator, I would like the user to be able to go back to the game after contacting me, so that they can keep playing the game and improve their experience.
 
@@ -301,7 +301,7 @@ Contact
 
 - **404 page**
 
-    - When the user navigates to a page that does not exist, they would encounter a 404 page.  It serves as a safety net for when users encounter broken links or mistyped URLs. Allowing this user, would improve the game reputation on how it handles errors.
+    - When users navigate to a non-existent page, they encounter a 404 error page, which serves as a safety net for broken links or mistyped URLs. Implementing this feature would enhance the game's reputation for error handling.
     
 ![screenshot](documentation/features/feature17.png)
 
@@ -317,7 +317,7 @@ Contact
 This section will outline the development process of the game. The objective is for users to guess the shuffled drug name. To aid users in progressing during challenging moments, hints will be provided. I will organize this section into distinct features that I have established for the game.
 
 - **Making the box for letter containers**
-In vision, I wanted to have a box per letter of the drug name. That box should have a data-set of the letter for me to use it in the logic. I have manage to implement this by making a function that will loop over the drugName word and creating a div per letter and appending it to the DOM. A similar approach was taken when implementing the letter containers for users guessed word.
+For the visual design, I aimed to represent each letter of the drug name with a corresponding box. Each box should contain the letter's data-set for logic purposes. To achieve this, I created a function that iterates over the drugName word, generates a div for each letter, and appends it to the DOM. A similar methodology was employed when implementing the letter containers for the user's guessed word.
 
 ```js
 function addBox(word) {
@@ -331,7 +331,7 @@ function addBox(word) {
 ```
 
 - **Shuffling the word**
-In order the shuffle the letters inside the word, I have research on how to shuffle an array as a word is an array of characters. I have initially adopted the Fisher-Yates algorithm explained by [FreeCodeCamp](https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/) as shown below.
+To shuffle the letters within the word, I researched methods for shuffling arrays since a word can be viewed as an array of characters. Initially, I adopted the Fisher-Yates algorithm, as explained by [FreeCodeCamp](https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/), shown below.
 
 ```js
 function shuffleArray(arr) {
@@ -345,7 +345,7 @@ function shuffleArray(arr) {
 }
 ```
 
-However, with this function, the word was still not changing despite the console logs of the iterations shows the letter swapping. This can be seen below: 
+However, despite the console logs indicating letter swapping during iterations, the word remained unchanged when using this function. This issue is illustrated below:
 ![screenshot](documentation/shuffling-word-error.png)
 
 This have made reconsider my function as the word was not immutable. I have found a solution in [StackOverflow](https://stackoverflow.com/questions/3943772/how-do-i-shuffle-the-characters-in-a-string-in-javascript) and was inspired by it to make this new function:
@@ -361,13 +361,13 @@ This have made reconsider my function as the word was not immutable. I have foun
   }
 ```
 
-This function involves creating a new array and splitting the word array into substrings. The "while" liip will then make the shuffled word with the randomised returned letter of the words.splice(). The function itself will then return the shuffled word.
+This function involves creating a new array and splitting the word array into substrings. The 'while' loop then constructs the shuffled word by selecting random letters returned from the words.splice() operation. The function ultimately returns the shuffled word.
 
 - **Drag and Drop**
-As I have wanted to create a drag and drop mechanics. I have researched on how to create this mechanism. Using [Jquery UI](https://jqueryui.com/) [draggables](https://jqueryui.com/draggable/) and [droppable](https://api.jqueryui.com/droppable/), I was able to achieve this. I did encounter issues with the appending of "draggable letters" to the "letter containers" due to the default styling and behaviours of JQuery UI as shown in the below screenshot:
-![screenshot](documentation/jquery-styling.png)
 
-In order to fix this, I had to override the default styling of jquery ui with jquery: 
+In pursuit of implementing drag and drop mechanics, I conducted research to understand how to create this functionality. sing [Jquery UI](https://jqueryui.com/) [draggables](https://jqueryui.com/draggable/) and [droppable](https://api.jqueryui.com/droppable/) features, I successfully achieved the desired outcome. However, I encountered challenges with the appending of 'draggable letters' to the 'letter containers' due to the default styling and behaviors of jQuery UI, as illustrated in the screenshot below:
+
+In order to fix this, I had to override the default styling of jQuery UI with jQuery: 
 
 ```js
 $('.draggableLetters').css({
@@ -510,7 +510,6 @@ There are no differences between local and deployment.
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
 - I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
 - I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
-- I would like to thank my partner John, for believing in me, and being my rubber ducky and a tester.
-I would like to thank my brother Elan, for being my rubber ducky and as a tester.
+- I would like to thank my partner Jon and my brother Elan, for believing in me, and being my rubber ducky and a tester.
 - I would like to thank my current coleagues and friends for testing the game.
 
