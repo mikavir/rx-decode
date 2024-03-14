@@ -170,9 +170,10 @@ function categorySelection(category) {
         displayWhenGameStart(gameType, noOfDrugs);
         setUpGame(choice);
         // checks to see if all the letter container is filled then will change class of button
-        setInterval(handleSubmitButton, 100);
+        setInterval(handleSubmitButton, 50);
         guessButton.addEventListener("click", (e) => {
-            if (canSubmit) {
+            let hasBeenClicked = e.detail === 1;
+            if (canSubmit && hasBeenClicked) {
                 let guessedWord = makeGuessedWord();
                 if (isGuessedWordCorrect(word, guessedWord) === true) {
                     $(".letter-container").addClass('correct');
@@ -184,7 +185,7 @@ function categorySelection(category) {
                         if (gameIsWon) {
                             wonGame();
                         }
-                    }, 1000);
+                    }, 500);
                 } else {
                     $(".letter-container").addClass('incorrect');
                     setTimeout(function () {
@@ -199,6 +200,8 @@ function categorySelection(category) {
     }
 
 }
+
+
 /** Display the game area */
 function displayWhenGameStart(gameType, noOfDrugs) {
     startModal.style.display = 'none';
@@ -335,10 +338,12 @@ function isLetterContainersFilled() {
 function handleSubmitButton() {
     let guessButton = document.getElementById('guess-button');
     if (isLetterContainersFilled()) {
+        guessButton.disabled = false;
         guessButton.classList.remove('disabled');
         guessButton.classList.add('enabled');
         canSubmit = true;
     } else {
+        guessButton.disabled = true;
         guessButton.classList.add('disabled');
         guessButton.classList.remove('enabled');
         canSubmit = false;
