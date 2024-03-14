@@ -175,16 +175,13 @@ function categorySelection(category) {
         guessButton.addEventListener("click", (e) => {
             // https://stackoverflow.com/questions/16715075/preventing-multiple-clicks-on-button
             // Prevents multiple clicks
-            $(guessButton).dblclick(function(){
-                return false;
-            });
             let hasBeenClicked = e.detail === 1;
             if (canSubmit && hasBeenClicked) {
                 let guessedWord = makeGuessedWord();
                 if (isGuessedWordCorrect(word, guessedWord) === true) {
                     $(".letter-container").addClass('correct');
                     setTimeout(function () {
-                        guessButton.classList.add(".noevents");
+                        guessButton.classList.add("noevents");
                         nextWord();
                         canSubmit = false;
                         addCorrectGuessedWords(gameType, noOfDrugs, word);
