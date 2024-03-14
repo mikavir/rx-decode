@@ -302,9 +302,9 @@ Overall, the majority of documentation on Jest testing pertains to the latest ve
 
 - When a user "double tap" on submit button, it skips a word on mobile devices. This occurance does not happen on chrome developer tools.
 
-    ![gif](documentation/bugs/mobile-unfixed bug.gif)
+- ![gif](documentation/bugs/mobile-unfixed-bug.gif)
 
-    - I have made several attempts to fix this and none have worked:
+- I have made several attempts to fix this and none have worked:
 
     - Making `dblclick` event false as advised by [StackOverflow](https://stackoverflow.com/questions/2424377/javascript-suppress-double-click-selection): 
     Result: No change.
@@ -360,7 +360,7 @@ Overall, the majority of documentation on Jest testing pertains to the latest ve
 
     ```
 
-    fter numerous attempts to address the issue and seeking solutions from various resources, I've concluded that the problem might be related to the behavior of event handles on mobile and touch screen devices.
+    After numerous attempts to address the issue and seeking solutions from various resources, I've concluded that the problem might be related to the behavior of event handlers on mobile and touch screen devices.
 
 
 ### GitHub **Issues**
