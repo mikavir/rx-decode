@@ -1,7 +1,7 @@
 /* jshint esversion: 11, jquery: true */
 // Variables from Dom
 let startGame = false;
-const gameCategories = document.getElementsByClassName('game-categories');
+const gameCategories = document.querySelectorAll('.game-categories');
 const startModal = document.getElementById('start-menu');
 let draggableLetters = document.getElementsByClassName('draggableLetters');
 let letterContainers = document.getElementsByClassName('letter-container');
@@ -137,66 +137,67 @@ let noOfDrugs = 0;
 
 
 // MAIN FUNCTION:
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", (e) => {
     showInstructions();
     displayContactModal();
-    for (let category of gameCategories) {
+    gameCategories.forEach(category => {
         category.addEventListener("click", function () {
-            {
-                let gameType = this.getAttribute('data-type');
-                let choice;
-                if (gameType === 'cardiac') {
-                    choice = cardiacDictionary;
-                    noOfDrugs = cardiacDictionary.length;
-                    startGame = true;
+            categorySelection(category);
+        });
+    });
+});
 
-                } else if (gameType === 'pain') {
-                    choice = painDictionary;
-                    noOfDrugs = painDictionary.length;
-                    startGame = true;
-                } else if (gameType == 'antibiotics') {
-                    choice = antibioticsDictionary;
-                    noOfDrugs = antibioticsDictionary.length;
-                    startGame = true;
-                } else {
-                    alert("No items chosen");
-                }
-                if (startGame) {
-                    displayWhenGameStart(gameType, noOfDrugs);
-                    setUpGame(choice);
-                    // checks to see if all the letter container is filled then will change class of button
-                    setInterval(handleSubmitButton, 1000);
-                    guessButton.addEventListener("click", (event) => {
-                        if (canSubmit) {
-                            let guessedWord = makeGuessedWord();
-                            if (isGuessedWordCorrect(word, guessedWord) === true) {
-                                $(".letter-container").addClass('correct');
-                                setTimeout(function () {
-                                    nextWord();
-                                    addCorrectGuessedWords(gameType, noOfDrugs, word);
-                                    setUpGame(choice);
-                                    if (gameIsWon) {
-                                        wonGame();
-                                    }
+function categorySelection(category) {
+    let gameType = category.getAttribute('data-type');
+    let choice;
+    if (gameType === 'cardiac') {
+        choice = cardiacDictionary;
+        noOfDrugs = cardiacDictionary.length;
+        startGame = true;
 
-                                }, 1000);
-                            } else {
-                                $(".letter-container").addClass('incorrect');
-                                setTimeout(function () {
-                                    $(".letter-container").removeClass('incorrect');
-                                }, 1000);
-                                mistakeMade(livesLeft);
-                                isGameOver(correctGuessedWord);
-                            }
+    } else if (gameType === 'pain') {
+        choice = painDictionary;
+        noOfDrugs = painDictionary.length;
+        startGame = true;
+    } else if (gameType == 'antibiotics') {
+        choice = antibioticsDictionary;
+        noOfDrugs = antibioticsDictionary.length;
+        startGame = true;
+    } else {
+        alert("No items chosen");
+    }
+    if (startGame) {
+        displayWhenGameStart(gameType, noOfDrugs);
+        setUpGame(choice);
+        // checks to see if all the letter container is filled then will change class of button
+        setInterval(handleSubmitButton, 1000);
+        guessButton.addEventListener("click", (e) => {
+            if (canSubmit) {
+                let guessedWord = makeGuessedWord();
+                if (isGuessedWordCorrect(word, guessedWord) === true) {
+                    $(".letter-container").addClass('correct');
+                    setTimeout(function () {
+                        nextWord();
+                        addCorrectGuessedWords(gameType, noOfDrugs, word);
+                        setUpGame(choice);
+                        if (gameIsWon) {
+                            wonGame();
                         }
-                    });
-                    quitGame();
+                    }, 1000);
+                } else {
+                    $(".letter-container").addClass('incorrect');
+                    setTimeout(function () {
+                        $(".letter-container").removeClass('incorrect');
+                    }, 1000);
+                    mistakeMade(livesLeft);
+                    isGameOver(correctGuessedWord);
                 }
             }
         });
+        quitGame();
     }
-});
 
+}
 /** Display the game area */
 function displayWhenGameStart(gameType, noOfDrugs) {
     startModal.style.display = 'none';
@@ -281,7 +282,6 @@ function displayLives() {
 function dragAndDrop() {
     $('.draggableLetters').css({
         'left': '0px',
-
     });
     $('.draggableLetters').draggable({
         revert: true,
@@ -292,7 +292,6 @@ function dragAndDrop() {
         stop: function (event, ui) {
             $(this).removeClass("dragging");
         }
-
     });
     $(".letter-container").droppable({
         accept: '.draggableLetters',
