@@ -325,7 +325,7 @@ function addBox(word) {
   for (let letter of word) {
       let letterPerBox = document.createElement('div');
       letterPerBox.className = "letter-box letter-container";
-      letterPerBox.dataset.letter = letter; // https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/
+      letterPerBox.dataset.letter = letter;
       document.getElementById("game-area").appendChild(letterPerBox);
   }
 }
