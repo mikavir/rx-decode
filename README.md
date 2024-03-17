@@ -70,13 +70,13 @@ Based on research from the  [Print Authority](https://theprintauthority.com/best
 
 ### Game Administrator
 - As a game administrator, I would like be able to make the game more challenging by incorporating lives, so that I can make the users enjoy playing the game.
-- As a game administrator, I would like to have a platform for users contact me, so that they can report when they have a bug.
+- As a game administrator, I would like to have a platform for users contact me, so that they can report when they encounter a bug or have questions.
 - As a game administrator, I would like the user to be able to go back to the game after contacting me, so that they can keep playing the game and improve their experience.
 
 ## Wireframes
 
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
-I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
+I've used [Balsamiq](https://balsamiq.com/wireframes) to design wireframes fore my game.
 
 ### Mobile Wireframes
 
@@ -199,7 +199,7 @@ Contact
 
 - **Start Modal**
 
-    - The start modal serves as the initial display of the game, presenting a clear layout of its mechanics. Users are prompted to begin gameplay by selecting one of the categorized buttons, while also having the option to access instructions through a dedicated button. It sets expectations by communications the goals and rewards of the game.
+    - The start modal serves as the initial display of the game, presenting a clear layout of its mechanics. Users are prompted to begin gameplay by selecting one of the categorized buttons, while also having the option to access instructions through a dedicated button. It sets expectations by communicating the goals and rewards of the game.
 
 ![screenshot](documentation/features/feature02.png)
 
@@ -217,7 +217,7 @@ Contact
 
 - **"Contact" Modal**
 
-    - The implentation of contact modal in a game allows players to easily get help and report issues, improving their experience. It encourages players to engage with developers and ensures accessibility for all. This is beneficial for the developer as they can receive feedback on the game. When user have filled the contact form, they will receive a auto-reply email for confirmation that their form had submitted. Otherwise, error messages will appear.
+    - The implentation of contact modal in a game allows players to easily get help and report issues, improving their experience. It encourages players to engage with developers and ensures accessibility for all. This is beneficial for the developer as they can receive feedback on the game. When user have filled the contact form, they will receive an automatic reply email for confirmation that their form had been submitted. Otherwise, error messages will appear.
 
 ![screenshot](documentation/features/feature05.png)
 
@@ -229,7 +229,7 @@ Contact
 
 - **"Hint" Button and Section**
 
-    - Implementing a "Hint Button" enables players to receive assistance when they're stuck, reducing frustration and improving their chances of completing the game. The hints, which outline drug actions, aid medical professionals in identifying unfamiliar medications and offer a learning opportunity for those unfamiliar with drug actions.
+    - Implementing a "Hint Button" enables players to receive assistance when they're stuck, reducing frustration and improving their chances of completing the game. The hints, which outline drug actions, aid medical professionals in identifying unfamiliar medications and offer a learning opportunity for those unfamiliar with the drug actions.
     
 ![screenshot](documentation/features/feature07.png)
 
@@ -253,17 +253,17 @@ Contact
 
 - **Game Over Modal**
 
-    -This modal appears when the user quits or loses the game. It showcases a confetti of emojis, generated through [js-confetti](https://www.npmjs.com/package/js-confetti), tailored to the situation. When the user quits, a "crying emoji" 😭 is displayed, while losing lives prompts a "skull and crossbones" ☠️. This feature provides visual feedback to enhance user engagement and also highlights the drug names guessed by the user, recognizing their achievements. 
+  - This modal appears when the user quits or loses the game. It showcases a confetti of emojis, generated through [js-confetti](https://www.npmjs.com/package/js-confetti), tailored to the situation. When the user quits, a "crying emoji" 😭 is displayed, while losing lives prompts a "skull and crossbones" ☠️. This feature provides visual feedback to enhance user engagement and also highlights the drug names guessed by the user, recognizing their achievements. 
 
-    -The messages in the game over modal also differs in depending on the number of words that the user have guessed.
-    
-    *No words guessed* :
-    "Boohoo! You have guessed none of the drugs. Time to read the British National Formulary (BNF)"
+  - The messages in the game over modal also differs in depending on the number of words that the user have guessed.
+  
+    - *No words guessed* :
+    "Boohoo! You have guessed none of the drugs. Time to read the [British National Formulary (BNF)](https://bnf.nice.org.uk/)"
 
-    *1 words guessed* : 
-    "Well done! You have guessed a drug. Read theBritish National Formulary (BNF) to learn more drugs"
+    - *1 words guessed* : 
+    "Well done! You have guessed a drug. Read the [British National Formulary (BNF)](https://bnf.nice.org.uk/) to learn more drugs"
 
-    *More than 1 word* :
+    - *More than 1 word* :
     "Well Done! You have guessed (*number of drugs*) drugs. Call yourself a master of drugs"
 
 
@@ -283,7 +283,7 @@ Contact
 
 - **Drag and Drop Game Mechanics**
 
-    - The use of "Drag and Drop" mechanics encourages accesibility as it is easy to understand increasing to wider target audience. 
+    - The use of "Drag and Drop" mechanics encourages accesibility as it is easy to understand, increasing to wider target audiences. 
     
 ![gif](documentation/features/feature14.gif)
 
@@ -299,7 +299,7 @@ Contact
     
 ![screenshot](documentation/features/feature15.png)
 
-- **404 page**
+- **404 (Not Found) page**
 
     - When users navigate to a non-existent page, they encounter a 404 error page, which serves as a safety net for broken links or mistyped URLs. Implementing this feature would enhance the game's reputation for error handling.
     
@@ -317,7 +317,8 @@ Contact
 This section will outline the development process of the game. The objective is for users to guess the shuffled drug name. To aid users in progressing during challenging moments, hints will be provided. I will organize this section into distinct features that I have established for the game.
 
 - **Making the box for letter containers**
-For the visual design, I aimed to represent each letter of the drug name with a corresponding box. Each box should contain the letter's data-set for logic purposes. To achieve this, I created a function that iterates over the drugName word, generates a div for each letter, and appends it to the DOM. A similar methodology was employed when implementing the letter containers for the user's guessed word.
+
+  - For the visual design, I aimed to represent each letter of the drug name with a corresponding box. Each box should contain the letter's data-set for logic purposes. To achieve this, I created a function that iterates over the `drugName` word, generates a div for each letter, and appends it to the DOM. A similar methodology was employed when implementing the letter containers for the user's guessed word.
 
 ```js
 function addBox(word) {
@@ -495,16 +496,17 @@ There are no differences between local and deployment.
 | Source | Location | Notes |
 | --- | --- | --- |
 | [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | Tool to help generate the Markdown files |
-| [Team Tree House](https://teamtreehouse.com/community/any-one-know-how-to-make-a-restart-button) | game.js: (playAgain()) | How to reset game by reloading window |
+| [Team Tree House](https://teamtreehouse.com/community/any-one-know-how-to-make-a-restart-button) | game.js: `playAgain()` | How to reset game by reloading window |
 | [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) | index.html | Responsiveness of the game and adding pre-built classes |
-| [Stack Overflow](https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript ) | game.js: (nextWord()) | How to remove all child elements |
+| [Stack Overflow](https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript ) | game.js: `nextWord()` | How to remove all child elements |
 | [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) | game.js: main function | Delay animation and next word function |
-| [W3 Schools](https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_remove) | game.js: getRandomDrug() | How to remove an element from an array using splice() |
-| [W3 Schools](https://www.w3schools.com/js/js_validation.asp)  | email.js: validateForm() | How to retrieve elements from form for validating |
-| [Stack Overflow](https://stackoverflow.com/questions/35536562/how-to-make-drag-and-drop-jquery)  | game.js : dragAndDrop() | How to make drag and drop jquery |
-| [JQuery UI](https://api.jqueryui.com/draggable/)  | game.js : dragAndDrop() | Draggable widget and methods |
-| [JQuery UI](https://api.jqueryui.com/droppable/)  | game.js : dragAndDrop() | Droppable widget and methods |
-|[StackOverflow](https://stackoverflow.com/questions/16715075/preventing-multiple-clicks-on-button)| game.js main function() | Preventing multiple clicks |
+| [W3 Schools](https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_remove) | game.js: `getRandomDrug()` | How to remove an element from an array using splice() |
+| [W3 Schools](https://www.w3schools.com/js/js_validation.asp)  | email.js: `validateForm()` | How to retrieve elements from form for validating |
+| [Stack Overflow](https://stackoverflow.com/questions/35536562/how-to-make-drag-and-drop-jquery)  | game.js : `dragAndDrop()` | How to make drag and drop jquery |
+| [JQuery UI](https://api.jqueryui.com/draggable/)  | game.js : `dragAndDrop()` | Draggable widget and methods |
+| [JQuery UI](https://api.jqueryui.com/droppable/)  | game.js : `dragAndDrop()` | Droppable widget and methods |
+|[StackOverflow](https://stackoverflow.com/questions/16715075/preventing-multiple-clicks-on-button)| game.js main function | Preventing multiple clicks |
+| [Web Dev Simplified](https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/) | game.js: `addBox(), 'addGuessLetterBox()`| Data Attributes |
 
 
 ### Media
@@ -520,8 +522,7 @@ There are no differences between local and deployment.
 
 
 - I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project. I am very grateful for his encouragement in my pursuit for the drag and drop functionality.
-- I would like to thank the [Code Institute](https://codeinstitute.net) tutor team for their assistance with troubleshooting and debugging some project issues.
 - I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
-- I would like to thank my partner Jon and my brother Elan, for believing in me, and being my rubber ducky and a tester.
+- I would like to thank my partner Jon and my brother Elan, for believing in me, and being my rubber ducky and testers.
 - I would like to thank my current coleagues and friends for testing the game.
 
