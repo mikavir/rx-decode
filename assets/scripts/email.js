@@ -14,7 +14,7 @@ function sendMail(contactForm) {
                 function (response) {
                     emailFeedBack.innerText = "Email succesfully sent!";
                     contactForm.setAttribute("hidden", true);
-                    
+
                 },
                 function (error) {
                     console.log("FAILED", error);
@@ -22,9 +22,9 @@ function sendMail(contactForm) {
             );
         return false;
     } else {
-        this.addEventListener('submit', function(event) { 
-            event.preventDefault(); 
-          }); 
+        this.addEventListener('submit', function (event) {
+            event.preventDefault();
+        });
     }
 }
 

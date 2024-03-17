@@ -1,11 +1,14 @@
-
 /**
  * @jest-environment jsdom
-*/
+ */
 
 /* jshint esversion: 11, jquery: true */
 
-const { describe, test, expect } = require("@jest/globals");
+const {
+    describe,
+    test,
+    expect
+} = require("@jest/globals");
 
 const {
     startGame,
