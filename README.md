@@ -332,7 +332,8 @@ function addBox(word) {
 ```
 
 - **Shuffling the word**
-To shuffle the letters within the word, I researched methods for shuffling arrays since a word can be viewed as an array of characters. Initially, I adopted the Fisher-Yates algorithm, as explained by [FreeCodeCamp](https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/), shown below.
+
+  - To shuffle the letters within the word, I researched methods for shuffling arrays since a word can be viewed as an array of characters. Initially, I adopted the Fisher-Yates algorithm, as explained by [FreeCodeCamp](https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/), shown below.
 
 ```js
 function shuffleArray(arr) {
@@ -346,10 +347,11 @@ function shuffleArray(arr) {
 }
 ```
 
-However, despite the console logs indicating letter swapping during iterations, the word remained unchanged when using this function. This issue is illustrated below:
+  - However, despite the console logs indicating letter swapping during iterations, the word remained unchanged when using this function. This issue is illustrated below:
+
 ![screenshot](documentation/shuffling-word-error.png)
 
-This have made reconsider my function as the word was not immutable. I have found a solution in [StackOverflow](https://stackoverflow.com/questions/3943772/how-do-i-shuffle-the-characters-in-a-string-in-javascript) and was inspired by it to make this new function:
+  - This have made reconsider my function as the word was not immutable. I have found a solution in [StackOverflow](https://stackoverflow.com/questions/3943772/how-do-i-shuffle-the-characters-in-a-string-in-javascript) and was inspired by it to make this new function:
 
 ```js
   function shuffleWord(word) {
@@ -362,20 +364,21 @@ This have made reconsider my function as the word was not immutable. I have foun
   }
 ```
 
-This function involves creating a new array and splitting the word array into substrings. The 'while' loop then constructs the shuffled word by selecting random letters returned from the words.splice() operation. The function ultimately returns the shuffled word.
+  - This function involves creating a new array and splitting the word array into substrings. The 'while' loop then constructs the shuffled word by selecting random letters returned from the `words.splice()` operation. The function ultimately returns the shuffled word.
 
 - **Drag and Drop**
 
-In pursuit of implementing drag and drop mechanics, I conducted research to understand how to create this functionality. sing [Jquery UI](https://jqueryui.com/) [draggables](https://jqueryui.com/draggable/) and [droppable](https://api.jqueryui.com/droppable/) features, I successfully achieved the desired outcome. However, I encountered challenges with the appending of 'draggable letters' to the 'letter containers' due to the default styling and behaviors of jQuery UI, as illustrated in the screenshot below:
+  - In pursuit of implementing drag and drop mechanics, I conducted research to understand how to create this functionality. Using [Jquery UI](https://jqueryui.com/) [draggables](https://jqueryui.com/draggable/) and [droppable](https://api.jqueryui.com/droppable/) features, I successfully achieved the desired outcome. However, I encountered challenges with the appending of 'draggable letters' to the 'letter containers' due to the default styling and behaviors of jQuery UI, as illustrated in the screenshot below:
 
-In order to fix this, I had to override the default styling of jQuery UI with jQuery: 
+  - In order to fix this, I had to override the default styling of jQuery UI with jQuery: 
 
 ```js
 $('.draggableLetters').css({
     'left': '0px',
 });
 ```
-Another behavior of jQuery UI draggable appending is the jumping animation it exhibits. This is caused by the `revert: true` statement, which mandates that the draggable element returns to any of the letter containers.
+
+  - Another behavior of jQuery UI draggable appending is the jumping animation it exhibits. This is caused by the `revert: true` statement, which mandates that the draggable element returns to any of the letter containers.
 
 ## Tools & Technologies Used
 
