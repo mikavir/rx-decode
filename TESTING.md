@@ -29,9 +29,9 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| assets | email.js | ![screenshot](documentation/validation/js-hint-email.png) | Undefined variable of emailjs and unused variable of sendmail. This function was called in the index.html |
-| assets | game.js | ![screenshot](documentation/validation/js-hint-game.png) | No warnings, undefined variables of module exports and js-confetti which is known and is external|
-| assets | game.test.js | ![screenshot](documentation/validation/jshint-game.test.png) | Undefined variables  of 'require' from jest |
+| assets | email.js | ![screenshot](documentation/validation/js-hint-email.png) | Undefined variable of `emailjs` and unused variable of `sendmail`. This function was called in the index.html |
+| assets | game.js | ![screenshot](documentation/validation/js-hint-game.png) | No warnings, undefined variables of module exports and `js-confetti` which is known and is external|
+| assets | game.test.js | ![screenshot](documentation/validation/jshint-game.test.png) | Undefined variables  of `require` from jest |
 
             
 ## Browser Compatibility
@@ -105,12 +105,12 @@ Defensive programming was manually tested with the below user acceptance testing
 | As a returning game user, I would like to have a log of the drug names that I scored, so that I can remember how well I did. | ![screenshot](documentation/features/feature11.png) |
 | As a returning game user, I would like to see contact information, so that I can contact the developer if I encounter any bugs. | ![screenshot](documentation/features/feature05.png) |
 | As a returning game user, I would like to be able to keep track on how many drug name I need to guess so that I can be motivated to finish the game. | ![screenshot](documentation/features/feature10.png) |
-| As a game administrator, I should be able to make the game more challenging by incorporating lives, so that I can make the users enjoy playing the game. | ![screenshot](documentation/features/feature07.png) |
+| As a game administrator, I would like to make the game more challenging by incorporating lives, so that I can make the users enjoy playing the game. | ![screenshot](documentation/features/feature07.png) |
 |As a game administrator, I would like to have a platform for users contact me, so that they can report when they have a bug. | ![screenshot](documentation/features/feature05.png) |
 | As a game administrator, I would like the user to be able to go back to the game after contacting me, so that they can keep playing the game and improve their experience.| ![screenshot](documentation/features/feature06.png) |
 
 ## User Feedback
-This game was tested by a registered nurse. I was given a feedback of that it was a fun and interactive game. However, there were a few typo in the drug names. This has been fixed since then.
+This game was tested by a registered nurse. The feedback given to me was positive as she found the gme to be 'fun and interactive'. However, there were a few typos noticed in the drug names. This has been fixed since then.
 
 
 ## Automated Testing
@@ -227,7 +227,7 @@ function ignoreLine() {
 
 The input of JSHint configuration into the game.test.js file resulted in errors, as it did not recognize the Jest environment. Below is the executed code and the error it threw: 
 
-```
+```js
 /* jshint esversion: 11, jquery: true */
 /**
 * @jest-environment jsdom
@@ -263,11 +263,11 @@ document.close();
 
 Please see below the error: 
 
-![screenshot](documentation/tests/jest-test-error2.png)
+![screenshot](documentation/tests/jest-test-error3.png)
 
 - To fix this, I've decided to discontinue mocking the index.html file because testing it became impractical due to numerous event handlers. Jest testing proved unsuitable for testing event handlers. Moving forward, I intend to explore alternative testing frameworks.
 
-Overall, the majority of documentation on Jest testing pertains to the latest version, [Jest v29](https://jestjs.io/). However, troubleshooting became challenging for me as my project relied on Jest v26. While attempting to upgrade to Jest 29, I encountered difficulties due to changes in the syntax for mocking the DOM, and unfortunately, I couldn't find relevant documentation on this specific aspect. Therefore, I went back to Jest v26.
+Overall, the majority of documentation on Jest testing pertains to the latest version, [Jest v29](https://jestjs.io/). Troubleshooting became challenging for me as my project relied on Jest v26. While attempting to upgrade to Jest 29, I encountered difficulties due to changes in the syntax for mocking the DOM, and unfortunately, I couldn't find relevant documentation on this specific aspect. Therefore, I went back to Jest v26.
 
 ## Bugs
 
@@ -286,7 +286,7 @@ Overall, the majority of documentation on Jest testing pertains to the latest ve
 
     ![gif](documentation/bugs/multiple-clicks-bug.gif)
 
-    - To fix this, I introduced an additional conditional statement within my guessButton event handler to ensure submission only occurs when the number of clicks (i.e., `e.detail`) equals 1. Additionally, I ensured that the guess button is `disabled`(`disabled` set to true) when `canSubmit` is false. This solution was inspired by insights from[StackOverflow](https://stackoverflow.com/questions/16715075/preventing-multiple-clicks-on-button). . Please find my implementation in the code block below:
+    - To fix this, I introduced an additional conditional statement within my guessButton event handler to ensure submission only occurs when the number of clicks (i.e., `e.detail`) equals 1. Additionally, I ensured that the guess button is `disabled`(`disabled` set to true) when `canSubmit` is false. This solution was inspired by insights from [StackOverflow](https://stackoverflow.com/questions/16715075/preventing-multiple-clicks-on-button). . Please find my implementation in the code block below:
 
     ```js
 
@@ -300,13 +300,14 @@ Overall, the majority of documentation on Jest testing pertains to the latest ve
 
 ## Unfixed Bugs
 
-- When a user "double tap" on submit button, it skips a word on mobile devices. This occurance does not happen on chrome developer tools.
+- When a user "double tap" on submit button, it skips a word on mobile devices. This occurence does not happen on chrome developer tools.
 
 - ![gif](documentation/bugs/mobile-unfixed-bug.gif)
 
 - I have made several attempts to fix this and none have worked:
 
     - Making `dblclick` event false as advised by [StackOverflow](https://stackoverflow.com/questions/2424377/javascript-suppress-double-click-selection): 
+    
     Result: No change.
 
     ```js
@@ -316,6 +317,7 @@ Overall, the majority of documentation on Jest testing pertains to the latest ve
     ```
 
     - Adding a class with `pointer-event: none` when `nextWord` is happening.
+    
     Result: No change.
 
     ```css
@@ -326,6 +328,7 @@ Overall, the majority of documentation on Jest testing pertains to the latest ve
     ```
 
     - Making a `touch-start` event handler:
+    
     Result: No change.
 
 
@@ -360,7 +363,7 @@ Overall, the majority of documentation on Jest testing pertains to the latest ve
 
     ```
 
-    After numerous attempts to address the issue and seeking solutions from various resources, I've concluded that the problem might be related to the behavior of event handlers on mobile and touch screen devices.
+    After numerous attempts to address the issue and seeking solutions from various resources, I've concluded that the problem might be related to the behavior of event handlers on mobile and touch screen devices. A lack of debugging tool on mobile devices makes it challenging to fix the bug.
 
 
 ### GitHub **Issues**
